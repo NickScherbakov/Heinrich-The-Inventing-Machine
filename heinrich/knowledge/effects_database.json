@@ -1,0 +1,199 @@
+{
+  "effects": [
+    {
+      "id": "thermal_expansion",
+      "name": "Thermal Expansion",
+      "description": "Materials expand when heated and contract when cooled",
+      "category": "Thermal",
+      "applications": [
+        "Bi-metal strips in thermostats",
+        "Expansion joints in bridges",
+        "Shrink-fit assembly"
+      ],
+      "related_principles": [37, 15, 35],
+      "technical_domains": ["Mechanical", "Civil", "Manufacturing"]
+    },
+    {
+      "id": "shape_memory",
+      "name": "Shape Memory Effect",
+      "description": "Certain alloys return to their original shape when heated",
+      "category": "Material Science",
+      "applications": [
+        "Shape memory stents",
+        "Self-deploying structures",
+        "Temperature-activated fasteners"
+      ],
+      "related_principles": [35, 15, 25],
+      "technical_domains": ["Medical", "Aerospace", "Robotics"]
+    },
+    {
+      "id": "piezoelectric",
+      "name": "Piezoelectric Effect",
+      "description": "Materials generate electricity when mechanically stressed",
+      "category": "Electrical",
+      "applications": [
+        "Quartz watches",
+        "Ultrasonic transducers",
+        "Energy harvesting from vibration"
+      ],
+      "related_principles": [15, 18, 23],
+      "technical_domains": ["Electronics", "Sensors", "Energy"]
+    },
+    {
+      "id": "electrochromic",
+      "name": "Electrochromic Effect",
+      "description": "Materials change color when electric voltage is applied",
+      "category": "Optical",
+      "applications": [
+        "Smart windows",
+        "Anti-glare mirrors",
+        "Display technologies"
+      ],
+      "related_principles": [32, 35, 16],
+      "technical_domains": ["Architecture", "Automotive", "Displays"]
+    },
+    {
+      "id": "superconductivity",
+      "name": "Superconductivity",
+      "description": "Zero electrical resistance at very low temperatures",
+      "category": "Electrical",
+      "applications": [
+        "MRI machines",
+        "Maglev trains",
+        "Power transmission"
+      ],
+      "related_principles": [36, 2, 12],
+      "technical_domains": ["Medical", "Transportation", "Energy"]
+    },
+    {
+      "id": "aerogel",
+      "name": "Aerogel Properties",
+      "description": "Extremely low density solid with excellent insulation properties",
+      "category": "Material Science",
+      "applications": [
+        "Thermal insulation",
+        "Acoustic damping",
+        "Lightweight structures"
+      ],
+      "related_principles": [31, 8, 40],
+      "technical_domains": ["Aerospace", "Construction", "Energy"]
+    },
+    {
+      "id": "sonoluminescence",
+      "name": "Sonoluminescence",
+      "description": "Light emission from collapsing bubbles in liquid under sound waves",
+      "category": "Acoustic",
+      "applications": [
+        "Sonochemistry",
+        "Medical imaging",
+        "Cleaning technologies"
+      ],
+      "related_principles": [18, 31, 16],
+      "technical_domains": ["Chemistry", "Medical", "Industrial"]
+    },
+    {
+      "id": "capillary_action",
+      "name": "Capillary Action",
+      "description": "Liquid movement through narrow spaces against gravity",
+      "category": "Fluid",
+      "applications": [
+        "Wick in candles",
+        "Plant root systems",
+        "Porous media flow"
+      ],
+      "related_principles": [31, 17, 29],
+      "technical_domains": ["Chemical", "Agricultural", "Materials"]
+    },
+    {
+      "id": "thermoelectric",
+      "name": "Thermoelectric Effect",
+      "description": "Direct conversion between temperature differences and electric voltage",
+      "category": "Electrical",
+      "applications": [
+        "Waste heat recovery",
+        "Temperature sensors",
+        "Portable refrigerators"
+      ],
+      "related_principles": [22, 23, 35],
+      "technical_domains": ["Energy", "Sensors", "Electronics"]
+    },
+    {
+      "id": "magnetorheological",
+      "name": "Magnetorheological Effect",
+      "description": "Fluids change viscosity in magnetic fields",
+      "category": "Material Science",
+      "applications": [
+        "Adaptive shock absorbers",
+        "Clutches and brakes",
+        "Seismic dampers"
+      ],
+      "related_principles": [15, 35, 16],
+      "technical_domains": ["Automotive", "Civil", "Robotics"]
+    },
+    {
+      "id": "bioluminescence",
+      "name": "Bioluminescence",
+      "description": "Light production by living organisms through chemical reactions",
+      "category": "Biological",
+      "applications": [
+        "Safety lighting",
+        "Medical imaging",
+        "Environmental monitoring"
+      ],
+      "related_principles": [22, 32, 25],
+      "technical_domains": ["Biotechnology", "Safety", "Environmental"]
+    },
+    {
+      "id": "nanoparticles",
+      "name": "Nanoparticle Effects",
+      "description": "Unique properties of materials at nanoscale",
+      "category": "Material Science",
+      "applications": [
+        "Drug delivery",
+        "Catalysis",
+        "Sensors"
+      ],
+      "related_principles": [3, 16, 31],
+      "technical_domains": ["Medical", "Chemical", "Electronics"]
+    },
+    {
+      "id": "quantum_tunneling",
+      "name": "Quantum Tunneling",
+      "description": "Quantum mechanical phenomenon allowing particles to pass through barriers",
+      "category": "Quantum",
+      "applications": [
+        "Scanning tunneling microscopy",
+        "Flash memory",
+        "Quantum computing"
+      ],
+      "related_principles": [16, 1, 17],
+      "technical_domains": ["Electronics", "Metrology", "Computing"]
+    },
+    {
+      "id": "electrospinning",
+      "name": "Electrospinning",
+      "description": "Production of nanofibers using electric fields",
+      "category": "Material Science",
+      "applications": [
+        "Tissue engineering",
+        "Filtration",
+        "Composites"
+      ],
+      "related_principles": [3, 30, 31],
+      "technical_domains": ["Medical", "Materials", "Environmental"]
+    },
+    {
+      "id": "magnetocaloric",
+      "name": "Magnetocaloric Effect",
+      "description": "Temperature change in magnetic materials under changing magnetic fields",
+      "category": "Magnetic",
+      "applications": [
+        "Magnetic refrigeration",
+        "Heat pumps",
+        "Sensors"
+      ],
+      "related_principles": [35, 15, 37],
+      "technical_domains": ["Energy", "Electronics", "Sensors"]
+    }
+  ]
+}

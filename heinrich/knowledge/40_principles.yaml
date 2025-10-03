@@ -1,0 +1,320 @@
+principles:
+  - id: 1
+    name: "Segmentation"
+    description: "Divide an object into independent parts"
+    examples:
+      - "Modular furniture that can be rearranged"
+      - "Sectional garage doors"
+      - "Collapsible antenna"
+
+  - id: 2
+    name: "Taking out"
+    description: "Separate an interfering part or property from an object, or single out the only necessary part"
+    examples:
+      - "Extract harmful fumes separately"
+      - "Separate conflicting requirements in time"
+      - "Remove the core from an apple"
+
+  - id: 3
+    name: "Local quality"
+    description: "Change the structure of an object from uniform to non-uniform, change an external environment from uniform to non-uniform"
+    examples:
+      - "Gradient lenses in eyeglasses"
+      - "Non-uniform material thickness"
+      - "Temperature gradient in processing"
+
+  - id: 4
+    name: "Asymmetry"
+    description: "Change the shape of an object from symmetrical to asymmetrical"
+    examples:
+      - "Asymmetrical aircraft design"
+      - "One-sided sharpening"
+      - "Irregular shaped containers"
+
+  - id: 5
+    name: "Merging"
+    description: "Bring closer together objects that are in contact or merge them"
+    examples:
+      - "Multi-tool pocket knife"
+      - "Combined washer-dryer"
+      - "Integrated circuits"
+
+  - id: 6
+    name: "Universality"
+    description: "Make a part or object perform multiple functions"
+    examples:
+      - "Swiss Army knife"
+      - "Multi-purpose furniture"
+      - "Smartphone with multiple functions"
+
+  - id: 7
+    name: "Nested doll"
+    description: "Place one object inside another"
+    examples:
+      - "Telescoping antenna"
+      - "Russian nesting dolls"
+      - "Collapsible measuring cup"
+
+  - id: 8
+    name: "Anti-weight"
+    description: "To compensate for the weight of an object, merge it with other objects that provide lift"
+    examples:
+      - "Hydrogen-filled balloons"
+      - "Aerogel lightweight materials"
+      - "Counterweights in elevators"
+
+  - id: 9
+    name: "Preliminary anti-action"
+    description: "If it will be necessary to do an action with both harmful and useful effects, this action should be replaced with anti-actions to control harmful effects"
+    examples:
+      - "Pre-stressed concrete"
+      - "Pre-tensioned bolts"
+      - "Vaccination against disease"
+
+  - id: 10
+    name: "Preliminary action"
+    description: "Perform, before it is needed, the required change of an object"
+    examples:
+      - "Pre-heat oven before cooking"
+      - "Pre-load software updates"
+      - "Pre-position emergency equipment"
+
+  - id: 11
+    name: "Beforehand cushioning"
+    description: "Prepare emergency means beforehand to compensate for the relatively low reliability of an object"
+    examples:
+      - "Backup power generators"
+      - "Redundant computer systems"
+      - "Safety airbags in cars"
+
+  - id: 12
+    name: "Equipotentiality"
+    description: "In a potential field, limit position changes"
+    examples:
+      - "Floating dry dock"
+      - "Anti-static work surfaces"
+      - "Magnetic levitation"
+
+  - id: 13
+    name: "The other way round"
+    description: "Invert the actions used to solve the problem"
+    examples:
+      - "Push instead of pull"
+      - "Heat instead of cool"
+      - "Make the parts come to the tool instead of moving the tool"
+
+  - id: 14
+    name: "Spheroidality - Curvature"
+    description: "Instead of using rectilinear parts, surfaces, or forms, use curvilinear ones"
+    examples:
+      - "Curved mirrors in telescopes"
+      - "Spherical wheels for omnidirectional movement"
+      - "Curved solar panels"
+
+  - id: 15
+    name: "Dynamics"
+    description: "Allow characteristics of an object, external environment, or process to change to be optimal or to find an optimal operating condition"
+    examples:
+      - "Variable transmission in cars"
+      - "Adaptive cruise control"
+      - "Dynamic lighting systems"
+
+  - id: 16
+    name: "Partial or excessive actions"
+    description: "If 100% of an objective is difficult to achieve, achieve more or less of it"
+    examples:
+      - "Over-engineer and then reduce"
+      - "Partial vaccination for herd immunity"
+      - "Excessive pressure to break weak points"
+
+  - id: 17
+    name: "Another dimension"
+    description: "Move an object into a new dimension or use multi-level systems"
+    examples:
+      - "3D printing instead of 2D"
+      - "Multi-layer packaging"
+      - "Stacked memory chips"
+
+  - id: 18
+    name: "Mechanical vibration"
+    description: "Use mechanical oscillatory systems to achieve a desired effect"
+    examples:
+      - "Ultrasonic cleaning"
+      - "Vibrating conveyor belts"
+      - "Seismic exploration"
+
+  - id: 19
+    name: "Periodic action"
+    description: "Instead of continuous action, use periodic or pulsating actions"
+    examples:
+      - "Pulsating water jets"
+      - "Intermittent windshield wipers"
+      - "Pulse width modulation"
+
+  - id: 20
+    name: "Continuity of useful action"
+    description: "Carry on work continuously; make all parts of an object work at full load, all the time"
+    examples:
+      - "Continuous flow production"
+      - "24/7 data centers"
+      - "Always-on monitoring systems"
+
+  - id: 21
+    name: "Skipping"
+    description: "Conduct a process at high speed to avoid harmful effects"
+    examples:
+      - "High-speed machining to avoid heat buildup"
+      - "Quick freezing to preserve quality"
+      - "Rapid prototyping"
+
+  - id: 22
+    name: "Blessing in disguise"
+    description: "Use harmful factors to achieve a positive effect"
+    examples:
+      - "Use waste heat for other processes"
+      - "Turn defects into features"
+      - "Use pressure drops for mixing"
+
+  - id: 23
+    name: "Feedback"
+    description: "Introduce feedback to improve a process or action"
+    examples:
+      - "Thermostat temperature control"
+      - "Cruise control in vehicles"
+      - "Quality control feedback loops"
+
+  - id: 24
+    name: "Intermediary"
+    description: "Merge one object temporarily with another"
+    examples:
+      - "Temporary scaffolding"
+      - "Intermediary chemical carriers"
+      - "Temporary fasteners during assembly"
+
+  - id: 25
+    name: "Self-service"
+    description: "Make an object serve itself by performing auxiliary helpful functions"
+    examples:
+      - "Self-cleaning ovens"
+      - "Self-healing materials"
+      - "Autonomous vehicles"
+
+  - id: 26
+    name: "Copying"
+    description: "Instead of an unavailable, expensive, or fragile object, use simpler and inexpensive copies"
+    examples:
+      - "Virtual reality simulations"
+      - "Mathematical models"
+      - "Scale models for testing"
+
+  - id: 27
+    name: "Cheap short-living objects"
+    description: "Replace an expensive object with a multiple of inexpensive objects"
+    examples:
+      - "Disposable razors"
+      - "Paper cups instead of ceramic"
+      - "Multiple small sensors instead of one large"
+
+  - id: 28
+    name: "Mechanics substitution"
+    description: "Replace a mechanical system with optical, acoustic, or other sensory system"
+    examples:
+      - "Optical character recognition"
+      - "Ultrasonic distance measurement"
+      - "Infrared temperature sensing"
+
+  - id: 29
+    name: "Pneumatics and hydraulics"
+    description: "Use gas or liquid parts of an object instead of solid parts"
+    examples:
+      - "Hydraulic brakes"
+      - "Air suspension systems"
+      - "Liquid cooling systems"
+
+  - id: 30
+    name: "Flexible shells and thin films"
+    description: "Use flexible shells and thin films instead of three-dimensional structures"
+    examples:
+      - "Inflatable structures"
+      - "Thin film solar cells"
+      - "Flexible displays"
+
+  - id: 31
+    name: "Porous materials"
+    description: "Make an object porous or add porous elements"
+    examples:
+      - "Porous asphalt for drainage"
+      - "Aerogel insulation"
+      - "Porous electrodes in batteries"
+
+  - id: 32
+    name: "Color changes"
+    description: "Change the color of an object or its external environment"
+    examples:
+      - "Color-coded wiring"
+      - "Temperature-sensitive paint"
+      - "UV-sensitive materials"
+
+  - id: 33
+    name: "Homogeneity"
+    description: "Make objects interact with a given object of the same material or with objects similar to it"
+    examples:
+      - "Self-assembly of similar components"
+      - "Homogeneous catalysis"
+      - "Similar material welding"
+
+  - id: 34
+    name: "Discarding and recovering"
+    description: "Discard or recover parts of an object that have fulfilled their functions"
+    examples:
+      - "Recycling programs"
+      - "Dissolving scaffolds in tissue engineering"
+      - "Temporary protective coatings"
+
+  - id: 35
+    name: "Parameter changes"
+    description: "Change an object's physical state, or phase, or concentration, or consistency, or flexibility"
+    examples:
+      - "Shape memory alloys"
+      - "Phase change materials"
+      - "Variable viscosity fluids"
+
+  - id: 36
+    name: "Phase transitions"
+    description: "Use phenomena occurring during phase transitions"
+    examples:
+      - "Heat pipes using evaporation"
+      - "Supercritical fluid extraction"
+      - "Freeze-drying processes"
+
+  - id: 37
+    name: "Thermal expansion"
+    description: "Use thermal expansion or contraction of materials"
+    examples:
+      - "Bi-metal strips in thermostats"
+      - "Expansion joints in bridges"
+      - "Shrink-fit assembly"
+
+  - id: 38
+    name: "Accelerated oxidation"
+    description: "Replace common air with oxygen-enriched air, or use oxygen-enriched air"
+    examples:
+      - "Oxygen-enriched combustion"
+      - "Accelerated composting"
+      - "Enhanced chemical reactions"
+
+  - id: 39
+    name: "Inert atmosphere"
+    description: "Replace a normal environment with an inert one, or add neutral parts or inert additives"
+    examples:
+      - "Nitrogen-filled food packaging"
+      - "Inert gas welding"
+      - "Vacuum packaging"
+
+  - id: 40
+    name: "Composite materials"
+    description: "Change from uniform to composite materials"
+    examples:
+      - "Carbon fiber composites"
+      - "Laminated glass"
+      - "Composite decking materials"
