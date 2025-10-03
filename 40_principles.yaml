@@ -1,0 +1,137 @@
+principles:
+- id: 1
+  name: Segmentation
+  description: Divide an object into independent parts
+  sub_principles:
+    - Divide an object into independent parts
+    - Make an object easy to disassemble
+    - Increase the degree of fragmentation or segmentation
+  examples:
+    - Modular furniture
+    - Sectional sofas
+    - Replaceable parts
+    
+- id: 2
+  name: Taking out
+  description: Separate an interfering part or property from an object
+  sub_principles:
+    - Separate an interfering part or property from an object
+    - Single out the only useful part or property of an object
+    - Isolate the harmful or interfering parts
+  examples:
+    - Noise reduction headphones
+    - Water filtration
+    - Heat shields
+    
+- id: 3
+  name: Local quality
+  description: Change the structure from uniform to non-uniform
+  sub_principles:
+    - Change the structure of an object from uniform to non-uniform
+    - Make each part of an object fulfill a different function
+    - Make each part of an object work under conditions most suitable for its operation
+  examples:
+    - Ergonomic tools
+    - Multi-zone air conditioning
+    - Variable thickness materials
+    
+- id: 4
+  name: Asymmetry
+  description: Change the shape from symmetrical to asymmetrical
+  sub_principles:
+    - Change the shape of an object from symmetrical to asymmetrical
+    - If an object is asymmetrical, increase its degree of asymmetry
+  examples:
+    - Asymmetrical car design for aerodynamics
+    - Offset handles
+    - Unequal wing configurations
+    
+- id: 5
+  name: Merging
+  description: Bring closer together identical or similar objects
+  sub_principles:
+    - Merge identical or similar objects, assemble identical parts to perform parallel operations
+    - Make operations contiguous or parallel; bring them together in time
+  examples:
+    - Parallel processing
+    - Multi-core processors
+    - Assembly line operations
+    
+- id: 6
+  name: Universality
+  description: Make a part or object perform multiple functions
+  sub_principles:
+    - Make a part or object perform multiple functions, thereby eliminating the need for other parts
+  examples:
+    - Swiss army knife
+    - Smartphone (camera, phone, computer)
+    - Multi-tool devices
+    
+- id: 7
+  name: Nesting
+  description: Place one object inside another
+  sub_principles:
+    - Place one object inside another; place each object, in turn, inside the other
+    - Make one part pass through a cavity in the other
+  examples:
+    - Russian dolls
+    - Telescoping structures
+    - Nested containers
+    
+- id: 8
+  name: Anti-weight
+  description: Compensate for the weight of an object
+  sub_principles:
+    - To compensate for the weight of an object, merge it with other objects that provide lift
+    - To compensate for the weight of an object, make it interact with the environment
+  examples:
+    - Hot air balloons
+    - Hydrofoils
+    - Magnetic levitation
+    
+- id: 9
+  name: Preliminary anti-action
+  description: Perform the opposite action in advance
+  sub_principles:
+    - If it will be necessary to do an action with both harmful and useful effects, this action should be replaced with anti-actions to control harmful effects
+    - Create beforehand stresses in an object that will oppose known undesirable working stresses later on
+  examples:
+    - Prestressed concrete
+    - Vaccine immunization
+    - Pre-loading mechanisms
+    
+- id: 10
+  name: Preliminary action
+  description: Perform the required change in advance
+  sub_principles:
+    - Perform, before it is needed, the required change of an object (either fully or partially)
+    - Pre-arrange objects such that they can come into action from the most convenient place
+  examples:
+    - Pre-cut materials
+    - Ready-to-assemble furniture
+    - Pre-positioned tools
+    
+- id: 15
+  name: Dynamics
+  description: Allow or design the object to be adaptive
+  sub_principles:
+    - Allow (or design) the object to adapt automatically to optimal operating conditions
+    - Divide an object into parts capable of movement relative to each other
+    - If an object (or process) is rigid or inflexible, make it movable or adaptive
+  examples:
+    - Variable compression engines
+    - Adjustable suspensions
+    - Adaptive optics
+    
+- id: 35
+  name: Parameter changes
+  description: Change an object's physical or chemical state
+  sub_principles:
+    - Change the physical and/or chemical states of an object
+    - Change the concentration or consistency
+    - Change the degree of flexibility
+    - Change the temperature
+  examples:
+    - Phase-change materials
+    - Smart materials
+    - Variable viscosity fluids
