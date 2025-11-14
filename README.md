@@ -22,23 +22,105 @@ Heinrich is an open-source AI engine that combines classical TRIZ (Theory of Inv
 - **Multilingual**: Full documentation in English, Chinese, and Russian
 - **Ethical AI**: Transparent persona with safety guidelines
 
-## Quick Start
+## Getting Started
 
+### Installation
+
+#### Prerequisites
+- Python 3.8 or higher
+- pip (Python package manager)
+
+#### Install from source
+
+1. Clone the repository:
 ```bash
-# Installation (coming soon)
-pip install heinrich-triz
-
-# Solve a problem
-heinrich solve --input problem.txt --report solution.md
-
-# Interactive mode
-heinrich interactive --mode hybrid
-
-# Batch processing
-heinrich batch --input-dir problems/ --output-dir solutions/
+git clone https://github.com/NickScherbakov/Heinrich-The-Inventing-Machine.git
+cd Heinrich-The-Inventing-Machine
 ```
 
-### Example Problem
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+3. Install Heinrich in development mode:
+```bash
+pip install -e .
+```
+
+#### Dependencies
+
+Heinrich requires the following Python packages:
+- `PyYAML>=6.0` - For TRIZ knowledge base (YAML files)
+- `numpy>=1.21.0` - For numerical computations
+- `dataclasses-json>=0.5.0` - For data serialization
+
+All dependencies are automatically installed when using `pip install`.
+
+### Usage
+
+#### Quick Example
+
+Here's a simple example to get started with Heinrich:
+
+```python
+from problem_parser import ProblemParser
+
+# Create a problem parser
+parser = ProblemParser()
+
+# Analyze a problem
+problem = "We need to make a car faster, but increasing engine power makes it consume more fuel."
+result = parser.parse(problem)
+
+# View the analysis
+print(f"Technical System: {result.technical_system}")
+print(f"Desired Improvement: {result.desired_improvement}")
+print(f"Undesired Consequence: {result.undesired_consequence}")
+```
+
+**Output:**
+```
+Technical System: car
+Desired Improvement: faster
+Undesired Consequence: increasing engine power makes it consume more fuel
+```
+
+#### Run the Basic Example
+
+Try the included basic usage example:
+
+```bash
+python3 examples/basic_usage.py
+```
+
+This demonstrates problem parsing with multiple examples.
+
+#### Command-Line Interface
+
+For full TRIZ pipeline analysis, use the interactive CLI:
+
+```bash
+# Interactive problem-solving session
+python3 heinrich_cli.py interactive
+
+# Batch processing (coming soon)
+python3 heinrich_cli.py batch problems.txt
+
+# API server mode (coming soon)
+python3 heinrich_cli.py api --port 8080
+```
+
+The interactive mode guides you through the complete TRIZ methodology:
+1. Problem description and parsing
+2. Contradiction identification using 39 TRIZ parameters
+3. Principle selection from 40 inventive principles
+4. Scientific effects integration
+5. Solution concept generation
+6. Context-aware adaptation
+7. Comprehensive report generation
+
+### Example Problem Analysis
 
 **Input**: "We need to make a car faster, but increasing engine power makes it consume more fuel."
 
