@@ -1,2 +1,0 @@
-[console_scripts]
-heinrich = heinrich_cli:main
