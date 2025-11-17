@@ -1,0 +1,37 @@
+# Development dependencies for Heinrich TRIZ Engine
+
+# Testing
+pytest>=7.0.0
+pytest-cov>=4.0.0
+pytest-mock>=3.10.0
+pytest-asyncio>=0.21.0
+
+# Code quality
+black>=22.0.0
+flake8>=5.0.0
+mypy>=1.0.0
+pylint>=2.15.0
+isort>=5.11.0
+
+# Pre-commit hooks
+pre-commit>=3.0.0
+
+# Documentation
+sphinx>=5.0.0
+sphinx-rtd-theme>=1.0.0
+myst-parser>=0.18.0
+
+# Type stubs
+types-PyYAML>=6.0.0
+
+# Development tools
+ipython>=8.0.0
+ipdb>=0.13.0
+
+# API development (optional)
+fastapi>=0.100.0
+uvicorn>=0.20.0
+
+# Rich CLI (optional)
+rich>=12.0.0
+colorama>=0.4.0
