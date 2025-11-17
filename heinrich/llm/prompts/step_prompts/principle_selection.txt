@@ -1,0 +1,15 @@
+Given the identified contradiction, select relevant TRIZ inventive principles:
+
+Improving Parameter: {improving_parameter} (#{improving_index})
+Worsening Parameter: {worsening_parameter} (#{worsening_index})
+
+Based on the TRIZ contradiction matrix, the recommended principles are:
+{recommended_principles}
+
+For each principle, explain:
+1. **Principle Name and Number**
+2. **How it applies** to this specific problem
+3. **Concrete implementation ideas**
+4. **Examples** from similar domains
+
+Prioritize the principles by relevance and feasibility for this problem.

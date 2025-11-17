@@ -357,8 +357,7 @@ class ReportBuilder:
 """
 
         if adapted_concepts:
-            content += "**Adapted Concepts:**
-"
+            content += "**Adapted Concepts:**\n"
             for concept in adapted_concepts:
                 content += f"""**{concept['adapted_title']}**
 - **Confidence:** {concept.get('adaptation_confidence', 0):.2f}

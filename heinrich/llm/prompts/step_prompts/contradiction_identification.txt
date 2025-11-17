@@ -1,0 +1,16 @@
+Based on the parsed problem, identify the technical contradiction:
+
+Technical System: {technical_system}
+Desired Improvement: {desired_improvement}
+Undesired Consequence: {undesired_consequence}
+
+Identify:
+1. **Improving Parameter**: Which of the 39 engineering parameters is being improved?
+2. **Worsening Parameter**: Which of the 39 engineering parameters is worsening?
+3. **Type of Contradiction**: Is this a technical contradiction, physical contradiction, or both?
+4. **Root Cause**: What is the fundamental cause of this contradiction?
+
+Available 39 Parameters for reference:
+{parameters_list}
+
+Provide the parameter numbers and names that best match the situation.
