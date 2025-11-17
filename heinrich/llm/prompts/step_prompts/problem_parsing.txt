@@ -1,0 +1,12 @@
+Analyze the following problem statement and extract key information:
+
+Problem: {problem_text}
+
+Extract and provide:
+1. **Technical System**: What is the main system or object being discussed?
+2. **Desired Improvement**: What parameter or characteristic needs to be improved?
+3. **Undesired Consequence**: What negative effect occurs or could occur when trying to improve?
+4. **Constraints**: Any explicit limitations, requirements, or boundaries mentioned
+5. **Context**: The domain, industry, or application area
+
+Format your response as a structured analysis with clear sections.
