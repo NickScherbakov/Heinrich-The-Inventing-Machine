@@ -4,7 +4,7 @@ Heinrich: Basic Usage Example
 Demonstrates how to use the Heinrich TRIZ Engine to solve a simple problem.
 """
 
-from problem_parser import ProblemParser
+from heinrich.pipelines.problem_parser import ProblemParser
 
 def main():
     """Run a simple Heinrich TRIZ analysis."""
