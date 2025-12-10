@@ -217,6 +217,49 @@ Full documentation and interface support for:
 - **中文 (Chinese)**: Complete translation with technical terminology
 - **Русский (Russian)**: Complete translation honoring TRIZ origins
 
+## AI Integration via MCP
+
+Heinrich supports seamless AI-assisted workflows through the **GitHub MCP (Model Context Protocol) Server**. This integration enables AI assistants to directly interact with the repository, eliminating the need for manual copy-pasting and creating a true bridge between human intention and AI execution.
+
+### What is MCP?
+
+MCP (Model Context Protocol) is an open standard that provides AI assistants with standardized access to external tools and services. With MCP integration, AI can:
+
+- 🤖 Comment on issues and pull requests directly
+- 🌿 Create and manage branches
+- 🔍 Search code and issues
+- 📝 Update repository metadata
+- 👥 Manage collaborators and reviews
+- And much more!
+
+### Getting Started with MCP
+
+We offer two setup options:
+
+1. **Hosted MCP Server** (Recommended) - Uses GitHub's official endpoint with OAuth authentication
+2. **Local Docker MCP Server** - Self-hosted for more control and customization
+
+For detailed setup instructions, see our comprehensive guide:
+
+📖 **[MCP Integration Guide](docs/mcp-integration.md)**
+
+### Quick Setup (Hosted)
+
+1. Create a `.mcp.json` configuration file (see `.mcp.json.example`)
+2. Authorize via GitHub OAuth when prompted by your AI assistant
+3. Start using AI-assisted workflows immediately!
+
+### Why MCP for Heinrich?
+
+This integration aligns perfectly with Heinrich's mission of automation and improving creative processes. MCP creates a seamless workflow where:
+
+- AI becomes a true collaborator in the development process
+- Friction is removed from repetitive tasks
+- You focus on creative problem-solving while AI handles execution
+- The system learns and adapts to your workflow
+
+*"Heinrich + MCP: Where systematic invention meets seamless AI collaboration"* 🤝
+
 ## Contributing
 
 We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for:

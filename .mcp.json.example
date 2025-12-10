@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "github": {
+      "url": "https://api.githubcopilot.com/mcp/",
+      "metadata": {
+        "name": "GitHub MCP Server",
+        "description": "Official GitHub MCP integration for Heinrich - The Inventing Machine",
+        "repository": "NickScherbakov/Heinrich-The-Inventing-Machine",
+        "version": "1.0.0"
+      }
+    }
+  },
+  "settings": {
+    "autoConnect": true,
+    "timeout": 30000,
+    "retryAttempts": 3
+  }
+}

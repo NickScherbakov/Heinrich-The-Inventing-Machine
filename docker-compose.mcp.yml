@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  github-mcp-server:
+    image: ghcr.io/github/github-mcp-server:latest
+    container_name: heinrich-mcp-server
+    restart: unless-stopped
+    
+    ports:
+      - "3000:3000"
+    
+    environment:
+      # GitHub Authentication
+      - GITHUB_PERSONAL_ACCESS_TOKEN=${GITHUB_PERSONAL_ACCESS_TOKEN}
+      
+      # Repository Configuration
+      - GITHUB_OWNER=${GITHUB_OWNER:-NickScherbakov}
+      - GITHUB_REPO=${GITHUB_REPO:-Heinrich-The-Inventing-Machine}
+      
+      # Server Configuration
+      - PORT=${MCP_PORT:-3000}
+      - NODE_ENV=${NODE_ENV:-production}
+      
+      # Logging Configuration
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - LOG_FORMAT=${LOG_FORMAT:-json}
+      
+      # Rate Limiting (optional)
+      - RATE_LIMIT_MAX=${RATE_LIMIT_MAX:-100}
+      - RATE_LIMIT_WINDOW=${RATE_LIMIT_WINDOW:-900000}
+    
+    env_file:
+      - .env.mcp
+    
+    volumes:
+      # Cache directory for improved performance
+      - mcp-cache:/app/cache
+      # Logs directory
+      - ./logs/mcp:/app/logs
+    
+    networks:
+      - heinrich-network
+    
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    
+    labels:
+      - "com.heinrich.service=mcp-server"
+      - "com.heinrich.description=GitHub MCP Server for AI integration"
+
+volumes:
+  mcp-cache:
+    driver: local
+
+networks:
+  heinrich-network:
+    driver: bridge

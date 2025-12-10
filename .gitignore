@@ -56,7 +56,12 @@ htmlcov/
 # Environment
 .env
 .env.local
+.env.mcp
 
 # Heinrich-specific
 heinrich_report_*.md
 *.tmp
+
+# MCP (Model Context Protocol)
+.mcp.json
+logs/mcp/
