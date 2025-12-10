@@ -1,0 +1,87 @@
+{
+  // ============================================
+  // Python Environment Configuration
+  // ============================================
+  "python-envs.defaultEnvManager": "ms-python.python:system",
+  "python-envs.pythonProjects": [],
+  
+  // ============================================
+  // GitHub Copilot Configuration
+  // ============================================
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": true,
+    "plaintext": true,
+    "markdown": true,
+    "python": true,
+    "json": true
+  },
+  
+  // ============================================
+  // MCP (Model Context Protocol) Integration
+  // ============================================
+  // Enable MCP support for GitHub Copilot
+  "github.copilot.mcp.enabled": true,
+  
+  // MCP Server Configuration
+  "github.copilot.mcp.servers": {
+    "github": {
+      "url": "https://api.githubcopilot.com/mcp/",
+      "metadata": {
+        "name": "GitHub MCP Server",
+        "description": "Official GitHub MCP integration",
+        "repository": "NickScherbakov/Heinrich-The-Inventing-Machine"
+      }
+    }
+  },
+  
+  // MCP Settings
+  "github.copilot.mcp.settings": {
+    "autoConnect": true,
+    "timeout": 30000,
+    "retryAttempts": 3,
+    "enableLogging": true
+  },
+  
+  // ============================================
+  // Alternative: Local MCP Server Configuration
+  // ============================================
+  // Uncomment the following to use local Docker MCP server instead:
+  /*
+  "github.copilot.mcp.servers": {
+    "github-local": {
+      "url": "http://localhost:3000/mcp/",
+      "metadata": {
+        "name": "Local GitHub MCP Server",
+        "description": "Self-hosted GitHub MCP for Heinrich"
+      }
+    }
+  },
+  */
+  
+  // ============================================
+  // Editor Configuration for TRIZ/Heinrich
+  // ============================================
+  "editor.formatOnSave": true,
+  "editor.rulers": [80, 120],
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  
+  // ============================================
+  // Python-specific Settings
+  // ============================================
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.formatting.provider": "black",
+  
+  // ============================================
+  // File Associations
+  // ============================================
+  "files.associations": {
+    "*.yaml": "yaml",
+    "*.yml": "yaml",
+    ".env.mcp": "properties",
+    ".env.mcp.example": "properties"
+  }
+}

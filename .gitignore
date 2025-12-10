@@ -30,7 +30,8 @@ env/
 .venv
 
 # IDE
-.vscode/
+.vscode/*
+!.vscode/*.example
 .idea/
 *.swp
 *.swo
