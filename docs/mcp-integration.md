@@ -373,11 +373,15 @@ AI Action: Updates issue labels directly
 
 ## References
 
+The following resources provide additional information about GitHub MCP Server and the Model Context Protocol. While these links were valid at the time of writing, please check for the most current documentation:
+
 - [GitHub Blog: A practical guide on how to use the GitHub MCP server](https://github.blog/ai-and-ml/generative-ai/a-practical-guide-on-how-to-use-the-github-mcp-server/)
 - [Model Context Protocol servers repository](https://github.com/modelcontextprotocol/servers)
 - [Setting Up the Official GitHub MCP Server by Debbie O'Brien](https://debbie.codes/blog/github-mcp-server/)
 - [GitHub MCP Server Setup & Configuration Guide by Synlabs](https://www.synlabs.io/post/github-mcp-server-setup-configuration)
 - [MCP Protocol Specification](https://modelcontextprotocol.io/)
+
+**Note**: For the most up-to-date information, always refer to the official GitHub and MCP documentation.
 
 ---
 
