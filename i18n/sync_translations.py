@@ -116,7 +116,8 @@ class TranslationSync:
         # Load canonical English glossary
         en_glossary_path = self.i18n_dir / "glossary_en.yaml"
         if not en_glossary_path.exists():
-            return {"en": ["Canonical English glossary not found"]}
+            issues["en"] = ["Canonical English glossary not found"]
+            return issues
         
         with open(en_glossary_path, 'r', encoding='utf-8') as f:
             en_glossary = yaml.safe_load(f)
