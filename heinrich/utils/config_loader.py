@@ -34,6 +34,8 @@ class ConfigLoader:
             self._load_from_file(config_file)
         self._load_from_env()
     
+    SUPPORTED_LANGUAGES = ["en", "zh", "ru", "ar"]
+    
     def _load_defaults(self) -> None:
         """Load default configuration values."""
         self.config = {
@@ -113,6 +115,12 @@ class ConfigLoader:
             key: Configuration key
             value: Configuration value
         """
+        # Validate language setting
+        if key == "language" and value not in self.SUPPORTED_LANGUAGES:
+            raise ValueError(
+                f"Unsupported language: {value}. "
+                f"Supported languages: {', '.join(self.SUPPORTED_LANGUAGES)}"
+            )
         self.config[key] = value
     
     def get_llm_config(self) -> Dict[str, Any]:

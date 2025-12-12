@@ -1,0 +1,188 @@
+name: Translation Synchronization
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'docs/en/**'
+      - 'i18n/glossary_en.yaml'
+      - 'README.md'
+      - 'CONTRIBUTING.md'
+  pull_request:
+    paths:
+      - 'docs/en/**'
+      - 'i18n/glossary_en.yaml'
+      - 'README.md'
+      - 'CONTRIBUTING.md'
+
+jobs:
+  sync-translations:
+    runs-on: ubuntu-latest
+    name: Synchronize Translations
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml
+          
+      - name: Run translation sync
+        id: sync
+        run: |
+          cd i18n
+          python sync_translations.py sync
+          
+      - name: Generate translation report
+        id: report
+        run: |
+          cd i18n
+          python sync_translations.py report --output ../translation_report.md
+          
+      - name: Upload translation report
+        uses: actions/upload-artifact@v3
+        with:
+          name: translation-report
+          path: translation_report.md
+          
+      - name: Validate glossaries
+        run: |
+          cd i18n
+          python sync_translations.py validate || echo "Glossary validation warnings found"
+          
+      - name: Comment PR with translation status
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let report = '';
+            try {
+              report = fs.readFileSync('translation_report.md', 'utf8');
+            } catch (e) {
+              report = '⚠️ No translation report generated';
+            }
+            
+            const comment = `## 🌍 Translation Synchronization Report\n\n${report}\n\n---\n*Automated by i18n-sync workflow*`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+            
+      - name: Create translation tasks issues
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const yaml = require('js-yaml');
+            
+            // Check for outdated translations
+            const languages = ['zh', 'ru', 'ar'];
+            
+            for (const lang of languages) {
+              const title = `[i18n] Update ${lang.toUpperCase()} translations`;
+              const body = `
+              ## Translation Update Needed
+              
+              English documentation has been updated. Please review and update ${lang.toUpperCase()} translations.
+              
+              ### Files to check:
+              - \`docs/${lang}/\` - Documentation files
+              - \`i18n/glossary_${lang}.yaml\` - Terminology glossary
+              
+              ### How to contribute:
+              1. Review changes in English documentation
+              2. Update corresponding ${lang.toUpperCase()} files
+              3. Validate with: \`python i18n/sync_translations.py validate\`
+              4. Submit PR with branch name: \`i18n/${lang}-translation-update\`
+              
+              See [CONTRIBUTING.md](CONTRIBUTING.md) for translation guidelines.
+              `;
+              
+              // Check if issue already exists
+              const issues = await github.rest.issues.listForRepo({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                state: 'open',
+                labels: 'translation,' + lang
+              });
+              
+              if (issues.data.length === 0) {
+                await github.rest.issues.create({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  title: title,
+                  body: body,
+                  labels: ['translation', lang, 'help-wanted']
+                });
+              }
+            }
+
+  check-yaml-syntax:
+    runs-on: ubuntu-latest
+    name: Validate YAML Syntax
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          
+      - name: Install PyYAML
+        run: pip install pyyaml
+        
+      - name: Validate glossary files
+        run: |
+          python -c "
+          import yaml
+          import sys
+          
+          files = [
+            'i18n/glossary_en.yaml',
+            'i18n/glossary_zh.yaml',
+            'i18n/glossary_ru.yaml',
+            'i18n/glossary_ar.yaml'
+          ]
+          
+          errors = []
+          for f in files:
+            try:
+              with open(f, 'r', encoding='utf-8') as file:
+                yaml.safe_load(file)
+              print(f'✅ {f}: Valid YAML')
+            except Exception as e:
+              errors.append(f'❌ {f}: {str(e)}')
+              print(errors[-1])
+          
+          if errors:
+            sys.exit(1)
+          else:
+            print('\n✅ All glossary files have valid YAML syntax')
+          "
+          
+  check-utf8-encoding:
+    runs-on: ubuntu-latest
+    name: Validate UTF-8 Encoding
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Check UTF-8 encoding
+        run: |
+          find i18n docs -type f \( -name "*.yaml" -o -name "*.md" \) -exec file {} \; | grep -v "UTF-8" && exit 1 || echo "✅ All files are UTF-8 encoded"
