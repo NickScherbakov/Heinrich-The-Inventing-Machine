@@ -4,10 +4,11 @@ Thank you for your interest in contributing to Heinrich! This guide will help yo
 
 ## 🌍 Multilingual Project
 
-Heinrich supports three languages with full documentation parity:
+Heinrich supports four languages with full documentation parity:
 - **English** (primary/canonical)
 - **中文 (Chinese)**
 - **Русский (Russian)**
+- **العربية (Arabic)** - NEW
 
 All contributions should consider multilingual impact and maintain consistency across languages.
 
@@ -115,6 +116,7 @@ Closes #issue-number
 - `fix(triz): correct parameter 23 definition in knowledge base`
 - `docs(zh): update Chinese README with new examples`
 - `i18n(ru): sync Russian glossary with new TRIZ terms`
+- `i18n(ar): add Arabic translation for installation guide`
 
 ## 🌐 Multilingual Workflow
 
@@ -145,6 +147,7 @@ triz:
 contradiction:
   en: "contradiction"
   ru: "противоречие"
+  ar: "تناقض"  # Arabic example
   definition: "Conflict between system parameters"
 ```
 
