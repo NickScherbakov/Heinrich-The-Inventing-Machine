@@ -1,0 +1,408 @@
+# Arabic TRIZ Terminology Glossary (مسرد مصطلحات TRIZ بالعربية)
+# Heinrich: The Inventing Machine
+# Arabic translations of TRIZ terminology - NEW ADDITION
+
+metadata:
+  language: ar
+  version: "1.0.0"
+  last_updated: "2025-12-12"
+  description: "Arabic TRIZ terminology glossary - NEW addition for Arabic-speaking innovators"
+  based_on: "glossary_en.yaml v1.0.0"
+  rtl: true
+
+# Core TRIZ Concepts (المفاهيم الأساسية لـ TRIZ)
+triz:
+  en: "TRIZ"
+  ar: "تريز"
+  definition: "نظرية الحل الابتكاري للمشكلات (بالروسية: Teoriya Resheniya Izobretatelskikh Zadach - ТРИЗ)"
+  note: "أنشأها جينريخ ألتشولر في عام 1946"
+
+contradiction:
+  en: "contradiction"
+  ar: "تناقض"
+  definition: "صراع بين معاملات النظام حيث تؤدي تحسين أحدها إلى تدهور الآخر"
+  types: ["تناقض تقني", "تناقض فيزيائي"]
+
+technical_contradiction:
+  en: "technical contradiction"
+  ar: "تناقض تقني"
+  definition: "صراع حيث يؤدي تحسين معامل واحد إلى تدهور معامل آخر"
+  example: "زيادة السرعة تزيد من استهلاك الوقود"
+
+physical_contradiction:
+  en: "physical contradiction"
+  ar: "تناقض فيزيائي"
+  definition: "يجب أن يكون للمعامل خصائص متعاكسة في نفس الوقت"
+  example: "يجب أن يكون السطح خشنًا وناعمًا في آن واحد"
+
+inventive_principles:
+  en: "inventive principles"
+  ar: "المبادئ الابتكارية"
+  definition: "40 نمطًا أساسيًا لحل التناقضات"
+  count: 40
+
+engineering_parameters:
+  en: "engineering parameters"
+  ar: "المعاملات الهندسية"
+  definition: "39 معاملًا قياسيًا لوصف الأنظمة التقنية"
+  count: 39
+
+# 40 Inventive Principles (40 مبدأ ابتكاري - اختيارات رئيسية)
+principle_01_segmentation:
+  en: "segmentation"
+  ar: "التجزئة"
+  number: 1
+  definition: "تقسيم الكائن إلى أجزاء مستقلة"
+  examples: ["أثاث معياري", "أريكة مقطعية", "شفرة قابلة للاستبدال"]
+
+principle_02_taking_out:
+  en: "taking out (extraction)"
+  ar: "الاستخراج (الإزالة)"
+  number: 2
+  definition: "فصل الجزء أو الخاصية المتداخلة من الكائن"
+  examples: ["سماعات إلغاء الضوضاء", "قهوة منزوعة الكافيين"]
+
+principle_03_local_quality:
+  en: "local quality"
+  ar: "الجودة المحلية"
+  number: 3
+  definition: "جعل كل جزء يعمل في الظروف الأنسب لعمليته"
+  examples: ["تسخين غير موحد", "كثافة مادة متغيرة"]
+
+principle_10_prior_action:
+  en: "prior action (preliminary action)"
+  ar: "الإجراء المسبق"
+  number: 10
+  definition: "تنفيذ التغييرات المطلوبة كليًا أو جزئيًا مسبقًا"
+  examples: ["خرسانة مسبقة الإجهاد", "تغليف معقم"]
+
+principle_13_other_way_round:
+  en: "the other way round (inversion)"
+  ar: "العكس (الانعكاس)"
+  number: 13
+  definition: "عكس الإجراء المستخدم لحل المشكلة"
+  examples: ["التبريد بدلاً من التسخين", "السحب بدلاً من الدفع"]
+
+principle_15_dynamics:
+  en: "dynamics (dynamicity)"
+  ar: "الديناميكية"
+  number: 15
+  definition: "جعل الخصائص قابلة للتغيير أو مثالية في كل مرحلة"
+  examples: ["مقعد سيارة قابل للتعديل", "محرك ذو انضغاط متغير"]
+
+principle_17_another_dimension:
+  en: "another dimension (dimensionality change)"
+  ar: "بُعد آخر (تغيير البعدية)"
+  number: 17
+  definition: "تحريك الكائن في الفضاء ثنائي أو ثلاثي الأبعاد"
+  examples: ["موقف سيارات متعدد الطوابق", "مقاعد متدرجة"]
+
+principle_24_intermediary:
+  en: "intermediary (mediator)"
+  ar: "الوسيط"
+  number: 24
+  definition: "استخدام كائن وسيط لنقل أو تنفيذ الإجراء"
+  examples: ["رافعة لرفع الأشياء الثقيلة", "محفز في التفاعلات"]
+
+principle_28_mechanics_substitution:
+  en: "mechanics substitution"
+  ar: "استبدال الميكانيكا"
+  number: 28
+  definition: "استبدال الوسائل الميكانيكية بالحواس أو البصرية أو الصوتية أو مجالات أخرى"
+  examples: ["شاشة لمس بدلاً من الأزرار", "القطع بالليزر"]
+
+principle_35_parameter_changes:
+  en: "parameter changes (transformation of properties)"
+  ar: "تغييرات المعاملات (تحويل الخصائص)"
+  number: 35
+  definition: "تغيير الحالة الفيزيائية أو الكيميائية للنظام"
+  examples: ["تجميد الماء إلى ثلج", "تحويل السائل إلى غاز"]
+
+principle_40_composite_materials:
+  en: "composite materials"
+  ar: "المواد المركبة"
+  number: 40
+  definition: "التغيير من مواد موحدة إلى مواد مركبة"
+  examples: ["مركبات ألياف الكربون", "الخرسانة المسلحة"]
+
+# 39 Engineering Parameters (39 معامل هندسي - اختيارات رئيسية)
+parameter_01_weight_moving:
+  en: "weight of moving object"
+  ar: "وزن الجسم المتحرك"
+  number: 1
+  definition: "كتلة الجسم في المجال الجاذبي"
+
+parameter_02_weight_stationary:
+  en: "weight of stationary object"
+  ar: "وزن الجسم الثابت"
+  number: 2
+  definition: "كتلة الجسم غير المتحرك في المجال الجاذبي"
+
+parameter_09_speed:
+  en: "speed"
+  ar: "السرعة"
+  number: 9
+  definition: "السرعة؛ معدل تغيير الموضع"
+
+parameter_10_force:
+  en: "force (intensity of force)"
+  ar: "القوة (شدة القوة)"
+  number: 10
+  definition: "التفاعل بين الأجسام أو المجالات"
+
+parameter_12_shape:
+  en: "shape"
+  ar: "الشكل"
+  number: 12
+  definition: "المحيط الخارجي أو المظهر الخارجي للنظام"
+
+parameter_13_stability:
+  en: "stability of object's composition"
+  ar: "استقرار تكوين الجسم"
+  number: 13
+  definition: "سلامة النظام، مقاومة التغيير"
+
+parameter_14_strength:
+  en: "strength"
+  ar: "القوة (المتانة)"
+  number: 14
+  definition: "القدرة على مقاومة التغيير تحت القوى الخارجية"
+
+parameter_15_durability_moving:
+  en: "durability of moving object"
+  ar: "متانة الجسم المتحرك"
+  number: 15
+  definition: "عمر الخدمة للجسم المتحرك"
+
+parameter_17_temperature:
+  en: "temperature"
+  ar: "درجة الحرارة"
+  number: 17
+  definition: "الحالة الحرارية للجسم أو النظام"
+
+parameter_19_energy_moving:
+  en: "use of energy by moving object"
+  ar: "استخدام الطاقة من قبل الجسم المتحرك"
+  number: 19
+  definition: "الطاقة المستهلكة من قبل الجسم المتحرك أثناء التشغيل"
+
+parameter_21_power:
+  en: "power"
+  ar: "القدرة"
+  number: 21
+  definition: "معدل نقل الطاقة أو تحويلها"
+
+parameter_23_loss_substance:
+  en: "loss of substance"
+  ar: "فقدان المادة"
+  number: 23
+  definition: "هدر المواد أو الوقود أو الموارد الأخرى"
+
+parameter_25_loss_time:
+  en: "loss of time"
+  ar: "فقدان الوقت"
+  number: 25
+  definition: "الوقت المهدر أثناء التشغيل"
+
+parameter_26_quantity_substance:
+  en: "quantity of substance/matter"
+  ar: "كمية المادة"
+  number: 26
+  definition: "عدد أو كمية المادة"
+
+parameter_27_reliability:
+  en: "reliability"
+  ar: "الموثوقية"
+  number: 27
+  definition: "قدرة النظام على أداء الوظيفة المقصودة في ظل الظروف المحددة"
+
+parameter_31_harmful_side_effects:
+  en: "object-generated harmful factors"
+  ar: "العوامل الضارة الناتجة عن الجسم"
+  number: 31
+  definition: "التأثيرات الضارة الناتجة عن الجسم نفسه"
+
+parameter_33_ease_operation:
+  en: "ease of operation"
+  ar: "سهولة التشغيل"
+  number: 33
+  definition: "البساطة والراحة في الاستخدام"
+
+parameter_35_adaptability:
+  en: "adaptability or versatility"
+  ar: "القدرة على التكيف أو التنوع"
+  number: 35
+  definition: "القدرة على الاستجابة لتغيير الظروف الخارجية"
+
+parameter_36_complexity:
+  en: "device complexity"
+  ar: "تعقيد الجهاز"
+  number: 36
+  definition: "عدد وتنوع العناصر والعلاقات"
+
+parameter_39_productivity:
+  en: "productivity"
+  ar: "الإنتاجية"
+  number: 39
+  definition: "عدد الوظائف أو العمليات لكل وحدة زمنية"
+
+# ARIZ Methodology Terms (مصطلحات منهجية ARIZ)
+ariz:
+  en: "ARIZ"
+  ar: "أريز"
+  definition: "خوارزمية الحل الابتكاري للمشكلات (بالروسية: Algoritm Resheniya Izobretatelskikh Zadach)"
+  note: "إجراء خطوة بخطوة لحل المشكلات المعقدة"
+
+ideal_final_result:
+  en: "ideal final result (IFR)"
+  ar: "النتيجة النهائية المثالية"
+  definition: "حل مثالي يتحقق فيه الوظيفة المرغوبة دون تأثيرات سلبية"
+  abbreviation: "IFR"
+
+resources:
+  en: "resources"
+  ar: "الموارد"
+  definition: "المواد والمجالات والمساحة والوقت المتاحة التي يمكن استخدامها لحل المشكلة"
+  types: ["موارد المواد", "موارد المجال", "موارد المساحة", "موارد الوقت"]
+
+# Technical System Evolution (تطور النظام التقني)
+technical_system:
+  en: "technical system"
+  ar: "النظام التقني"
+  definition: "نظام اصطناعي تم إنشاؤه لأداء وظيفة محددة"
+  abbreviation: "TS"
+
+evolution_patterns:
+  en: "patterns of evolution"
+  ar: "أنماط التطور"
+  definition: "8 قوانين تصف كيفية تطور الأنظمة التقنية بمرور الوقت"
+  count: 8
+
+s_curve:
+  en: "S-curve"
+  ar: "منحنى S"
+  definition: "نمط تطور النظام عبر مراحل الطفولة والنمو والنضج والانحدار"
+
+ideality:
+  en: "ideality"
+  ar: "المثالية"
+  definition: "نسبة الوظائف المفيدة إلى التأثيرات الضارة والتكاليف"
+  formula: "المثالية = مجموع(الوظائف المفيدة) / (مجموع(التأثيرات الضارة) + مجموع(التكاليف))"
+
+# Problem Solving Terms (مصطلحات حل المشكلات)
+mini_problem:
+  en: "mini-problem"
+  ar: "المشكلة المصغرة"
+  definition: "مشكلة معاد صياغتها تركز على الصراع الأساسي دون إدخال موارد جديدة"
+
+super_effect:
+  en: "super-effect"
+  ar: "التأثير الفائق"
+  definition: "تأثيرات إيجابية ثانوية تتجاوز الحل الرئيسي"
+
+trimming:
+  en: "trimming"
+  ar: "التشذيب"
+  definition: "التبسيط عن طريق إزالة المكونات مع الحفاظ على الوظائف المفيدة"
+
+substance_field_analysis:
+  en: "substance-field analysis (Su-Field)"
+  ar: "تحليل المادة-المجال"
+  definition: "تقنية نمذجة باستخدام المواد والمجالات"
+  abbreviation: "Su-Field"
+
+# Scientific Effects (التأثيرات العلمية)
+scientific_effects:
+  en: "scientific effects"
+  ar: "التأثيرات العلمية"
+  definition: "ظواهر فيزيائية وكيميائية وبيولوجية قابلة للتطبيق على حل المشكلات"
+  categories: ["تأثيرات فيزيائية", "تأثيرات كيميائية", "تأثيرات هندسية", "تأثيرات بيولوجية"]
+
+# Standards (المعايير)
+standards:
+  en: "standards (standard solutions)"
+  ar: "المعايير (الحلول القياسية)"
+  definition: "76 نمطًا قياسيًا لتحويل الأنظمة التقنية"
+  count: 76
+
+# Knowledge Database Terms (مصطلحات قاعدة المعرفة)
+contradiction_matrix:
+  en: "contradiction matrix"
+  ar: "مصفوفة التناقضات"
+  definition: "مصفوفة 39×39 تربط المعاملات المحسنة/المتدهورة بالمبادئ الموصى بها"
+  dimensions: "39×39"
+
+# Process Terms (مصطلحات العملية)
+problem_formulation:
+  en: "problem formulation"
+  ar: "صياغة المشكلة"
+  definition: "تحويل الموقف الأولي إلى بيان مشكلة محدد جيدًا"
+
+operator:
+  en: "operator"
+  ar: "المشغل"
+  definition: "عنصر ينفذ التحويل في نموذج المادة-المجال"
+
+administrative_contradiction:
+  en: "administrative contradiction"
+  ar: "تناقض إداري"
+  definition: "صراع معبر عنه من حيث الإدارة أو المتطلبات التنظيمية"
+
+# Additional Core Terms (مصطلحات أساسية إضافية)
+function:
+  en: "function"
+  ar: "الوظيفة"
+  definition: "الإجراء الذي يؤديه النظام أو المكون"
+  types: ["وظيفة مفيدة", "وظيفة ضارة", "وظيفة غير كافية", "وظيفة مفرطة"]
+
+useful_function:
+  en: "useful function"
+  ar: "وظيفة مفيدة"
+  definition: "إجراء مرغوب فيه يوفر قيمة"
+
+harmful_function:
+  en: "harmful function"
+  ar: "وظيفة ضارة"
+  definition: "إجراء غير مرغوب فيه يسبب آثارًا سلبية"
+
+functional_analysis:
+  en: "functional analysis"
+  ar: "التحليل الوظيفي"
+  definition: "الفحص المنهجي لجميع الوظائف في النظام التقني"
+
+component:
+  en: "component"
+  ar: "المكون"
+  definition: "جزء أو عنصر من النظام التقني"
+
+supersystem:
+  en: "supersystem"
+  ar: "النظام الفوقي"
+  definition: "نظام أعلى مستوى يحتوي على النظام الذي يتم تحليله"
+
+subsystem:
+  en: "subsystem"
+  ar: "النظام الفرعي"
+  definition: "نظام أدنى مستوى موجود داخل النظام الذي يتم تحليله"
+
+# Innovation Terms (مصطلحات الابتكار)
+innovation:
+  en: "innovation"
+  ar: "الابتكار"
+  definition: "تنفيذ حل إبداعي لتحقيق فائدة عملية"
+
+invention:
+  en: "invention"
+  ar: "الاختراع"
+  definition: "حل تقني جديد للمشكلة، قابل للحصول على براءة اختراع عادةً"
+
+inventive_level:
+  en: "inventive level"
+  ar: "مستوى الابتكار"
+  definition: "درجة الإبداع المطلوبة، تتراوح من الروتينية إلى الرائدة"
+  levels: 5
+
+patent:
+  en: "patent"
+  ar: "براءة الاختراع"
+  definition: "الحماية القانونية للاختراع"

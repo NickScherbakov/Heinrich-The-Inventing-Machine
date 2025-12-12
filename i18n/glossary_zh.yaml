@@ -1,0 +1,407 @@
+# Chinese TRIZ Terminology Glossary (中文TRIZ术语表)
+# Heinrich: The Inventing Machine
+# Chinese translations of TRIZ terminology
+
+metadata:
+  language: zh
+  version: "1.0.0"
+  last_updated: "2025-12-12"
+  description: "Chinese TRIZ terminology glossary"
+  based_on: "glossary_en.yaml v1.0.0"
+
+# Core TRIZ Concepts (核心TRIZ概念)
+triz:
+  en: "TRIZ"
+  zh: "ТРИЗ" 
+  definition: "发明问题解决理论（俄语：Teoriya Resheniya Izobretatelskikh Zadach）"
+  note: "由根里奇·阿奇舒勒于1946年创立"
+
+contradiction:
+  en: "contradiction"
+  zh: "矛盾"
+  definition: "系统参数之间的冲突，改善一个参数会恶化另一个参数"
+  types: ["技术矛盾", "物理矛盾"]
+
+technical_contradiction:
+  en: "technical contradiction"
+  zh: "技术矛盾"
+  definition: "改善一个参数会导致另一个参数恶化的冲突"
+  example: "提高速度会增加燃料消耗"
+
+physical_contradiction:
+  en: "physical contradiction"
+  zh: "物理矛盾"
+  definition: "一个参数必须同时具有相反的属性"
+  example: "表面必须既粗糙又光滑"
+
+inventive_principles:
+  en: "inventive principles"
+  zh: "发明原理"
+  definition: "解决矛盾的40个基本模式"
+  count: 40
+
+engineering_parameters:
+  en: "engineering parameters"
+  zh: "工程参数"
+  definition: "描述技术系统的39个标准参数"
+  count: 39
+
+# 40 Inventive Principles (40个发明原理 - 关键选择)
+principle_01_segmentation:
+  en: "segmentation"
+  zh: "分割"
+  number: 1
+  definition: "将物体分成独立的部分"
+  examples: ["模块化家具", "组合沙发", "可更换刀片"]
+
+principle_02_taking_out:
+  en: "taking out (extraction)"
+  zh: "分离（抽取）"
+  number: 2
+  definition: "从物体中分离干扰部分或属性"
+  examples: ["降噪耳机", "脱咖啡因咖啡"]
+
+principle_03_local_quality:
+  en: "local quality"
+  zh: "局部质量"
+  number: 3
+  definition: "使每个部分在最适合其操作的条件下工作"
+  examples: ["非均匀加热", "可变材料密度"]
+
+principle_10_prior_action:
+  en: "prior action (preliminary action)"
+  zh: "预先作用（预先行动）"
+  number: 10
+  definition: "提前全部或部分执行所需的变化"
+  examples: ["预应力混凝土", "灭菌包装"]
+
+principle_13_other_way_round:
+  en: "the other way round (inversion)"
+  zh: "反向作用（反转）"
+  number: 13
+  definition: "反转用于解决问题的行动"
+  examples: ["冷却而非加热", "拉而非推"]
+
+principle_15_dynamics:
+  en: "dynamics (dynamicity)"
+  zh: "动态性"
+  number: 15
+  definition: "使特性可变或在每个阶段达到最优"
+  examples: ["可调节汽车座椅", "可变压缩发动机"]
+
+principle_17_another_dimension:
+  en: "another dimension (dimensionality change)"
+  zh: "维度变化"
+  number: 17
+  definition: "在二维或三维空间中移动物体"
+  examples: ["多层停车场", "阶梯式座位"]
+
+principle_24_intermediary:
+  en: "intermediary (mediator)"
+  zh: "中介（介质）"
+  number: 24
+  definition: "使用中间物体来传递或执行动作"
+  examples: ["起重机吊装重物", "反应中的催化剂"]
+
+principle_28_mechanics_substitution:
+  en: "mechanics substitution"
+  zh: "机械系统替代"
+  number: 28
+  definition: "用感官、光学、声学或其他场替代机械手段"
+  examples: ["触摸屏代替按钮", "激光切割"]
+
+principle_35_parameter_changes:
+  en: "parameter changes (transformation of properties)"
+  zh: "参数变化（性质转换）"
+  number: 35
+  definition: "改变系统的物理或化学状态"
+  examples: ["将水冻成冰", "液体到气体的转换"]
+
+principle_40_composite_materials:
+  en: "composite materials"
+  zh: "复合材料"
+  number: 40
+  definition: "从均匀材料变为复合材料"
+  examples: ["碳纤维复合材料", "钢筋混凝土"]
+
+# 39 Engineering Parameters (39个工程参数 - 关键选择)
+parameter_01_weight_moving:
+  en: "weight of moving object"
+  zh: "运动物体的重量"
+  number: 1
+  definition: "重力场中物体的质量"
+
+parameter_02_weight_stationary:
+  en: "weight of stationary object"
+  zh: "静止物体的重量"
+  number: 2
+  definition: "重力场中非运动物体的质量"
+
+parameter_09_speed:
+  en: "speed"
+  zh: "速度"
+  number: 9
+  definition: "速率；位置变化率"
+
+parameter_10_force:
+  en: "force (intensity of force)"
+  zh: "力（力的强度）"
+  number: 10
+  definition: "物体或场之间的相互作用"
+
+parameter_12_shape:
+  en: "shape"
+  zh: "形状"
+  number: 12
+  definition: "系统的外部轮廓或外观"
+
+parameter_13_stability:
+  en: "stability of object's composition"
+  zh: "物体组成的稳定性"
+  number: 13
+  definition: "系统的完整性，抗变化能力"
+
+parameter_14_strength:
+  en: "strength"
+  zh: "强度"
+  number: 14
+  definition: "在外力作用下抵抗变化的能力"
+
+parameter_15_durability_moving:
+  en: "durability of moving object"
+  zh: "运动物体的耐用性"
+  number: 15
+  definition: "运动物体的使用寿命"
+
+parameter_17_temperature:
+  en: "temperature"
+  zh: "温度"
+  number: 17
+  definition: "物体或系统的热状态"
+
+parameter_19_energy_moving:
+  en: "use of energy by moving object"
+  zh: "运动物体的能量使用"
+  number: 19
+  definition: "运动物体在操作期间消耗的能量"
+
+parameter_21_power:
+  en: "power"
+  zh: "功率"
+  number: 21
+  definition: "能量传递或转换的速率"
+
+parameter_23_loss_substance:
+  en: "loss of substance"
+  zh: "物质损失"
+  number: 23
+  definition: "材料、燃料或其他资源的浪费"
+
+parameter_25_loss_time:
+  en: "loss of time"
+  zh: "时间损失"
+  number: 25
+  definition: "操作期间浪费的时间"
+
+parameter_26_quantity_substance:
+  en: "quantity of substance/matter"
+  zh: "物质/材料的数量"
+  number: 26
+  definition: "物质的数量或数目"
+
+parameter_27_reliability:
+  en: "reliability"
+  zh: "可靠性"
+  number: 27
+  definition: "系统在规定条件下执行预期功能的能力"
+
+parameter_31_harmful_side_effects:
+  en: "object-generated harmful factors"
+  zh: "物体产生的有害因素"
+  number: 31
+  definition: "物体本身产生的有害影响"
+
+parameter_33_ease_operation:
+  en: "ease of operation"
+  zh: "操作便利性"
+  number: 33
+  definition: "使用的简单性和方便性"
+
+parameter_35_adaptability:
+  en: "adaptability or versatility"
+  zh: "适应性或通用性"
+  number: 35
+  definition: "响应外部条件变化的能力"
+
+parameter_36_complexity:
+  en: "device complexity"
+  zh: "设备复杂性"
+  number: 36
+  definition: "元素和关系的数量和多样性"
+
+parameter_39_productivity:
+  en: "productivity"
+  zh: "生产率"
+  number: 39
+  definition: "单位时间内的功能或操作数量"
+
+# ARIZ Methodology Terms (ARIZ方法术语)
+ariz:
+  en: "ARIZ"
+  zh: "ARIZ（发明问题解决算法）"
+  definition: "发明问题解决算法（俄语：Algoritm Resheniya Izobretatelskikh Zadach）"
+  note: "解决复杂问题的逐步程序"
+
+ideal_final_result:
+  en: "ideal final result (IFR)"
+  zh: "理想最终结果"
+  definition: "理想化的解决方案，实现所需功能而无负面影响"
+  abbreviation: "IFR"
+
+resources:
+  en: "resources"
+  zh: "资源"
+  definition: "可用于解决问题的材料、场、空间、时间"
+  types: ["物质资源", "场资源", "空间资源", "时间资源"]
+
+# Technical System Evolution (技术系统进化)
+technical_system:
+  en: "technical system"
+  zh: "技术系统"
+  definition: "为执行特定功能而创建的人工系统"
+  abbreviation: "TS"
+
+evolution_patterns:
+  en: "patterns of evolution"
+  zh: "进化模式"
+  definition: "描述技术系统随时间演变的8条规律"
+  count: 8
+
+s_curve:
+  en: "S-curve"
+  zh: "S曲线"
+  definition: "系统通过婴儿期、成长期、成熟期、衰退期的演化模式"
+
+ideality:
+  en: "ideality"
+  zh: "理想度"
+  definition: "有用功能与有害影响和成本的比率"
+  formula: "理想度 = 总和(有用功能) / (总和(有害影响) + 总和(成本))"
+
+# Problem Solving Terms (问题解决术语)
+mini_problem:
+  en: "mini-problem"
+  zh: "最小问题"
+  definition: "重新表述的问题，专注于本质冲突而不引入新资源"
+
+super_effect:
+  en: "super-effect"
+  zh: "超级效应"
+  definition: "超出主要解决方案的次要积极影响"
+
+trimming:
+  en: "trimming"
+  zh: "裁剪"
+  definition: "通过去除组件同时保留有用功能来简化"
+
+substance_field_analysis:
+  en: "substance-field analysis (Su-Field)"
+  zh: "物质-场分析"
+  definition: "使用物质和场的建模技术"
+  abbreviation: "Su-Field"
+
+# Scientific Effects (科学效应)
+scientific_effects:
+  en: "scientific effects"
+  zh: "科学效应"
+  definition: "适用于问题解决的物理、化学、生物现象"
+  categories: ["物理效应", "化学效应", "几何效应", "生物效应"]
+
+# Standards (标准)
+standards:
+  en: "standards (standard solutions)"
+  zh: "标准（标准解）"
+  definition: "转换技术系统的76种标准模式"
+  count: 76
+
+# Knowledge Database Terms (知识库术语)
+contradiction_matrix:
+  en: "contradiction matrix"
+  zh: "矛盾矩阵"
+  definition: "39×39矩阵，将改善/恶化参数映射到推荐原理"
+  dimensions: "39×39"
+
+# Process Terms (过程术语)
+problem_formulation:
+  en: "problem formulation"
+  zh: "问题表述"
+  definition: "将初始情况转换为明确定义的问题陈述"
+
+operator:
+  en: "operator"
+  zh: "算子"
+  definition: "在物质-场模型中执行转换的元素"
+
+administrative_contradiction:
+  en: "administrative contradiction"
+  zh: "管理矛盾"
+  definition: "以管理或组织要求表达的冲突"
+
+# Additional Core Terms (其他核心术语)
+function:
+  en: "function"
+  zh: "功能"
+  definition: "系统或组件执行的动作"
+  types: ["有用功能", "有害功能", "不足功能", "过度功能"]
+
+useful_function:
+  en: "useful function"
+  zh: "有用功能"
+  definition: "提供价值的期望动作"
+
+harmful_function:
+  en: "harmful function"
+  zh: "有害功能"
+  definition: "引起负面影响的不期望动作"
+
+functional_analysis:
+  en: "functional analysis"
+  zh: "功能分析"
+  definition: "系统性检查技术系统中的所有功能"
+
+component:
+  en: "component"
+  zh: "组件"
+  definition: "技术系统的部分或元素"
+
+supersystem:
+  en: "supersystem"
+  zh: "超系统"
+  definition: "包含被分析系统的更高级系统"
+
+subsystem:
+  en: "subsystem"
+  zh: "子系统"
+  definition: "被分析系统内包含的更低级系统"
+
+# Innovation Terms (创新术语)
+innovation:
+  en: "innovation"
+  zh: "创新"
+  definition: "实施创造性解决方案以实现实际效益"
+
+invention:
+  en: "invention"
+  zh: "发明"
+  definition: "问题的新颖技术解决方案，通常可申请专利"
+
+inventive_level:
+  en: "inventive level"
+  zh: "发明水平"
+  definition: "所需创造力的程度，从常规到开创性"
+  levels: 5
+
+patent:
+  en: "patent"
+  zh: "专利"
+  definition: "发明的法律保护"

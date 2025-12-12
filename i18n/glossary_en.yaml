@@ -1,0 +1,341 @@
+# English TRIZ Terminology Glossary (Canonical Source)
+# Heinrich: The Inventing Machine
+# This is the authoritative English terminology reference for all translations
+
+metadata:
+  language: en
+  version: "1.0.0"
+  last_updated: "2025-12-12"
+  description: "Canonical English TRIZ terminology glossary"
+
+# Core TRIZ Concepts
+triz:
+  en: "TRIZ"
+  definition: "Theory of Inventive Problem Solving (Russian: Teoriya Resheniya Izobretatelskikh Zadach - ТРИЗ)"
+  note: "Created by Genrich Altshuller in 1946"
+
+contradiction:
+  en: "contradiction"
+  definition: "A conflict between system parameters where improving one worsens another"
+  types: ["technical contradiction", "physical contradiction"]
+
+technical_contradiction:
+  en: "technical contradiction"
+  definition: "Conflict where improving one parameter degrades another parameter"
+  example: "Increasing speed increases fuel consumption"
+
+physical_contradiction:
+  en: "physical contradiction"
+  definition: "A parameter must have opposite properties simultaneously"
+  example: "Surface must be rough AND smooth"
+
+inventive_principles:
+  en: "inventive principles"
+  definition: "40 fundamental patterns for solving contradictions"
+  count: 40
+
+engineering_parameters:
+  en: "engineering parameters"
+  definition: "39 standard parameters describing technical systems"
+  count: 39
+
+# 40 Inventive Principles (Key Selections)
+principle_01_segmentation:
+  en: "segmentation"
+  number: 1
+  definition: "Divide an object into independent parts"
+  examples: ["modular furniture", "sectional sofa", "replaceable blade"]
+
+principle_02_taking_out:
+  en: "taking out (extraction)"
+  number: 2
+  definition: "Separate interfering part or property from object"
+  examples: ["noise-canceling headphones", "decaf coffee"]
+
+principle_03_local_quality:
+  en: "local quality"
+  number: 3
+  definition: "Make each part function in conditions most suitable for its operation"
+  examples: ["non-uniform heating", "variable material density"]
+
+principle_10_prior_action:
+  en: "prior action (preliminary action)"
+  number: 10
+  definition: "Perform required changes fully or partially in advance"
+  examples: ["pre-stressed concrete", "sterilized packaging"]
+
+principle_13_other_way_round:
+  en: "the other way round (inversion)"
+  number: 13
+  definition: "Invert the action used to solve the problem"
+  examples: ["cooling instead of heating", "pull instead of push"]
+
+principle_15_dynamics:
+  en: "dynamics (dynamicity)"
+  number: 15
+  definition: "Make characteristics changeable or optimal at each stage"
+  examples: ["adjustable car seat", "variable compression engine"]
+
+principle_17_another_dimension:
+  en: "another dimension (dimensionality change)"
+  number: 17
+  definition: "Move object in two- or three-dimensional space"
+  examples: ["multi-story parking", "tiered seating"]
+
+principle_24_intermediary:
+  en: "intermediary (mediator)"
+  number: 24
+  definition: "Use intermediate object to transfer or carry out action"
+  examples: ["crane to lift heavy objects", "catalyst in reactions"]
+
+principle_28_mechanics_substitution:
+  en: "mechanics substitution"
+  number: 28
+  definition: "Replace mechanical means with sensory, optical, acoustic or other fields"
+  examples: ["touchscreen instead of buttons", "laser cutting"]
+
+principle_35_parameter_changes:
+  en: "parameter changes (transformation of properties)"
+  number: 35
+  definition: "Change physical or chemical state of system"
+  examples: ["freeze water to ice", "liquid to gas conversion"]
+
+principle_40_composite_materials:
+  en: "composite materials"
+  number: 40
+  definition: "Change from uniform to composite materials"
+  examples: ["carbon fiber composites", "reinforced concrete"]
+
+# 39 Engineering Parameters (Key Selections)
+parameter_01_weight_moving:
+  en: "weight of moving object"
+  number: 1
+  definition: "Mass of object in gravitational field"
+
+parameter_02_weight_stationary:
+  en: "weight of stationary object"
+  number: 2
+  definition: "Mass of non-moving object in gravitational field"
+
+parameter_09_speed:
+  en: "speed"
+  number: 9
+  definition: "Velocity; rate of change of position"
+
+parameter_10_force:
+  en: "force (intensity of force)"
+  number: 10
+  definition: "Interaction between bodies or fields"
+
+parameter_12_shape:
+  en: "shape"
+  number: 12
+  definition: "External contours or appearance of system"
+
+parameter_13_stability:
+  en: "stability of object's composition"
+  number: 13
+  definition: "Integrity of system, resistance to change"
+
+parameter_14_strength:
+  en: "strength"
+  number: 14
+  definition: "Ability to resist changing under external forces"
+
+parameter_15_durability_moving:
+  en: "durability of moving object"
+  number: 15
+  definition: "Service life of moving object"
+
+parameter_17_temperature:
+  en: "temperature"
+  number: 17
+  definition: "Thermal condition of object or system"
+
+parameter_19_energy_moving:
+  en: "use of energy by moving object"
+  number: 19
+  definition: "Energy consumed by moving object during operation"
+
+parameter_21_power:
+  en: "power"
+  number: 21
+  definition: "Rate of energy transfer or conversion"
+
+parameter_23_loss_substance:
+  en: "loss of substance"
+  number: 23
+  definition: "Waste of material, fuel, or other resources"
+
+parameter_25_loss_time:
+  en: "loss of time"
+  number: 25
+  definition: "Time wasted during operation"
+
+parameter_26_quantity_substance:
+  en: "quantity of substance/matter"
+  number: 26
+  definition: "Number or amount of substance"
+
+parameter_27_reliability:
+  en: "reliability"
+  number: 27
+  definition: "System's ability to perform intended function under stated conditions"
+
+parameter_31_harmful_side_effects:
+  en: "object-generated harmful factors"
+  number: 31
+  definition: "Harmful effects produced by object itself"
+
+parameter_33_ease_operation:
+  en: "ease of operation"
+  number: 33
+  definition: "Simplicity and convenience of use"
+
+parameter_35_adaptability:
+  en: "adaptability or versatility"
+  number: 35
+  definition: "Ability to respond to changing external conditions"
+
+parameter_36_complexity:
+  en: "device complexity"
+  number: 36
+  definition: "Number and diversity of elements and relationships"
+
+parameter_39_productivity:
+  en: "productivity"
+  number: 39
+  definition: "Number of functions or operations per unit time"
+
+# ARIZ Methodology Terms
+ariz:
+  en: "ARIZ"
+  definition: "Algorithm for Inventive Problem Solving (Russian: Algoritm Resheniya Izobretatelskikh Zadach)"
+  note: "Step-by-step procedure for solving complex problems"
+
+ideal_final_result:
+  en: "ideal final result (IFR)"
+  definition: "Idealized solution where desired function is achieved without negative effects"
+  abbreviation: "IFR"
+
+resources:
+  en: "resources"
+  definition: "Available materials, fields, space, time that can be used for solving problem"
+  types: ["substance resources", "field resources", "space resources", "time resources"]
+
+# Technical System Evolution
+technical_system:
+  en: "technical system"
+  definition: "Artificial system created to perform specific function"
+  abbreviation: "TS"
+
+evolution_patterns:
+  en: "patterns of evolution"
+  definition: "8 laws describing how technical systems evolve over time"
+  count: 8
+
+s_curve:
+  en: "S-curve"
+  definition: "Pattern of system evolution through stages of infancy, growth, maturity, decline"
+
+ideality:
+  en: "ideality"
+  definition: "Ratio of useful functions to harmful effects and costs"
+  formula: "Ideality = Sum(Useful Functions) / (Sum(Harmful Effects) + Sum(Costs))"
+
+# Problem Solving Terms
+mini_problem:
+  en: "mini-problem"
+  definition: "Reformulated problem focusing on essential conflict without introducing new resources"
+
+super_effect:
+  en: "super-effect"
+  definition: "Secondary positive effects beyond main solution"
+
+trimming:
+  en: "trimming"
+  definition: "Simplification by removing components while preserving useful functions"
+
+substance_field_analysis:
+  en: "substance-field analysis (Su-Field)"
+  definition: "Modeling technique using substances and fields"
+  abbreviation: "Su-Field"
+
+# Scientific Effects
+scientific_effects:
+  en: "scientific effects"
+  definition: "Physical, chemical, biological phenomena applicable to problem solving"
+  categories: ["physical effects", "chemical effects", "geometric effects", "biological effects"]
+
+# Standards
+standards:
+  en: "standards (standard solutions)"
+  definition: "76 standard patterns for transforming technical systems"
+  count: 76
+
+# Knowledge Database Terms
+contradiction_matrix:
+  en: "contradiction matrix"
+  definition: "39×39 matrix mapping improving/worsening parameters to recommended principles"
+  dimensions: "39×39"
+
+# Process Terms
+problem_formulation:
+  en: "problem formulation"
+  definition: "Converting initial situation into well-defined problem statement"
+
+operator:
+  en: "operator"
+  definition: "Element that performs transformation in substance-field model"
+
+administrative_contradiction:
+  en: "administrative contradiction"
+  definition: "Conflict expressed in terms of management or organizational requirements"
+
+# Additional Core Terms
+function:
+  en: "function"
+  definition: "Action performed by system or component"
+  types: ["useful function", "harmful function", "insufficient function", "excessive function"]
+
+useful_function:
+  en: "useful function"
+  definition: "Desired action that provides value"
+
+harmful_function:
+  en: "harmful function"
+  definition: "Undesired action that causes negative effects"
+
+functional_analysis:
+  en: "functional analysis"
+  definition: "Systematic examination of all functions in technical system"
+
+component:
+  en: "component"
+  definition: "Part or element of technical system"
+
+supersystem:
+  en: "supersystem"
+  definition: "Higher-level system containing the system being analyzed"
+
+subsystem:
+  en: "subsystem"
+  definition: "Lower-level system contained within system being analyzed"
+
+# Innovation Terms
+innovation:
+  en: "innovation"
+  definition: "Implementation of creative solution to achieve practical benefit"
+
+invention:
+  en: "invention"
+  definition: "Novel technical solution to problem, typically patentable"
+
+inventive_level:
+  en: "inventive level"
+  definition: "Degree of creativity required, ranging from routine to pioneering"
+  levels: 5
+
+patent:
+  en: "patent"
+  definition: "Legal protection for invention"
