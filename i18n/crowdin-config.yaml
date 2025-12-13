@@ -1,0 +1,130 @@
+# Crowdin Configuration for Heinrich: The Inventing Machine
+# Translation Management Configuration
+
+project_id: heinrich-triz
+api_token_env: CROWDIN_API_TOKEN
+
+# Preserve file hierarchy
+preserve_hierarchy: true
+
+# Source files configuration
+files:
+  # TRIZ Glossaries
+  - source: /i18n/glossary_en.yaml
+    translation: /i18n/glossary_%two_letters_code%.yaml
+    languages_mapping:
+      two_letters_code:
+        zh-CN: zh
+        ru: ru
+        ar: ar
+    update_option: update_as_unapproved
+    
+  # Documentation - English to Chinese
+  - source: /docs/en/**/*.md
+    translation: /docs/zh/**/%original_file_name%
+    languages_mapping:
+      two_letters_code:
+        zh-CN: zh
+    update_option: update_as_unapproved
+    ignore:
+      - /docs/en/shared/**
+      
+  # Documentation - English to Russian
+  - source: /docs/en/**/*.md
+    translation: /docs/ru/**/%original_file_name%
+    languages_mapping:
+      two_letters_code:
+        ru: ru
+    update_option: update_as_unapproved
+    ignore:
+      - /docs/en/shared/**
+      
+  # Documentation - English to Arabic
+  - source: /docs/en/**/*.md
+    translation: /docs/ar/**/%original_file_name%
+    languages_mapping:
+      two_letters_code:
+        ar: ar
+    update_option: update_as_unapproved
+    ignore:
+      - /docs/en/shared/**
+      
+  # Main README translations
+  - source: /README.md
+    translation: /README-%two_letters_code%.md
+    languages_mapping:
+      two_letters_code:
+        zh-CN: ZH
+        ru: RU
+        ar: AR
+    update_option: update_as_unapproved
+    
+  # CONTRIBUTING guide translations
+  - source: /CONTRIBUTING.md
+    translation: /CONTRIBUTING-%two_letters_code%.md
+    languages_mapping:
+      two_letters_code:
+        zh-CN: ZH
+        ru: RU
+        ar: AR
+    update_option: update_as_unapproved
+
+# Language codes
+languages:
+  - zh-CN  # Chinese (Simplified)
+  - ru     # Russian
+  - ar     # Arabic
+
+# Translation workflow
+workflow:
+  # Proofreading workflow
+  - translation
+  - proofreading
+
+# Export options
+export_languages:
+  - zh-CN
+  - ru
+  - ar
+
+# Translation memory
+translation_memory:
+  enabled: true
+  
+# Glossary
+glossary:
+  enabled: true
+  source: /i18n/glossary_en.yaml
+  
+# Quality checks
+quality_checks:
+  enabled: true
+  checks:
+    - empty_translations
+    - same_as_source
+    - variables
+    - tags
+    - spaces
+    - punctuation
+
+# Skip untranslatable files
+skip_untranslatable_files: true
+
+# GitHub integration (optional)
+github:
+  # Enable pull request creation for translations
+  pull_requests: true
+  # Branch name pattern for translation updates
+  branch_pattern: "i18n/%language%-updates"
+  # Commit message pattern
+  commit_message: "Update %language% translations"
+  # PR title pattern
+  pr_title: "Translation updates for %language%"
+  # PR description
+  pr_description: |
+    This PR contains updated translations for %language%.
+    
+    Please review and merge.
+    
+    **Language**: %language%
+    **Files updated**: %files_count%

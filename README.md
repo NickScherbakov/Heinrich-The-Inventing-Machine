@@ -6,7 +6,7 @@
 [![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![TRIZ](https://img.shields.io/badge/methodology-TRIZ-green.svg)](https://en.wikipedia.org/wiki/TRIZ)
 
-🌍 **Languages**: [English](README.md) | [中文](docs/zh/README.md) | [Русский](docs/ru/README.md)
+🌍 **Languages**: [English](README.md) | [中文](docs/zh/README.md) | [Русский](docs/ru/README.md) | [العربية](docs/ar/README.md)
 
 ## Overview
 
@@ -19,7 +19,7 @@ Heinrich is an open-source AI engine that combines classical TRIZ (Theory of Inv
 - **Knowledge Base**: Complete 39 parameters, 40 principles, contradiction matrix
 - **Multi-modal Support**: Text problems, technical specifications, patent analysis
 - **Evaluation Suite**: Curated case base with reference solutions
-- **Multilingual**: Full documentation in English, Chinese, and Russian
+- **Multilingual**: Full documentation in English, Chinese, Russian, and Arabic
 - **Ethical AI**: Transparent persona with safety guidelines
 
 ## Getting Started
@@ -211,11 +211,20 @@ Heinrich includes rigorous evaluation capabilities:
 
 ## Multilingual Support
 
-Full documentation and interface support for:
+Full documentation and interface support for **4 languages**:
 
-- **English**: Primary development language
-- **中文 (Chinese)**: Complete translation with technical terminology
-- **Русский (Russian)**: Complete translation honoring TRIZ origins
+- **English (en)**: Primary development language
+- **中文 Chinese (zh)**: Complete translation with technical terminology
+- **Русский Russian (ru)**: Complete translation honoring TRIZ origins
+- **العربية Arabic (ar)**: NEW - Complete translation for Arabic-speaking innovators
+
+All translations include:
+- ✅ TRIZ terminology glossaries (30+ terms each)
+- ✅ Complete documentation structure
+- ✅ RTL (Right-to-Left) support for Arabic
+- ✅ Automated translation synchronization workflows
+
+See [i18n/README.md](i18n/README.md) for translation guidelines and contribution workflow.
 
 ## AI Integration via MCP
 

@@ -1,0 +1,407 @@
+# Russian TRIZ Terminology Glossary (Русский глоссарий терминов ТРИЗ)
+# Heinrich: The Inventing Machine
+# Russian translations of TRIZ terminology - honoring the origins
+
+metadata:
+  language: ru
+  version: "1.0.0"
+  last_updated: "2025-12-12"
+  description: "Russian TRIZ terminology glossary - original language of TRIZ"
+  based_on: "glossary_en.yaml v1.0.0"
+
+# Core TRIZ Concepts (Основные концепции ТРИЗ)
+triz:
+  en: "TRIZ"
+  ru: "ТРИЗ"
+  definition: "Теория Решения Изобретательских Задач"
+  note: "Создана Генрихом Альтшуллером в 1946 году"
+
+contradiction:
+  en: "contradiction"
+  ru: "противоречие"
+  definition: "Конфликт между параметрами системы, при котором улучшение одного ухудшает другой"
+  types: ["техническое противоречие", "физическое противоречие"]
+
+technical_contradiction:
+  en: "technical contradiction"
+  ru: "техническое противоречие"
+  definition: "Конфликт, при котором улучшение одного параметра ухудшает другой параметр"
+  example: "Увеличение скорости увеличивает расход топлива"
+
+physical_contradiction:
+  en: "physical contradiction"
+  ru: "физическое противоречие"
+  definition: "Параметр должен одновременно иметь противоположные свойства"
+  example: "Поверхность должна быть И шероховатой И гладкой"
+
+inventive_principles:
+  en: "inventive principles"
+  ru: "изобретательские принципы"
+  definition: "40 фундаментальных паттернов для решения противоречий"
+  count: 40
+
+engineering_parameters:
+  en: "engineering parameters"
+  ru: "инженерные параметры"
+  definition: "39 стандартных параметров, описывающих технические системы"
+  count: 39
+
+# 40 Inventive Principles (40 изобретательских принципов - ключевые)
+principle_01_segmentation:
+  en: "segmentation"
+  ru: "дробление (принцип дробления)"
+  number: 1
+  definition: "Разделить объект на независимые части"
+  examples: ["модульная мебель", "секционный диван", "сменное лезвие"]
+
+principle_02_taking_out:
+  en: "taking out (extraction)"
+  ru: "вынесение (принцип вынесения)"
+  number: 2
+  definition: "Отделить мешающую часть или свойство от объекта"
+  examples: ["наушники с шумоподавлением", "кофе без кофеина"]
+
+principle_03_local_quality:
+  en: "local quality"
+  ru: "местное качество"
+  number: 3
+  definition: "Сделать так, чтобы каждая часть работала в наиболее подходящих для нее условиях"
+  examples: ["неравномерный нагрев", "переменная плотность материала"]
+
+principle_10_prior_action:
+  en: "prior action (preliminary action)"
+  ru: "предварительное действие"
+  number: 10
+  definition: "Заранее выполнить требуемые изменения полностью или частично"
+  examples: ["предварительно напряженный бетон", "стерилизованная упаковка"]
+
+principle_13_other_way_round:
+  en: "the other way round (inversion)"
+  ru: "наоборот (принцип наоборот)"
+  number: 13
+  definition: "Инвертировать действие, используемое для решения проблемы"
+  examples: ["охлаждение вместо нагрева", "тянуть вместо толкать"]
+
+principle_15_dynamics:
+  en: "dynamics (dynamicity)"
+  ru: "динамичность"
+  number: 15
+  definition: "Сделать характеристики изменяемыми или оптимальными на каждом этапе"
+  examples: ["регулируемое автомобильное сиденье", "двигатель с переменной степенью сжатия"]
+
+principle_17_another_dimension:
+  en: "another dimension (dimensionality change)"
+  ru: "переход в другое измерение"
+  number: 17
+  definition: "Переместить объект в двух- или трехмерное пространство"
+  examples: ["многоуровневая парковка", "ярусные сиденья"]
+
+principle_24_intermediary:
+  en: "intermediary (mediator)"
+  ru: "посредник"
+  number: 24
+  definition: "Использовать промежуточный объект для передачи или выполнения действия"
+  examples: ["кран для подъема тяжелых объектов", "катализатор в реакциях"]
+
+principle_28_mechanics_substitution:
+  en: "mechanics substitution"
+  ru: "замена механической схемы"
+  number: 28
+  definition: "Заменить механические средства сенсорными, оптическими, акустическими или другими полями"
+  examples: ["сенсорный экран вместо кнопок", "лазерная резка"]
+
+principle_35_parameter_changes:
+  en: "parameter changes (transformation of properties)"
+  ru: "изменение параметров (трансформация свойств)"
+  number: 35
+  definition: "Изменить физическое или химическое состояние системы"
+  examples: ["заморозить воду в лед", "превращение жидкости в газ"]
+
+principle_40_composite_materials:
+  en: "composite materials"
+  ru: "композитные материалы"
+  number: 40
+  definition: "Перейти от однородных материалов к композитным"
+  examples: ["композиты из углеродного волокна", "железобетон"]
+
+# 39 Engineering Parameters (39 инженерных параметров - ключевые)
+parameter_01_weight_moving:
+  en: "weight of moving object"
+  ru: "вес движущегося объекта"
+  number: 1
+  definition: "Масса объекта в гравитационном поле"
+
+parameter_02_weight_stationary:
+  en: "weight of stationary object"
+  ru: "вес неподвижного объекта"
+  number: 2
+  definition: "Масса неподвижного объекта в гравитационном поле"
+
+parameter_09_speed:
+  en: "speed"
+  ru: "скорость"
+  number: 9
+  definition: "Скорость; скорость изменения положения"
+
+parameter_10_force:
+  en: "force (intensity of force)"
+  ru: "сила (интенсивность силы)"
+  number: 10
+  definition: "Взаимодействие между телами или полями"
+
+parameter_12_shape:
+  en: "shape"
+  ru: "форма"
+  number: 12
+  definition: "Внешние контуры или внешний вид системы"
+
+parameter_13_stability:
+  en: "stability of object's composition"
+  ru: "стабильность состава объекта"
+  number: 13
+  definition: "Целостность системы, сопротивление изменениям"
+
+parameter_14_strength:
+  en: "strength"
+  ru: "прочность"
+  number: 14
+  definition: "Способность сопротивляться изменениям под действием внешних сил"
+
+parameter_15_durability_moving:
+  en: "durability of moving object"
+  ru: "долговечность движущегося объекта"
+  number: 15
+  definition: "Срок службы движущегося объекта"
+
+parameter_17_temperature:
+  en: "temperature"
+  ru: "температура"
+  number: 17
+  definition: "Тепловое состояние объекта или системы"
+
+parameter_19_energy_moving:
+  en: "use of energy by moving object"
+  ru: "использование энергии движущимся объектом"
+  number: 19
+  definition: "Энергия, потребляемая движущимся объектом во время работы"
+
+parameter_21_power:
+  en: "power"
+  ru: "мощность"
+  number: 21
+  definition: "Скорость передачи или преобразования энергии"
+
+parameter_23_loss_substance:
+  en: "loss of substance"
+  ru: "потеря вещества"
+  number: 23
+  definition: "Отходы материала, топлива или других ресурсов"
+
+parameter_25_loss_time:
+  en: "loss of time"
+  ru: "потеря времени"
+  number: 25
+  definition: "Время, потраченное впустую во время работы"
+
+parameter_26_quantity_substance:
+  en: "quantity of substance/matter"
+  ru: "количество вещества/материи"
+  number: 26
+  definition: "Количество или объем вещества"
+
+parameter_27_reliability:
+  en: "reliability"
+  ru: "надежность"
+  number: 27
+  definition: "Способность системы выполнять предназначенную функцию в заданных условиях"
+
+parameter_31_harmful_side_effects:
+  en: "object-generated harmful factors"
+  ru: "вредные факторы, генерируемые объектом"
+  number: 31
+  definition: "Вредные эффекты, производимые самим объектом"
+
+parameter_33_ease_operation:
+  en: "ease of operation"
+  ru: "удобство эксплуатации"
+  number: 33
+  definition: "Простота и удобство использования"
+
+parameter_35_adaptability:
+  en: "adaptability or versatility"
+  ru: "адаптивность или универсальность"
+  number: 35
+  definition: "Способность реагировать на изменяющиеся внешние условия"
+
+parameter_36_complexity:
+  en: "device complexity"
+  ru: "сложность устройства"
+  number: 36
+  definition: "Количество и разнообразие элементов и отношений"
+
+parameter_39_productivity:
+  en: "productivity"
+  ru: "производительность"
+  number: 39
+  definition: "Количество функций или операций в единицу времени"
+
+# ARIZ Methodology Terms (Термины методологии АРИЗ)
+ariz:
+  en: "ARIZ"
+  ru: "АРИЗ"
+  definition: "Алгоритм Решения Изобретательских Задач"
+  note: "Пошаговая процедура для решения сложных проблем"
+
+ideal_final_result:
+  en: "ideal final result (IFR)"
+  ru: "идеальный конечный результат (ИКР)"
+  definition: "Идеализированное решение, при котором желаемая функция достигается без негативных эффектов"
+  abbreviation: "ИКР"
+
+resources:
+  en: "resources"
+  ru: "ресурсы"
+  definition: "Доступные материалы, поля, пространство, время, которые можно использовать для решения проблемы"
+  types: ["вещественные ресурсы", "полевые ресурсы", "пространственные ресурсы", "временные ресурсы"]
+
+# Technical System Evolution (Эволюция технических систем)
+technical_system:
+  en: "technical system"
+  ru: "техническая система"
+  definition: "Искусственная система, созданная для выполнения определенной функции"
+  abbreviation: "ТС"
+
+evolution_patterns:
+  en: "patterns of evolution"
+  ru: "закономерности эволюции"
+  definition: "8 законов, описывающих, как технические системы эволюционируют со временем"
+  count: 8
+
+s_curve:
+  en: "S-curve"
+  ru: "S-кривая"
+  definition: "Паттерн эволюции системы через стадии зарождения, роста, зрелости, упадка"
+
+ideality:
+  en: "ideality"
+  ru: "идеальность"
+  definition: "Отношение полезных функций к вредным эффектам и затратам"
+  formula: "Идеальность = Сумма(Полезных Функций) / (Сумма(Вредных Эффектов) + Сумма(Затрат))"
+
+# Problem Solving Terms (Термины решения проблем)
+mini_problem:
+  en: "mini-problem"
+  ru: "мини-задача"
+  definition: "Переформулированная проблема, сосредоточенная на существенном конфликте без введения новых ресурсов"
+
+super_effect:
+  en: "super-effect"
+  ru: "супер-эффект"
+  definition: "Вторичные положительные эффекты помимо основного решения"
+
+trimming:
+  en: "trimming"
+  ru: "свертывание"
+  definition: "Упрощение путем удаления компонентов при сохранении полезных функций"
+
+substance_field_analysis:
+  en: "substance-field analysis (Su-Field)"
+  ru: "вещественно-полевой анализ (ВПА)"
+  definition: "Техника моделирования с использованием веществ и полей"
+  abbreviation: "ВПА"
+
+# Scientific Effects (Научные эффекты)
+scientific_effects:
+  en: "scientific effects"
+  ru: "научные эффекты"
+  definition: "Физические, химические, биологические явления, применимые к решению проблем"
+  categories: ["физические эффекты", "химические эффекты", "геометрические эффекты", "биологические эффекты"]
+
+# Standards (Стандарты)
+standards:
+  en: "standards (standard solutions)"
+  ru: "стандарты (стандартные решения)"
+  definition: "76 стандартных паттернов для преобразования технических систем"
+  count: 76
+
+# Knowledge Database Terms (Термины базы знаний)
+contradiction_matrix:
+  en: "contradiction matrix"
+  ru: "матрица противоречий"
+  definition: "Матрица 39×39, сопоставляющая улучшающиеся/ухудшающиеся параметры с рекомендуемыми принципами"
+  dimensions: "39×39"
+
+# Process Terms (Термины процесса)
+problem_formulation:
+  en: "problem formulation"
+  ru: "формулировка проблемы"
+  definition: "Преобразование начальной ситуации в четко определенную постановку проблемы"
+
+operator:
+  en: "operator"
+  ru: "оператор"
+  definition: "Элемент, выполняющий преобразование в вещественно-полевой модели"
+
+administrative_contradiction:
+  en: "administrative contradiction"
+  ru: "административное противоречие"
+  definition: "Конфликт, выраженный в терминах управленческих или организационных требований"
+
+# Additional Core Terms (Дополнительные основные термины)
+function:
+  en: "function"
+  ru: "функция"
+  definition: "Действие, выполняемое системой или компонентом"
+  types: ["полезная функция", "вредная функция", "недостаточная функция", "избыточная функция"]
+
+useful_function:
+  en: "useful function"
+  ru: "полезная функция"
+  definition: "Желаемое действие, обеспечивающее ценность"
+
+harmful_function:
+  en: "harmful function"
+  ru: "вредная функция"
+  definition: "Нежелательное действие, вызывающее негативные эффекты"
+
+functional_analysis:
+  en: "functional analysis"
+  ru: "функциональный анализ"
+  definition: "Систематическое исследование всех функций в технической системе"
+
+component:
+  en: "component"
+  ru: "компонент"
+  definition: "Часть или элемент технической системы"
+
+supersystem:
+  en: "supersystem"
+  ru: "надсистема"
+  definition: "Система более высокого уровня, содержащая анализируемую систему"
+
+subsystem:
+  en: "subsystem"
+  ru: "подсистема"
+  definition: "Система более низкого уровня, содержащаяся в анализируемой системе"
+
+# Innovation Terms (Термины инноваций)
+innovation:
+  en: "innovation"
+  ru: "инновация"
+  definition: "Внедрение творческого решения для достижения практической выгоды"
+
+invention:
+  en: "invention"
+  ru: "изобретение"
+  definition: "Новое техническое решение проблемы, обычно патентоспособное"
+
+inventive_level:
+  en: "inventive level"
+  ru: "уровень изобретательности"
+  definition: "Степень требуемой креативности, от рутинной до пионерской"
+  levels: 5
+
+patent:
+  en: "patent"
+  ru: "патент"
+  definition: "Правовая защита изобретения"

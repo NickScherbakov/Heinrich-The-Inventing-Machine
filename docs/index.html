@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +17,63 @@
             color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            transition: direction 0.3s ease;
+        }
+
+        /* RTL Support for Arabic */
+        html[dir="rtl"] body {
+            font-family: 'Segoe UI', 'Traditional Arabic', 'Arial', sans-serif;
+        }
+
+        /* Language Selector */
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 10px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        html[dir="rtl"] .language-selector {
+            right: auto;
+            left: 20px;
+        }
+
+        .language-selector .lang-label {
+            font-size: 0.85rem;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .language-selector a {
+            text-decoration: none;
+            color: #667eea;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .language-selector a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .language-selector a.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .language-separator {
+            color: #ddd;
         }
 
         .container {
@@ -234,6 +291,18 @@
     </style>
 </head>
 <body>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <span class="lang-label">🌍 Language:</span>
+        <a href="#" onclick="setLanguage('en')" id="lang-en" class="active">EN</a>
+        <span class="language-separator">|</span>
+        <a href="#" onclick="setLanguage('zh')" id="lang-zh">中文</a>
+        <span class="language-separator">|</span>
+        <a href="#" onclick="setLanguage('ru')" id="lang-ru">RU</a>
+        <span class="language-separator">|</span>
+        <a href="#" onclick="setLanguage('ar')" id="lang-ar">العربية</a>
+    </div>
+
     <div class="container">
         <!-- Hero Section -->
         <section class="hero">
@@ -248,7 +317,7 @@
                     <strong>Interpretable AI</strong> with step-by-step reasoning
                 </div>
                 <div class="feature">
-                    <strong>Open Source</strong> & <strong>Multilingual</strong> Support
+                    <strong>Open Source</strong> & <strong>4 Languages</strong> (EN/中文/RU/العربية)
                 </div>
             </div>
         </section>
@@ -349,8 +418,46 @@
     </div>
 
     <script>
-        // Add some interactive effects
+        // Language switching functionality
+        function setLanguage(lang) {
+            // Update active state
+            document.querySelectorAll('.language-selector a').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.getElementById('lang-' + lang).classList.add('active');
+            
+            // Set RTL for Arabic
+            const htmlElement = document.documentElement;
+            if (lang === 'ar') {
+                htmlElement.setAttribute('dir', 'rtl');
+                htmlElement.setAttribute('lang', 'ar');
+            } else {
+                htmlElement.setAttribute('dir', 'ltr');
+                htmlElement.setAttribute('lang', lang);
+            }
+            
+            // Store preference
+            localStorage.setItem('preferredLanguage', lang);
+            
+            // In a full implementation, this would load language-specific content
+            // For now, we'll show an alert
+            const messages = {
+                'en': 'Language set to English. For full documentation, visit docs/en/',
+                'zh': '语言设置为中文。完整文档请访问 docs/zh/',
+                'ru': 'Язык установлен на русский. Полная документация: docs/ru/',
+                'ar': 'تم تعيين اللغة إلى العربية. للوثائق الكاملة، قم بزيارة docs/ar/'
+            };
+            
+            console.log(messages[lang]);
+            
+            return false; // Prevent default link behavior
+        }
+        
+        // Load preferred language on page load
         document.addEventListener('DOMContentLoaded', function() {
+            const preferredLang = localStorage.getItem('preferredLanguage') || 'en';
+            setLanguage(preferredLang);
+            
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {

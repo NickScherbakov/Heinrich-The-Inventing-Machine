@@ -23,9 +23,8 @@ heinrich/
 │   │   ├── README.md
 │   │   ├── triz-basics.md
 │   │   ├── architecture.md
-│   │   ├── ariz-flow.md
-│   │   ├── evaluation.md
-│   │   └── ethics.md
+│   │   ├── installation.md
+│   │   └── api-reference.md
 │   ├── zh/                          # Chinese documentation
 │   │   ├── README.md
 │   │   ├── triz-basics.md
@@ -34,10 +33,14 @@ heinrich/
 │   │   ├── README.md
 │   │   ├── triz-basics.md
 │   │   └── ...
-│   └── shared/                      # Language-agnostic assets
-│       ├── images/
-│       ├── diagrams/
-│       └── examples/
+│   ├── ar/                          # Arabic documentation (NEW)
+│   │   ├── README.md
+│   │   ├── triz-basics.md
+│   │   └── ...
+│   ├── shared/                      # Language-agnostic assets
+│   │   ├── images/
+│   │   └── diagrams/
+│   └── index.html                   # Landing page with 4-language selector
 │
 ├── heinrich/                        # Main Python package
 │   ├── __init__.py
@@ -184,12 +187,14 @@ heinrich/
 │   ├── glossary_en.yaml         # English terminology (canonical)
 │   ├── glossary_zh.yaml         # Chinese terminology
 │   ├── glossary_ru.yaml         # Russian terminology
+│   ├── glossary_ar.yaml         # Arabic terminology (NEW)
 │   ├── templates/               # Translation templates
 │   │   ├── README_template.md
 │   │   ├── docs_template.md
 │   │   └── help_template.md
 │   ├── crowdin-config.yaml      # Translation management config
-│   └── sync_translations.py     # Translation synchronization script
+│   ├── sync_translations.py     # Translation synchronization script
+│   └── README.md                # i18n documentation
 │
 ├── scripts/                     # Utility scripts
 │   ├── setup_dev_environment.sh # Development environment setup
@@ -251,8 +256,9 @@ heinrich/
 - Human-readable intermediate outputs
 
 ### 3. Multilingual First
-- Three-language parity from day one
+- Four-language parity from day one (English, Chinese, Russian, Arabic)
 - Consistent terminology across languages
+- RTL support for Arabic
 - Cultural adaptation where appropriate
 
 ### 4. TRIZ Methodology Fidelity
