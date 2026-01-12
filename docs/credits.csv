@@ -1,0 +1,5 @@
+Credit name,Status,Currency,Percent remaining,Remaining value,Original value,Type,Credit ID,Scope,Start date,End date,Credit application type
+Free Trial,Expired,$,100,300.00,300.00,One-time,FreeTrial:Credit-01AE47-E8D746-F8E009,Certain usage; see the terms for free trial.,2025-12-19,2025-12-19,Net pricing,
+Trial for service cloudaicompanion.googleapis.com,Expiring in 27 days,$,99.85921078947369,1138.40,1140.00,One-time,a940439f-007e-431e-9bdf-91cf50d7ff1b,"Following SKUs.,Gemini Code Assist monthly subscription (services/719A-983F-202D/skus/902A-4EC8-AB87),Gemini Code Assist Enterprise monthly subscription (services/719A-983F-202D/skus/B0A0-018B-6B14)",2026-01-10,2026-02-09,Net pricing,
+Free Trial,Available,$,93.398983,280.20,300.00,One-time,FreeTrialUpgrade:CreditId-FreeTrial:Credit-01AE47-E8D746-F8E009,Certain usage; see the terms for free trial.,2025-12-19,2026-03-20,Net pricing,
+Trial credit for GenAI App Builder,Available,$,100,1000.00,1000.00,One-time,08286385eec86240c9ec8fedaba71fc412311ed062f3bef9159147528ce8d1f5,Certain usage; see the terms of the promotion for details.,2025-12-30,2026-12-30,Net pricing,
