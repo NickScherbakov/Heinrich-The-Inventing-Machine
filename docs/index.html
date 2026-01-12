@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heinrich: The Inventing Machine - Where TRIZ Meets AI</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,1210 +12,413 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #1f2937;
-            background: linear-gradient(135deg, #faf5ff 0%, #eff6ff 50%, #fef2f2 100%);
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            overflow-x: hidden;
+            transition: direction 0.3s ease;
         }
 
-        /* RTL Support */
+        /* RTL Support for Arabic */
         html[dir="rtl"] body {
-            font-family: 'Inter', 'Traditional Arabic', 'Arial', sans-serif;
+            font-family: 'Segoe UI', 'Traditional Arabic', 'Arial', sans-serif;
         }
 
-        /* Animated background */
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .bg-circle {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.3;
-            animation: float 20s infinite ease-in-out;
-        }
-
-        .bg-circle-1 {
-            width: 400px;
-            height: 400px;
-            background: linear-gradient(135deg, #9333ea 0%, #3b82f6 100%);
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .bg-circle-2 {
-            width: 500px;
-            height: 500px;
-            background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
-            bottom: 10%;
-            right: 10%;
-            animation-delay: 5s;
-        }
-
-        .bg-circle-3 {
-            width: 350px;
-            height: 350px;
-            background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
-            top: 50%;
-            right: 20%;
-            animation-delay: 10s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(30px, -30px) scale(1.1); }
-            66% { transform: translate(-20px, 20px) scale(0.9); }
-        }
-
-        /* Navbar */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(156, 163, 175, 0.2);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-            animation: slideDown 0.6s ease-out;
-        }
-
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .nav-container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #9333ea 0%, #3b82f6 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 800;
-            font-size: 1.25rem;
-            box-shadow: 0 4px 6px rgba(147, 51, 234, 0.25);
-        }
-
-        .logo-text {
-            font-size: 1.25rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #9333ea 0%, #3b82f6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
+        /* Language Selector */
         .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 10px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             display: flex;
+            gap: 15px;
             align-items: center;
-            gap: 0.75rem;
-            background: rgba(243, 244, 246, 0.8);
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
         }
 
-        .lang-icon {
-            color: #9333ea;
-            font-size: 1rem;
+        html[dir="rtl"] .language-selector {
+            right: auto;
+            left: 20px;
+        }
+
+        .language-selector .lang-label {
+            font-size: 0.85rem;
+            color: #667eea;
+            font-weight: bold;
         }
 
         .language-selector a {
             text-decoration: none;
-            color: #6b7280;
+            color: #667eea;
             font-weight: 600;
-            padding: 0.25rem 0.75rem;
-            border-radius: 12px;
-            transition: all 0.2s ease;
-            font-size: 0.875rem;
-            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
         }
 
         .language-selector a:hover {
-            background: rgba(147, 51, 234, 0.1);
-            color: #9333ea;
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
         }
 
         .language-selector a.active {
-            background: #9333ea;
+            background: #667eea;
             color: white;
-            box-shadow: 0 2px 4px rgba(147, 51, 234, 0.25);
         }
 
-        .lang-separator {
-            color: #d1d5db;
+        .language-separator {
+            color: #ddd;
         }
 
-        /* Hero Section */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
         .hero {
-            padding: 10rem 2rem 5rem;
             text-align: center;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-icon {
-            display: inline-block;
-            background: linear-gradient(135deg, #9333ea 0%, #3b82f6 100%);
-            padding: 1rem;
-            border-radius: 1.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 40px rgba(147, 51, 234, 0.3);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .hero-icon svg {
-            width: 48px;
-            height: 48px;
+            padding: 80px 20px;
             color: white;
+            background: rgba(0,0,0,0.1);
+            border-radius: 20px;
+            margin-bottom: 60px;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #9333ea 0%, #3b82f6 50%, #ec4899 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.1;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .hero p {
-            font-size: 1.25rem;
-            color: #4b5563;
-            max-width: 900px;
-            margin: 0 auto 3rem;
-            line-height: 1.8;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(147, 51, 234, 0.1);
-            border-radius: 1.5rem;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.8s ease-out both;
-        }
-
-        .feature-card:nth-child(1) { animation-delay: 0.4s; }
-        .feature-card:nth-child(2) { animation-delay: 0.5s; }
-        .feature-card:nth-child(3) { animation-delay: 0.6s; }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(147, 51, 234, 0.15);
-        }
-
-        .feature-icon {
-            display: inline-block;
-            padding: 0.75rem;
-            border-radius: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-card:nth-child(1) .feature-icon {
-            background: linear-gradient(135deg, #ede9fe, #ddd6fe);
-        }
-
-        .feature-card:nth-child(2) .feature-icon {
-            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-        }
-
-        .feature-card:nth-child(3) .feature-icon {
-            background: linear-gradient(135deg, #fce7f3, #fbcfe8);
-        }
-
-        .feature-icon svg {
-            width: 24px;
-            height: 24px;
-        }
-
-        .feature-card h3 {
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: #1f2937;
-            margin-bottom: 0.5rem;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Portrait Section */
-        .portrait-section {
-            padding: 5rem 2rem;
-            animation: fadeInUp 0.8s ease-out both;
-        }
-
-        .portrait-card {
-            background: white;
-            border-radius: 2rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-            display: grid;
-            grid-template-columns: 2fr 3fr;
-            gap: 0;
-        }
-
-        .portrait-image {
-            position: relative;
-            min-height: 600px;
-            background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(59, 130, 246, 0.1));
-        }
-
-        .portrait-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .portrait-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-            padding: 2rem;
-            color: white;
-        }
-
-        .portrait-caption h3 {
-            font-size: 1.125rem;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-        }
-
-        .portrait-caption p {
-            font-size: 0.875rem;
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
             opacity: 0.9;
         }
 
-        .portrait-content {
-            padding: 3rem;
+        .portrait-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        .portrait-content h2 {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #1f2937;
-            margin-bottom: 2rem;
+        .portrait-container {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 40px;
+            flex-wrap: wrap;
         }
 
-        .portrait-content h2::before {
-            content: '🏆';
-            font-size: 1.5rem;
-        }
-
-        .portrait-content p {
-            color: #4b5563;
-            margin-bottom: 1.25rem;
-            font-size: 1.0625rem;
-            line-height: 1.8;
-        }
-
-        .quote-box {
-            border-left: 4px solid #9333ea;
-            background: linear-gradient(135deg, #faf5ff, #f3e8ff);
-            padding: 1.5rem;
-            border-radius: 0 1rem 1rem 0;
-            margin: 1.5rem 0;
-            font-style: italic;
-            font-size: 1.125rem;
-            color: #7c3aed;
-            font-weight: 600;
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, #dbeafe, #ede9fe);
-            padding: 1.5rem;
-            border-radius: 1rem;
-            margin: 1.5rem 0;
-        }
-
-        .highlight-box strong {
-            color: #7c3aed;
-        }
-
-        /* Goals Section */
-        .goals-section {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
-        }
-
-        .goals-section h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
+        .portrait {
+            flex: 0 0 300px;
             text-align: center;
-            margin-bottom: 4rem;
-            background: linear-gradient(135deg, #9333ea 0%, #3b82f6 50%, #ec4899 100%);
+        }
+
+        .portrait img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+
+        .story {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .story h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .story p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-weight: bold;
+        }
+
+        .project-goals {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 20px;
+            padding: 50px 40px;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .project-goals h2 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
         }
 
         .goals-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
 
         .goal-card {
             background: white;
-            border-radius: 1.5rem;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
 
         .goal-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(147, 51, 234, 0.15);
-        }
-
-        .goal-icon {
-            display: inline-block;
-            background: linear-gradient(135deg, #9333ea, #3b82f6);
-            padding: 1rem;
-            border-radius: 1rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 8px 20px rgba(147, 51, 234, 0.25);
-        }
-
-        .goal-icon svg {
-            width: 32px;
-            height: 32px;
-            color: white;
+            transform: translateY(-5px);
         }
 
         .goal-card h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #1f2937;
-            margin-bottom: 1rem;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
         }
 
-        .goal-card p {
-            color: #6b7280;
-            line-height: 1.7;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 5rem 2rem;
-        }
-
-        .cta-card {
-            position: relative;
-            background: linear-gradient(135deg, #fb923c 0%, #ec4899 50%, #9333ea 100%);
-            border-radius: 2rem;
-            padding: 4rem;
-            color: white;
+        .call-to-action {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 20px;
+            padding: 60px 40px;
             text-align: center;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(147, 51, 234, 0.3);
+            color: #333;
         }
 
-        .cta-bg-decoration {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            filter: blur(60px);
-        }
-
-        .cta-bg-1 {
-            width: 300px;
-            height: 300px;
-            top: -100px;
-            right: -100px;
-        }
-
-        .cta-bg-2 {
-            width: 400px;
-            height: 400px;
-            bottom: -150px;
-            left: -150px;
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta-icon {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            padding: 1rem;
-            border-radius: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .cta-icon svg {
-            width: 48px;
-            height: 48px;
-        }
-
-        .cta-section h2 {
+        .call-to-action h2 {
             font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
         }
 
-        .cta-section p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            max-width: 800px;
+        .call-to-action p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .contributions-list {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 1.5rem;
-            padding: 2rem;
-            margin: 2rem auto 3rem;
-            max-width: 700px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-        }
-
-        .contribution-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-weight: 500;
-        }
-
-        .contribution-item::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: white;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
         .cta-buttons {
             display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
+            gap: 20px;
             justify-content: center;
-            margin-bottom: 3rem;
+            flex-wrap: wrap;
         }
 
         .cta-btn {
-            padding: 1rem 2rem;
-            border-radius: 9999px;
-            font-weight: 700;
-            font-size: 1.0625rem;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .cta-btn-primary {
-            background: white;
-            color: #9333ea;
-        }
-
-        .cta-btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .cta-btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .cta-quote {
-            border-top: 1px solid rgba(255, 255, 255, 0.3);
-            padding-top: 2rem;
-            font-style: italic;
-            opacity: 0.9;
-        }
-
-        .cta-quote p:first-child {
-            font-size: 1.125rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .cta-quote p:last-child {
-            font-size: 0.875rem;
-            opacity: 0.75;
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, #1f2937 0%, #7c3aed 100%);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-logo-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, #a78bfa, #60a5fa);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 1.5rem;
-        }
-
-        .footer-logo-text {
-            font-size: 1.875rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #a78bfa, #60a5fa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .footer-tagline {
-            font-size: 1.125rem;
-            opacity: 0.9;
-            font-style: italic;
-            margin-bottom: 2rem;
-        }
-
-        .footer-divider {
-            width: 96px;
-            height: 4px;
-            background: linear-gradient(135deg, #a78bfa, #60a5fa);
-            margin: 0 auto 2rem;
-            border-radius: 9999px;
-        }
-
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-link {
-            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            transition: color 0.2s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            display: inline-block;
         }
 
-        .footer-link:hover {
+        .cta-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
         }
 
-        .footer-made-with {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 1rem;
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
         }
 
-        .heart {
-            color: #ef4444;
-            animation: heartbeat 1.5s infinite;
+        .cta-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
         }
 
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            10% { transform: scale(1.2); }
-            20% { transform: scale(1); }
+        .cta-secondary:hover {
+            background: #667eea;
+            color: white;
         }
 
-        .footer-copyright {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.875rem;
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
         }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .portrait-card {
-                grid-template-columns: 1fr;
-            }
-
-            .portrait-image {
-                min-height: 400px;
-            }
+        .feature {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
         }
 
         @media (max-width: 768px) {
-            .hero {
-                padding: 8rem 1rem 3rem;
-            }
-
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
-            .hero p {
-                font-size: 1rem;
+            .portrait-container {
+                flex-direction: column;
+                text-align: center;
             }
 
-            .features-grid,
             .goals-grid {
                 grid-template-columns: 1fr;
             }
 
-            .portrait-content {
-                padding: 2rem;
-            }
-
-            .portrait-content h2 {
-                font-size: 1.5rem;
-            }
-
-            .goals-section h2,
-            .cta-section h2 {
-                font-size: 1.875rem;
-            }
-
-            .cta-card {
-                padding: 2.5rem 1.5rem;
-            }
-
             .cta-buttons {
                 flex-direction: column;
-            }
-
-            .contributions-list {
-                grid-template-columns: 1fr;
+                align-items: center;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Background Animation -->
-    <div class="bg-animation">
-        <div class="bg-circle bg-circle-1"></div>
-        <div class="bg-circle bg-circle-2"></div>
-        <div class="bg-circle bg-circle-3"></div>
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <span class="lang-label">🌍 Language:</span>
+        <a href="#" onclick="setLanguage('en')" id="lang-en" class="active">EN</a>
+        <span class="language-separator">|</span>
+        <a href="#" onclick="setLanguage('zh')" id="lang-zh">中文</a>
+        <span class="language-separator">|</span>
+        <a href="#" onclick="setLanguage('ru')" id="lang-ru">RU</a>
+        <span class="language-separator">|</span>
+        <a href="#" onclick="setLanguage('ar')" id="lang-ar">العربية</a>
     </div>
 
-    <!-- Navbar -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">
-                <div class="logo-icon">H</div>
-                <span class="logo-text">Heinrich</span>
-            </div>
-            <div class="language-selector">
-                <span class="lang-icon">🌍</span>
-                <a onclick="setLanguage('en')" id="lang-en" class="active">EN</a>
-                <span class="lang-separator">|</span>
-                <a onclick="setLanguage('zh')" id="lang-zh">中文</a>
-                <span class="lang-separator">|</span>
-                <a onclick="setLanguage('ru')" id="lang-ru">RU</a>
-                <span class="lang-separator">|</span>
-                <a onclick="setLanguage('ar')" id="lang-ar">عربي</a>
-            </div>
-        </div>
-    </nav>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>🚀 Heinrich: The Inventing Machine</h1>
+            <p>Where the genius of Genrich Altshuller's TRIZ methodology meets the power of modern AI to revolutionize inventive problem-solving</p>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-        </div>
-        <h1 data-i18n="hero.title">Heinrich: The Inventing Machine</h1>
-        <p data-i18n="hero.subtitle">Where the genius of Genrich Altshuller's TRIZ methodology meets the power of modern AI to revolutionize inventive problem-solving</p>
+            <div class="features">
+                <div class="feature">
+                    <strong>39 TRIZ Parameters</strong> × <strong>40 Inventive Principles</strong>
+                </div>
+                <div class="feature">
+                    <strong>Interpretable AI</strong> with step-by-step reasoning
+                </div>
+                <div class="feature">
+                    <strong>Open Source</strong> & <strong>4 Languages</strong> (EN/中文/RU/العربية)
+                </div>
+            </div>
+        </section>
 
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#9333ea">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                    </svg>
+        <!-- Portrait and Story Section -->
+        <section class="portrait-section">
+            <div class="portrait-container">
+                <div class="portrait">
+                <img src="Author.jpg"
+                         alt="Genrich Altshuller - Creator of TRIZ">
+                    <p><em>Genrich Altshuller (1926-1998)<br>Creator of TRIZ Methodology</em></p>
                 </div>
-                <h3 data-i18n="hero.feature1"><strong>39</strong> TRIZ Parameters × <strong>40</strong> Inventive Principles</h3>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#3b82f6">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                    </svg>
-                </div>
-                <h3 data-i18n="hero.feature2">Interpretable AI with step-by-step reasoning</h3>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#ec4899">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                    </svg>
-                </div>
-                <h3 data-i18n="hero.feature3">Open Source & 4 Languages (EN/中文/RU/عربي)</h3>
-            </div>
-        </div>
-    </section>
+                <div class="story">
+                    <h2>🏆 The Man Who Cracked the Code of Invention</h2>
 
-    <!-- Portrait Section -->
-    <section class="portrait-section">
-        <div class="container">
-            <div class="portrait-card">
-                <div class="portrait-image">
-                    <img src="Author.jpg" alt="Genrich Altshuller - Creator of TRIZ">
-                    <div class="portrait-caption">
-                        <h3 data-i18n="portrait.name">Genrich Altshuller (1926-1998)</h3>
-                        <p data-i18n="portrait.role">Creator of TRIZ Methodology</p>
-                    </div>
-                </div>
-                <div class="portrait-content">
-                    <h2 data-i18n="portrait.title">The Man Who Cracked the Code of Invention</h2>
-                    <p data-i18n="portrait.intro">Imagine a young engineer in Soviet-era Baku, surrounded by patents and inventions, asking himself:</p>
-                    <div class="quote-box">
-                        <span data-i18n="portrait.question">"Is there a pattern to breakthrough innovations?"</span>
-                    </div>
-                    <p data-i18n="portrait.p1">This was <strong>Genrich Altshuller</strong> in 1946. Working as a patent clerk in the Caspian Navy, he analyzed over 200,000 patents and discovered that <em>true inventions follow predictable patterns</em>.</p>
-                    <div class="highlight-box">
-                        <p data-i18n="portrait.discovery"><strong>His discovery?</strong> The TRIZ methodology - a systematic approach that revealed <strong>39 engineering parameters</strong> and <strong>40 inventive principles</strong> that could solve <em>any</em> technical contradiction.</p>
-                    </div>
-                    <p data-i18n="portrait.p2">But Altshuller's journey wasn't easy. He was imprisoned for sharing his ideas with Stalin, yet continued developing TRIZ behind bars. After his release, he became a science fiction writer under the pseudonym "Genrich Altov," weaving inventive concepts into stories that inspired generations.</p>
-                    <p data-i18n="portrait.legacy"><strong>Today, Heinrich honors Altshuller's legacy</strong> by combining his systematic TRIZ methodology with cutting-edge AI, creating an "Inventing Machine" that makes breakthrough innovation accessible to all.</p>
+                    <p>Imagine a young engineer in Soviet-era Baku, surrounded by patents and inventions, asking himself: <strong>"Is there a pattern to breakthrough innovations?"</strong></p>
+
+                    <p>This was <strong class="highlight">Genrich Altshuller</strong> in 1946. Working as a patent clerk in the Caspian Navy, he analyzed over 200,000 patents and discovered that <em>true inventions follow predictable patterns</em>.</p>
+
+                    <p>His discovery? The <strong>TRIZ methodology</strong> - a systematic approach that revealed <em>39 engineering parameters</em> and <em>40 inventive principles</em> that could solve <em>any</em> technical contradiction.</p>
+
+                    <p>But Altshuller's journey wasn't easy. He was imprisoned for sharing his ideas with Stalin, yet continued developing TRIZ behind bars. After his release, he became a science fiction writer under the pseudonym "Genrich Altov," weaving inventive concepts into stories that inspired generations.</p>
+
+                    <p>Today, Heinrich honors Altshuller's legacy by combining his systematic TRIZ methodology with cutting-edge AI, creating an <strong>"Inventing Machine"</strong> that makes breakthrough innovation accessible to all.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Goals Section -->
-    <section class="goals-section">
-        <div class="container">
-            <h2 data-i18n="goals.title">🎯 Our Mission: Democratize Systematic Innovation</h2>
+        <!-- Project Goals Section -->
+        <section class="project-goals">
+            <h2>🎯 Our Mission: Democratize Systematic Innovation</h2>
+
             <div class="goals-grid">
                 <div class="goal-card">
-                    <div class="goal-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                        </svg>
-                    </div>
-                    <h3 data-i18n="goals.goal1.title">🤖 AI-Powered TRIZ Engine</h3>
-                    <p data-i18n="goals.goal1.desc">Build an interpretable AI system that applies TRIZ methodology systematically, making Altshuller's genius accessible through natural language processing.</p>
+                    <h3>🤖 AI-Powered TRIZ Engine</h3>
+                    <p>Build an interpretable AI system that applies TRIZ methodology systematically, making Altshuller's genius accessible through natural language processing.</p>
                 </div>
+
                 <div class="goal-card">
-                    <div class="goal-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                        </svg>
-                    </div>
-                    <h3 data-i18n="goals.goal2.title">📚 Complete Knowledge Base</h3>
-                    <p data-i18n="goals.goal2.desc">Implement the full TRIZ toolkit: 39 parameters, 40 principles, contradiction matrix, scientific effects, and evolution patterns in multiple languages.</p>
+                    <h3>📚 Complete Knowledge Base</h3>
+                    <p>Implement the full TRIZ toolkit: 39 parameters, 40 principles, contradiction matrix, scientific effects, and evolution patterns in multiple languages.</p>
                 </div>
+
                 <div class="goal-card">
-                    <div class="goal-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                    <h3 data-i18n="goals.goal3.title">🔬 Scientific Rigor</h3>
-                    <p data-i18n="goals.goal3.desc">Create evaluation frameworks and case studies that validate AI-generated solutions against classical TRIZ methodology and expert review.</p>
+                    <h3>🔬 Scientific Rigor</h3>
+                    <p>Create evaluation frameworks and case studies that validate AI-generated solutions against classical TRIZ methodology and expert review.</p>
                 </div>
+
                 <div class="goal-card">
-                    <div class="goal-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                        </svg>
-                    </div>
-                    <h3 data-i18n="goals.goal4.title">🌍 Open Source Community</h3>
-                    <p data-i18n="goals.goal4.desc">Build a global community of innovators, engineers, and AI researchers contributing to the evolution of systematic problem-solving.</p>
+                    <h3>🌍 Open Source Community</h3>
+                    <p>Build a global community of innovators, engineers, and AI researchers contributing to the evolution of systematic problem-solving.</p>
                 </div>
+
                 <div class="goal-card">
-                    <div class="goal-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                    </div>
-                    <h3 data-i18n="goals.goal5.title">⚡ Practical Impact</h3>
-                    <p data-i18n="goals.goal5.desc">Enable engineers, entrepreneurs, and organizations to solve complex technical challenges faster and more creatively than ever before.</p>
+                    <h3>⚡ Practical Impact</h3>
+                    <p>Enable engineers, entrepreneurs, and organizations to solve complex technical challenges faster and more creatively than ever before.</p>
                 </div>
+
                 <div class="goal-card">
-                    <div class="goal-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                        </svg>
-                    </div>
-                    <h3 data-i18n="goals.goal6.title">🎓 Educational Excellence</h3>
-                    <p data-i18n="goals.goal6.desc">Make TRIZ methodology accessible through AI mentorship, preserving Altshuller's teaching philosophy for future generations.</p>
+                    <h3>🎓 Educational Excellence</h3>
+                    <p>Make TRIZ methodology accessible through AI mentorship, preserving Altshuller's teaching philosophy for future generations.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-card">
-                <div class="cta-bg-decoration cta-bg-1"></div>
-                <div class="cta-bg-decoration cta-bg-2"></div>
-                <div class="cta-content">
-                    <div class="cta-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                        </svg>
-                    </div>
-                    <h2 data-i18n="cta.title">🚀 Ready to Join the Innovation Revolution?</h2>
-                    <p data-i18n="cta.subtitle"><strong>Heinrich needs YOUR expertise!</strong> Whether you're a TRIZ practitioner, AI researcher, domain expert, or passionate innovator, there's a place for you in our quest to build the ultimate inventing machine.</p>
-                    
-                    <p data-i18n="cta.seeking" style="font-weight: 600; margin-top: 2rem;">We're seeking contributors who can help us:</p>
-                    
-                    <div class="contributions-list">
-                        <div class="contribution-item"><span data-i18n="cta.contrib1">Add case studies from your industry domain</span></div>
-                        <div class="contribution-item"><span data-i18n="cta.contrib2">Improve AI reasoning for specific challenges</span></div>
-                        <div class="contribution-item"><span data-i18n="cta.contrib3">Expand multilingual TRIZ terminology</span></div>
-                        <div class="contribution-item"><span data-i18n="cta.contrib4">Build evaluation frameworks</span></div>
-                        <div class="contribution-item"><span data-i18n="cta.contrib5">Create educational content</span></div>
-                    </div>
+        <!-- Call to Action Section -->
+        <section class="call-to-action">
+            <h2>🚀 Ready to Join the Innovation Revolution?</h2>
+            <p><strong>Heinrich needs YOUR expertise!</strong> Whether you're a TRIZ practitioner, AI researcher, domain expert, or passionate innovator, there's a place for you in our quest to build the ultimate inventing machine.</p>
 
-                    <div class="cta-buttons">
-                        <a href="https://github.com/NickScherbakov/Heinrich-The-Inventing-Machine" class="cta-btn cta-btn-primary" target="_blank">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px;">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                            </svg>
-                            <span data-i18n="cta.btn1">🌟 Contribute on GitHub</span>
-                        </a>
-                        <a href="https://github.com/NickScherbakov/Heinrich-The-Inventing-Machine/blob/main/README.md" class="cta-btn cta-btn-secondary" target="_blank">
-                            <span data-i18n="cta.btn2">📖 Explore Documentation</span>
-                        </a>
-                        <a href="https://github.com/NickScherbakov/Heinrich-The-Inventing-Machine/issues" class="cta-btn cta-btn-primary" target="_blank">
-                            <span data-i18n="cta.btn3">💬 Join Our Community</span>
-                        </a>
-                    </div>
+            <p>We're seeking contributors who can help us:</p>
 
-                    <div class="cta-quote">
-                        <p data-i18n="cta.quote">"The best problems are those that seem impossible to solve... until you find the right principle."</p>
-                        <p data-i18n="cta.author">— Inspired by Genrich Altshuller's TRIZ methodology</p>
-                    </div>
-                </div>
+            <div style="text-align: left; max-width: 500px; margin: 0 auto 40px; background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px;">
+                <p>✨ <strong>Add case studies</strong> from your industry domain</p>
+                <p>🔧 <strong>Improve AI reasoning</strong> for specific technical challenges</p>
+                <p>🌐 <strong>Expand multilingual</strong> TRIZ terminology</p>
+                <p>📊 <strong>Build evaluation</strong> frameworks and benchmarks</p>
+                <p>🎨 <strong>Create educational</strong> content and tutorials</p>
             </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-logo">
-                <div class="footer-logo-icon">H</div>
-                <span class="footer-logo-text">Heinrich</span>
-            </div>
-            <p class="footer-tagline" data-i18n="footer.tagline">Where systematic invention meets artificial intelligence</p>
-            <div class="footer-divider"></div>
-            <div class="footer-links">
-                <a href="https://github.com/NickScherbakov/Heinrich-The-Inventing-Machine" class="footer-link" target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px;">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                    <span data-i18n="footer.github">View on GitHub</span>
+            <div class="cta-buttons">
+                <a href="https://github.com/NickScherbakov/Heinrich-The-Inventing-Machine" class="cta-btn cta-primary" target="_blank">
+                    🌟 Contribute on GitHub
                 </a>
-                <span style="color: rgba(255, 255, 255, 0.4);">•</span>
-                <span style="color: rgba(255, 255, 255, 0.7);" data-i18n="footer.license">Licensed under Apache 2.0</span>
+                <a href="https://github.com/NickScherbakov/Heinrich-The-Inventing-Machine/blob/main/README.md" class="cta-btn cta-secondary" target="_blank">
+                    📖 Explore Documentation
+                </a>
+                <a href="https://github.com/NickScherbakov/Heinrich-The-Inventing-Machine/issues" class="cta-btn cta-primary" target="_blank">
+                    💬 Join Our Community
+                </a>
             </div>
-            <div class="footer-made-with">
-                <span data-i18n="footer.made1">Made with</span>
-                <span class="heart">❤️</span>
-                <span data-i18n="footer.made2">by the Heinrich community</span>
-            </div>
-            <p class="footer-copyright" data-i18n="footer.copyright">© 2025 Heinrich. All rights reserved.</p>
-        </div>
-    </footer>
+
+            <p style="margin-top: 40px; font-size: 0.9rem; opacity: 0.8;">
+                <em>"The best problems are those that seem impossible to solve... until you find the right principle."</em><br>
+                - Inspired by Genrich Altshuller's TRIZ methodology
+            </p>
+        </section>
+    </div>
 
     <script>
-        // Translations object
-        const translations = {
-            en: {
-                'hero.title': 'Heinrich: The Inventing Machine',
-                'hero.subtitle': "Where the genius of Genrich Altshuller's TRIZ methodology meets the power of modern AI to revolutionize inventive problem-solving",
-                'hero.feature1': '<strong>39</strong> TRIZ Parameters × <strong>40</strong> Inventive Principles',
-                'hero.feature2': 'Interpretable AI with step-by-step reasoning',
-                'hero.feature3': 'Open Source & 4 Languages (EN/中文/RU/عربي)',
-                'portrait.name': 'Genrich Altshuller (1926-1998)',
-                'portrait.role': 'Creator of TRIZ Methodology',
-                'portrait.title': 'The Man Who Cracked the Code of Invention',
-                'portrait.intro': 'Imagine a young engineer in Soviet-era Baku, surrounded by patents and inventions, asking himself:',
-                'portrait.question': '"Is there a pattern to breakthrough innovations?"',
-                'portrait.p1': 'This was <strong>Genrich Altshuller</strong> in 1946. Working as a patent clerk in the Caspian Navy, he analyzed over 200,000 patents and discovered that <em>true inventions follow predictable patterns</em>.',
-                'portrait.discovery': '<strong>His discovery?</strong> The TRIZ methodology - a systematic approach that revealed <strong>39 engineering parameters</strong> and <strong>40 inventive principles</strong> that could solve <em>any</em> technical contradiction.',
-                'portrait.p2': 'But Altshuller\'s journey wasn\'t easy. He was imprisoned for sharing his ideas with Stalin, yet continued developing TRIZ behind bars. After his release, he became a science fiction writer under the pseudonym "Genrich Altov," weaving inventive concepts into stories that inspired generations.',
-                'portrait.legacy': '<strong>Today, Heinrich honors Altshuller\'s legacy</strong> by combining his systematic TRIZ methodology with cutting-edge AI, creating an "Inventing Machine" that makes breakthrough innovation accessible to all.',
-                'goals.title': '🎯 Our Mission: Democratize Systematic Innovation',
-                'goals.goal1.title': '🤖 AI-Powered TRIZ Engine',
-                'goals.goal1.desc': "Build an interpretable AI system that applies TRIZ methodology systematically, making Altshuller's genius accessible through natural language processing.",
-                'goals.goal2.title': '📚 Complete Knowledge Base',
-                'goals.goal2.desc': 'Implement the full TRIZ toolkit: 39 parameters, 40 principles, contradiction matrix, scientific effects, and evolution patterns in multiple languages.',
-                'goals.goal3.title': '🔬 Scientific Rigor',
-                'goals.goal3.desc': 'Create evaluation frameworks and case studies that validate AI-generated solutions against classical TRIZ methodology and expert review.',
-                'goals.goal4.title': '🌍 Open Source Community',
-                'goals.goal4.desc': 'Build a global community of innovators, engineers, and AI researchers contributing to the evolution of systematic problem-solving.',
-                'goals.goal5.title': '⚡ Practical Impact',
-                'goals.goal5.desc': 'Enable engineers, entrepreneurs, and organizations to solve complex technical challenges faster and more creatively than ever before.',
-                'goals.goal6.title': '🎓 Educational Excellence',
-                'goals.goal6.desc': "Make TRIZ methodology accessible through AI mentorship, preserving Altshuller's teaching philosophy for future generations.",
-                'cta.title': '🚀 Ready to Join the Innovation Revolution?',
-                'cta.subtitle': "<strong>Heinrich needs YOUR expertise!</strong> Whether you're a TRIZ practitioner, AI researcher, domain expert, or passionate innovator, there's a place for you in our quest to build the ultimate inventing machine.",
-                'cta.seeking': "We're seeking contributors who can help us:",
-                'cta.contrib1': 'Add case studies from your industry domain',
-                'cta.contrib2': 'Improve AI reasoning for specific challenges',
-                'cta.contrib3': 'Expand multilingual TRIZ terminology',
-                'cta.contrib4': 'Build evaluation frameworks',
-                'cta.contrib5': 'Create educational content',
-                'cta.btn1': '🌟 Contribute on GitHub',
-                'cta.btn2': '📖 Explore Documentation',
-                'cta.btn3': '💬 Join Our Community',
-                'cta.quote': '"The best problems are those that seem impossible to solve... until you find the right principle."',
-                'cta.author': "— Inspired by Genrich Altshuller's TRIZ methodology",
-                'footer.tagline': 'Where systematic invention meets artificial intelligence',
-                'footer.github': 'View on GitHub',
-                'footer.license': 'Licensed under Apache 2.0',
-                'footer.made1': 'Made with',
-                'footer.made2': 'by the Heinrich community',
-                'footer.copyright': '© 2025 Heinrich. All rights reserved.'
-            },
-            ru: {
-                'hero.title': 'Генрих: Машина Изобретений',
-                'hero.subtitle': 'Где гениальность методологии ТРИЗ Генриха Альтшуллера встречается с мощью современного ИИ для революции в изобретательском решении задач',
-                'hero.feature1': '<strong>39</strong> параметров ТРИЗ × <strong>40</strong> изобретательских принципов',
-                'hero.feature2': 'Интерпретируемый ИИ с пошаговым рассуждением',
-                'hero.feature3': 'Открытый исходный код и 4 языка (EN/中文/RU/عربي)',
-                'portrait.name': 'Генрих Альтшуллер (1926-1998)',
-                'portrait.role': 'Создатель методологии ТРИЗ',
-                'portrait.title': 'Человек, Который Раскрыл Код Изобретений',
-                'portrait.intro': 'Представьте молодого инженера в советском Баку, окруженного патентами и изобретениями, задающего себе вопрос:',
-                'portrait.question': '"Есть ли закономерность в прорывных инновациях?"',
-                'portrait.p1': 'Это был <strong>Генрих Альтшуллер</strong> в 1946 году. Работая патентным клерком на Каспийском флоте, он проанализировал более 200 000 патентов и обнаружил, что <em>настоящие изобретения следуют предсказуемым паттернам</em>.',
-                'portrait.discovery': '<strong>Его открытие?</strong> Методология ТРИЗ - систематический подход, который выявил <strong>39 инженерных параметров</strong> и <strong>40 изобретательских принципов</strong>, способных решить <em>любое</em> техническое противоречие.',
-                'portrait.p2': 'Но путь Альтшуллера не был легким. Он был заключен в тюрьму за то, что делился своими идеями со Сталиным, но продолжал развивать ТРИЗ за решеткой. После освобождения он стал писателем-фантастом под псевдонимом "Генрих Альтов", вплетая изобретательские концепции в истории, которые вдохновили поколения.',
-                'portrait.legacy': '<strong>Сегодня Генрих чтит наследие Альтшуллера</strong>, объединяя его систематическую методологию ТРИЗ с передовым ИИ, создавая "Машину изобретений", которая делает прорывные инновации доступными для всех.',
-                'goals.title': '🎯 Наша Миссия: Демократизация Систематических Инноваций',
-                'goals.goal1.title': '🤖 ИИ-движок ТРИЗ',
-                'goals.goal1.desc': 'Создать интерпретируемую ИИ-систему, которая систематически применяет методологию ТРИЗ, делая гениальность Альтшуллера доступной через обработку естественного языка.',
-                'goals.goal2.title': '📚 Полная База Знаний',
-                'goals.goal2.desc': 'Реализовать полный инструментарий ТРИЗ: 39 параметров, 40 принципов, матрицу противоречий, научные эффекты и паттерны эволюции на нескольких языках.',
-                'goals.goal3.title': '🔬 Научная Строгость',
-                'goals.goal3.desc': 'Создать оценочные фреймворки и кейс-стади для валидации ИИ-решений относительно классической методологии ТРИЗ и экспертной оценки.',
-                'goals.goal4.title': '🌍 Сообщество Открытого Кода',
-                'goals.goal4.desc': 'Создать глобальное сообщество инноваторов, инженеров и ИИ-исследователей, вносящих вклад в эволюцию систематического решения задач.',
-                'goals.goal5.title': '⚡ Практическое Воздействие',
-                'goals.goal5.desc': 'Дать инженерам, предпринимателям и организациям возможность решать сложные технические задачи быстрее и креативнее, чем когда-либо прежде.',
-                'goals.goal6.title': '🎓 Образовательное Совершенство',
-                'goals.goal6.desc': 'Сделать методологию ТРИЗ доступной через ИИ-менторство, сохраняя философию обучения Альтшуллера для будущих поколений.',
-                'cta.title': '🚀 Готовы Присоединиться к Революции Инноваций?',
-                'cta.subtitle': '<strong>Генриху нужна ВАША экспертиза!</strong> Будь вы практик ТРИЗ, ИИ-исследователь, отраслевой эксперт или увлеченный инноватор - для вас есть место в нашем стремлении создать идеальную машину изобретений.',
-                'cta.seeking': 'Мы ищем контрибьюторов, которые могут помочь нам:',
-                'cta.contrib1': 'Добавить кейс-стади из вашей отрасли',
-                'cta.contrib2': 'Улучшить ИИ-рассуждения для конкретных задач',
-                'cta.contrib3': 'Расширить многоязычную терминологию ТРИЗ',
-                'cta.contrib4': 'Построить оценочные фреймворки',
-                'cta.contrib5': 'Создать образовательный контент',
-                'cta.btn1': '🌟 Внести вклад на GitHub',
-                'cta.btn2': '📖 Изучить документацию',
-                'cta.btn3': '💬 Присоединиться к сообществу',
-                'cta.quote': '"Лучшие проблемы - те, которые кажутся невозможными для решения... пока вы не найдете правильный принцип."',
-                'cta.author': '— Вдохновлено методологией ТРИЗ Генриха Альтшуллера',
-                'footer.tagline': 'Где систематическое изобретательство встречается с искусственным интеллектом',
-                'footer.github': 'Посмотреть на GitHub',
-                'footer.license': 'Лицензия Apache 2.0',
-                'footer.made1': 'Сделано с',
-                'footer.made2': 'сообществом Генрих',
-                'footer.copyright': '© 2025 Генрих. Все права защищены.'
-            },
-            zh: {
-                'hero.title': 'Heinrich: 发明机器',
-                'hero.subtitle': '当根里奇·阿奇舒勒的TRIZ方法论天才遇上现代AI的力量,革新创造性问题解决',
-                'hero.feature1': '<strong>39个</strong>TRIZ参数 × <strong>40个</strong>发明原理',
-                'hero.feature2': '可解释的AI与逐步推理',
-                'hero.feature3': '开源 & 4种语言 (EN/中文/RU/عربي)',
-                'portrait.name': '根里奇·阿奇舒勒 (1926-1998)',
-                'portrait.role': 'TRIZ方法论创始人',
-                'portrait.title': '破解发明密码的人',
-                'portrait.intro': '想象一位苏联时代巴库的年轻工程师,被专利和发明环绕,问自己:',
-                'portrait.question': '"突破性创新是否有规律可循?"',
-                'portrait.p1': '这就是1946年的<strong>根里奇·阿奇舒勒</strong>。作为里海海军的专利员,他分析了超过20万项专利,发现<em>真正的发明遵循可预测的模式</em>。',
-                'portrait.discovery': '<strong>他的发现?</strong> TRIZ方法论 - 一种系统化方法,揭示了<strong>39个工程参数</strong>和<strong>40个发明原理</strong>,可以解决<em>任何</em>技术矛盾。',
-                'portrait.p2': '但阿奇舒勒的旅程并不容易。他因向斯大林分享想法而入狱,但在狱中继续发展TRIZ。获释后,他以笔名"根里奇·阿尔托夫"成为科幻作家,将发明概念编织进启发几代人的故事中。',
-                'portrait.legacy': '<strong>今天,Heinrich致敬阿奇舒勒的遗产</strong>,将他的系统化TRIZ方法论与尖端AI相结合,创造了一个让突破性创新人人可及的"发明机器"。',
-                'goals.title': '🎯 我们的使命:普及系统化创新',
-                'goals.goal1.title': '🤖 AI驱动的TRIZ引擎',
-                'goals.goal1.desc': '构建一个可解释的AI系统,系统化地应用TRIZ方法论,通过自然语言处理让阿奇舒勒的天才人人可及。',
-                'goals.goal2.title': '📚 完整知识库',
-                'goals.goal2.desc': '实现完整的TRIZ工具包:39个参数、40个原理、矛盾矩阵、科学效应和多语言的演化模式。',
-                'goals.goal3.title': '🔬 科学严谨性',
-                'goals.goal3.desc': '创建评估框架和案例研究,验证AI生成的解决方案与经典TRIZ方法论和专家评审的对比。',
-                'goals.goal4.title': '🌍 开源社区',
-                'goals.goal4.desc': '建立一个由创新者、工程师和AI研究人员组成的全球社区,为系统化问题解决的演进做出贡献。',
-                'goals.goal5.title': '⚡ 实际影响',
-                'goals.goal5.desc': '使工程师、企业家和组织能够比以往更快、更有创意地解决复杂的技术挑战。',
-                'goals.goal6.title': '🎓 教育卓越',
-                'goals.goal6.desc': '通过AI辅导使TRIZ方法论易于访问,为未来世代保留阿奇舒勒的教学哲学。',
-                'cta.title': '🚀 准备加入创新革命?',
-                'cta.subtitle': '<strong>Heinrich需要您的专业知识!</strong>无论您是TRIZ从业者、AI研究员、领域专家还是热情的创新者,在我们构建终极发明机器的征程中都有您的位置。',
-                'cta.seeking': '我们正在寻找能帮助我们的贡献者:',
-                'cta.contrib1': '从您的行业领域添加案例研究',
-                'cta.contrib2': '改进特定挑战的AI推理',
-                'cta.contrib3': '扩展多语言TRIZ术语',
-                'cta.contrib4': '构建评估框架',
-                'cta.contrib5': '创建教育内容',
-                'cta.btn1': '🌟 在GitHub上贡献',
-                'cta.btn2': '📖 浏览文档',
-                'cta.btn3': '💬 加入我们的社区',
-                'cta.quote': '"最好的问题是那些看似不可能解决的...直到你找到正确的原理。"',
-                'cta.author': '— 灵感来自根里奇·阿奇舒勒的TRIZ方法论',
-                'footer.tagline': '系统化发明遇见人工智能的地方',
-                'footer.github': '在GitHub上查看',
-                'footer.license': '采用Apache 2.0许可',
-                'footer.made1': '用',
-                'footer.made2': '由Heinrich社区制作',
-                'footer.copyright': '© 2025 Heinrich. 保留所有权利。'
-            },
-            ar: {
-                'hero.title': 'هاينريش: آلة الاختراع',
-                'hero.subtitle': 'حيث تلتقي عبقرية منهجية TRIZ لجنريخ ألتشولر مع قوة الذكاء الاصطناعي الحديث لإحداث ثورة في حل المشكلات الإبداعية',
-                'hero.feature1': '<strong>39</strong> معلمة TRIZ × <strong>40</strong> مبدأ اختراعي',
-                'hero.feature2': 'ذكاء اصطناعي قابل للتفسير مع استدلال خطوة بخطوة',
-                'hero.feature3': 'مفتوح المصدر و 4 لغات (EN/中文/RU/عربي)',
-                'portrait.name': 'جنريخ ألتشولر (1926-1998)',
-                'portrait.role': 'مؤسس منهجية TRIZ',
-                'portrait.title': 'الرجل الذي فك شفرة الاختراع',
-                'portrait.intro': 'تخيل مهندساً شاباً في باكو السوفيتية، محاطاً ببراءات الاختراع والابتكارات، يسأل نفسه:',
-                'portrait.question': '"هل هناك نمط للابتكارات الرائدة؟"',
-                'portrait.p1': 'هذا كان <strong>جنريخ ألتشولر</strong> في عام 1946. عمل ككاتب براءات اختراع في البحرية القزوينية، حلل أكثر من 200,000 براءة اختراع واكتشف أن <em>الاختراعات الحقيقية تتبع أنماطاً يمكن التنبؤ بها</em>.',
-                'portrait.discovery': '<strong>اكتشافه؟</strong> منهجية TRIZ - نهج منظم كشف عن <strong>39 معلمة هندسية</strong> و <strong>40 مبدأ اختراعياً</strong> يمكنها حل <em>أي</em> تناقض تقني.',
-                'portrait.p2': 'لكن رحلة ألتشولر لم تكن سهلة. تم سجنه لمشاركة أفكاره مع ستالين، لكنه واصل تطوير TRIZ خلف القضبان. بعد إطلاق سراحه، أصبح كاتب خيال علمي تحت الاسم المستعار "جنريخ ألتوف"، نسج مفاهيم الاختراع في قصص ألهمت أجيالاً.',
-                'portrait.legacy': '<strong>اليوم، يكرم هاينريش إرث ألتشولر</strong> من خلال الجمع بين منهجيته المنظمة TRIZ مع الذكاء الاصطناعي المتطور، مما يخلق "آلة اختراع" تجعل الابتكار الرائد في متناول الجميع.',
-                'goals.title': '🎯 مهمتنا: إضفاء الطابع الديمقراطي على الابتكار المنظم',
-                'goals.goal1.title': '🤖 محرك TRIZ مدعوم بالذكاء الاصطناعي',
-                'goals.goal1.desc': 'بناء نظام ذكاء اصطناعي قابل للتفسير يطبق منهجية TRIZ بشكل منظم، مما يجعل عبقرية ألتشولر متاحة من خلال معالجة اللغة الطبيعية.',
-                'goals.goal2.title': '📚 قاعدة معرفية كاملة',
-                'goals.goal2.desc': 'تنفيذ مجموعة أدوات TRIZ الكاملة: 39 معلمة، 40 مبدأ، مصفوفة التناقضات، التأثيرات العلمية، وأنماط التطور بلغات متعددة.',
-                'goals.goal3.title': '🔬 الدقة العلمية',
-                'goals.goal3.desc': 'إنشاء أطر تقييم ودراسات حالة تتحقق من صحة الحلول التي يولدها الذكاء الاصطناعي مقابل منهجية TRIZ الكلاسيكية والمراجعة المتخصصة.',
-                'goals.goal4.title': '🌍 مجتمع مفتوح المصدر',
-                'goals.goal4.desc': 'بناء مجتمع عالمي من المبتكرين والمهندسين وباحثي الذكاء الاصطناعي المساهمين في تطور حل المشكلات المنظم.',
-                'goals.goal5.title': '⚡ التأثير العملي',
-                'goals.goal5.desc': 'تمكين المهندسين ورواد الأعمال والمنظمات من حل التحديات التقنية المعقدة بشكل أسرع وأكثر إبداعاً من أي وقت مضى.',
-                'goals.goal6.title': '🎓 التميز التعليمي',
-                'goals.goal6.desc': 'جعل منهجية TRIZ متاحة من خلال التوجيه بالذكاء الاصطناعي، والحفاظ على فلسفة ألتشولر التعليمية للأجيال القادمة.',
-                'cta.title': '🚀 هل أنت مستعد للانضمام إلى ثورة الابتكار؟',
-                'cta.subtitle': '<strong>هاينريش يحتاج إلى خبرتك!</strong> سواء كنت ممارساً لـ TRIZ أو باحثاً في الذكاء الاصطناعي أو خبيراً في المجال أو مبتكراً شغوفاً، فهناك مكان لك في سعينا لبناء آلة الاختراع المثالية.',
-                'cta.seeking': 'نحن نبحث عن مساهمين يمكنهم مساعدتنا في:',
-                'cta.contrib1': 'إضافة دراسات حالة من مجال صناعتك',
-                'cta.contrib2': 'تحسين استدلال الذكاء الاصطناعي للتحديات المحددة',
-                'cta.contrib3': 'توسيع مصطلحات TRIZ متعددة اللغات',
-                'cta.contrib4': 'بناء أطر التقييم',
-                'cta.contrib5': 'إنشاء محتوى تعليمي',
-                'cta.btn1': '🌟 المساهمة على GitHub',
-                'cta.btn2': '📖 استكشاف الوثائق',
-                'cta.btn3': '💬 انضم إلى مجتمعنا',
-                'cta.quote': '"أفضل المشاكل هي تلك التي تبدو مستحيلة الحل... حتى تجد المبدأ الصحيح."',
-                'cta.author': '— مستوحى من منهجية TRIZ لجنريخ ألتشولر',
-                'footer.tagline': 'حيث يلتقي الاختراع المنظم بالذكاء الاصطناعي',
-                'footer.github': 'عرض على GitHub',
-                'footer.license': 'مرخص بموجب Apache 2.0',
-                'footer.made1': 'صنع بـ',
-                'footer.made2': 'من قبل مجتمع هاينريش',
-                'footer.copyright': '© 2025 هاينريش. جميع الحقوق محفوظة.'
-            }
-        };
-
-        // Set language function
+        // Language switching functionality
         function setLanguage(lang) {
             // Update active state
             document.querySelectorAll('.language-selector a').forEach(link => {
@@ -1236,52 +436,50 @@
                 htmlElement.setAttribute('lang', lang);
             }
             
-            // Update text content
-            const langData = translations[lang];
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (langData[key]) {
-                    element.innerHTML = langData[key];
-                }
-            });
-            
             // Store preference
             localStorage.setItem('preferredLanguage', lang);
+            
+            // In a full implementation, this would load language-specific content
+            // For now, we'll show an alert
+            const messages = {
+                'en': 'Language set to English. For full documentation, visit docs/en/',
+                'zh': '语言设置为中文。完整文档请访问 docs/zh/',
+                'ru': 'Язык установлен на русский. Полная документация: docs/ru/',
+                'ar': 'تم تعيين اللغة إلى العربية. للوثائق الكاملة، قم بزيارة docs/ar/'
+            };
+            
+            console.log(messages[lang]);
+            
+            return false; // Prevent default link behavior
         }
         
-        // Load preferred language
+        // Load preferred language on page load
         document.addEventListener('DOMContentLoaded', function() {
             const preferredLang = localStorage.getItem('preferredLanguage') || 'en';
             setLanguage(preferredLang);
             
-            // Smooth scroll
+            // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
                     if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
                     }
                 });
             });
 
-            // Intersection Observer for animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -100px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
+            // Add hover effects to goal cards
+            document.querySelectorAll('.goal-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
                 });
-            }, observerOptions);
 
-            document.querySelectorAll('.goal-card, .feature-card').forEach(card => {
-                observer.observe(card);
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
             });
         });
     </script>
