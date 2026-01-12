@@ -17,6 +17,7 @@ Heinrich is an open-source AI engine that combines classical TRIZ (Theory of Inv
 - **Systematic TRIZ Pipeline**: 7-module workflow following classical TRIZ methodology
 - **Interpretable Reasoning**: Every step is logged and traceable to TRIZ principles
 - **Knowledge Base**: Complete 39 parameters, 40 principles, contradiction matrix
+- **Multi-LLM Support**: Google Gemini, Ollama (local), and more coming soon
 - **Multi-modal Support**: Text problems, technical specifications, patent analysis
 - **Evaluation Suite**: Curated case base with reference solutions
 - **Multilingual**: Full documentation in English, Chinese, Russian, and Arabic
@@ -54,8 +55,36 @@ Heinrich requires the following Python packages:
 - `PyYAML>=6.0` - For TRIZ knowledge base (YAML files)
 - `numpy>=1.21.0` - For numerical computations
 - `dataclasses-json>=0.5.0` - For data serialization
+- `google-generativeai>=0.3.0` - For Google Gemini LLM integration
+- `requests>=2.31.0` - For HTTP requests (Ollama)
 
 All dependencies are automatically installed when using `pip install`.
+
+### LLM Providers
+
+Heinrich supports multiple LLM backends:
+
+| Provider | Setup | Best For |
+|----------|-------|----------|
+| **Google Gemini** | API key from [AI Studio](https://aistudio.google.com/) | Production, cloud deployment |
+| **Ollama** | Local installation from [ollama.ai](https://ollama.ai/) | Local development, privacy |
+| **Vertex AI** | GCP project with Vertex AI enabled | Enterprise, GCP integration |
+
+#### Using Google Gemini (Recommended)
+
+```python
+from heinrich.llm.adapters import GeminiAdapter
+
+adapter = GeminiAdapter({
+    "api_key": "your-gemini-api-key",
+    "model": "gemini-1.5-pro",
+    "temperature": 0.7,
+})
+
+response = adapter.generate("Analyze this TRIZ problem...")
+```
+
+See [examples/gemini_usage.py](examples/gemini_usage.py) for a complete example.
 
 ### Usage
 

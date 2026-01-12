@@ -4,6 +4,11 @@ numpy>=1.21.0
 dataclasses-json>=0.5.0
 requests>=2.31.0
 
+# LLM Provider dependencies
+# Google Gemini (choose one based on your setup):
+google-generativeai>=0.3.0  # For Google AI Studio (API key)
+# google-cloud-aiplatform>=1.38.0  # For Vertex AI (GCP project)
+
 # Optional dependencies for enhanced functionality
 # colorama>=0.4.0  # For colored terminal output
 # rich>=12.0.0     # For beautiful terminal formatting
