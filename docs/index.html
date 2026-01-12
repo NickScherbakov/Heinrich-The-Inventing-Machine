@@ -23,6 +23,23 @@
             overflow-x: hidden;
         }
 
+        /* RTL support for Arabic */
+        html[dir="rtl"] body {
+            font-family: 'Inter', 'Traditional Arabic', 'Arial', sans-serif;
+        }
+
+        html[dir="rtl"] .nav-container {
+            flex-direction: row-reverse;
+        }
+
+        html[dir="rtl"] .language-selector {
+            flex-direction: row-reverse;
+        }
+
+        html[dir="rtl"] .logo {
+            flex-direction: row-reverse;
+        }
+
         /* Animated background */
         .bg-animation {
             position: fixed;
@@ -182,6 +199,18 @@
             color: #d1d5db;
         }
 
+        /* Fade-in on scroll animation classes */
+        .fade-in-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Hero Section */
         .hero {
             padding: 10rem 2rem 5rem;
@@ -256,7 +285,6 @@
             padding: 2rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
-            animation: fadeInUp 0.8s ease-out both;
         }
 
         .feature-card:nth-child(1) { animation-delay: 0.4s; }
@@ -809,13 +837,13 @@
             </div>
             <div class="language-selector">
                 <span class="lang-icon">🌍</span>
-                <a href="#" onclick="setLanguage('en')" id="lang-en" class="active">EN</a>
+                <a href="#" onclick="return setLanguage('en')" id="lang-en" class="active">EN</a>
                 <span class="lang-separator">|</span>
-                <a href="#" onclick="setLanguage('zh')" id="lang-zh">中文</a>
+                <a href="#" onclick="return setLanguage('zh')" id="lang-zh">中文</a>
                 <span class="lang-separator">|</span>
-                <a href="#" onclick="setLanguage('ru')" id="lang-ru">RU</a>
+                <a href="#" onclick="return setLanguage('ru')" id="lang-ru">RU</a>
                 <span class="lang-separator">|</span>
-                <a href="#" onclick="setLanguage('ar')" id="lang-ar">عربي</a>
+                <a href="#" onclick="return setLanguage('ar')" id="lang-ar">عربي</a>
             </div>
         </div>
     </nav>
@@ -1031,37 +1059,34 @@
     <script>
         // Language switching functionality
         function setLanguage(lang) {
-            document.querySelectorAll('.language-selector a').forEach(link => {
-                link.classList.remove('active');
-            });
-            document.getElementById('lang-' + lang).classList.add('active');
-            
-            const htmlElement = document.documentElement;
-            if (lang === 'ar') {
-                htmlElement.setAttribute('dir', 'rtl');
-                htmlElement.setAttribute('lang', 'ar');
-            } else {
-                htmlElement.setAttribute('dir', 'ltr');
-                htmlElement.setAttribute('lang', lang);
-            }
-            
+            // Save language preference
             localStorage.setItem('preferredLanguage', lang);
             
-            const messages = {
-                'en': 'Language set to English',
-                'zh': '语言设置为中文',
-                'ru': 'Язык установлен на русский',
-                'ar': 'تم تعيين اللغة إلى العربية'
-            };
+            // Redirect to corresponding language subfolder
+            if (lang === 'en') {
+                window.location.href = './en/';
+            } else if (lang === 'ru') {
+                window.location.href = './ru/';
+            } else if (lang === 'zh') {
+                window.location.href = './zh/';
+            } else if (lang === 'ar') {
+                window.location.href = './ar/';
+            }
             
-            console.log(messages[lang]);
             return false;
         }
         
         // Load preferred language
         document.addEventListener('DOMContentLoaded', function() {
+            // Set active language link based on current location or localStorage
             const preferredLang = localStorage.getItem('preferredLanguage') || 'en';
-            setLanguage(preferredLang);
+            const langLink = document.getElementById('lang-' + preferredLang);
+            if (langLink) {
+                document.querySelectorAll('.language-selector a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                langLink.classList.add('active');
+            }
             
             // Smooth scroll
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1083,13 +1108,13 @@
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
+                        entry.target.classList.add('visible');
                     }
                 });
             }, observerOptions);
 
             document.querySelectorAll('.goal-card, .feature-card').forEach(card => {
+                card.classList.add('fade-in-on-scroll');
                 observer.observe(card);
             });
         });
