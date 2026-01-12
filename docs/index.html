@@ -613,13 +613,8 @@
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
                 if (trans[key]) {
-                    if (element.children.length === 0) {
-                        // Simple text node
-                        element.textContent = trans[key];
-                    } else {
-                        // HTML content
-                        element.innerHTML = trans[key];
-                    }
+                    // Always use innerHTML to support HTML tags in translations
+                    element.innerHTML = trans[key];
                 }
             });
         }
