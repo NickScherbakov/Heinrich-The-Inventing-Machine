@@ -23,21 +23,9 @@
             overflow-x: hidden;
         }
 
-        /* RTL support for Arabic */
+        /* RTL Support */
         html[dir="rtl"] body {
             font-family: 'Inter', 'Traditional Arabic', 'Arial', sans-serif;
-        }
-
-        html[dir="rtl"] .nav-container {
-            flex-direction: row-reverse;
-        }
-
-        html[dir="rtl"] .language-selector {
-            flex-direction: row-reverse;
-        }
-
-        html[dir="rtl"] .logo {
-            flex-direction: row-reverse;
         }
 
         /* Animated background */
@@ -182,6 +170,7 @@
             border-radius: 12px;
             transition: all 0.2s ease;
             font-size: 0.875rem;
+            cursor: pointer;
         }
 
         .language-selector a:hover {
@@ -197,18 +186,6 @@
 
         .lang-separator {
             color: #d1d5db;
-        }
-
-        /* Fade-in on scroll animation classes */
-        .fade-in-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-
-        .fade-in-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         /* Hero Section */
@@ -285,7 +262,12 @@
             padding: 2rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out both;
         }
+
+        .feature-card:nth-child(1) { animation-delay: 0.4s; }
+        .feature-card:nth-child(2) { animation-delay: 0.5s; }
+        .feature-card:nth-child(3) { animation-delay: 0.6s; }
 
         .feature-card:hover {
             transform: translateY(-8px);
@@ -802,18 +784,6 @@
                 grid-template-columns: 1fr;
             }
         }
-
-        /* SVG Icons */
-        .icon-sparkles { width: 24px; height: 24px; }
-        .icon-brain { width: 24px; height: 24px; }
-        .icon-code { width: 24px; height: 24px; }
-        .icon-bot { width: 32px; height: 32px; }
-        .icon-book { width: 32px; height: 32px; }
-        .icon-target { width: 32px; height: 32px; }
-        .icon-users { width: 32px; height: 32px; }
-        .icon-zap { width: 32px; height: 32px; }
-        .icon-graduation { width: 32px; height: 32px; }
-        .icon-github { width: 20px; height: 20px; }
     </style>
 </head>
 <body>
@@ -833,13 +803,13 @@
             </div>
             <div class="language-selector">
                 <span class="lang-icon">🌍</span>
-                <a href="#" onclick="return setLanguage('en')" id="lang-en" class="active">EN</a>
+                <a onclick="setLanguage('en')" id="lang-en" class="active">EN</a>
                 <span class="lang-separator">|</span>
-                <a href="#" onclick="return setLanguage('zh')" id="lang-zh">中文</a>
+                <a onclick="setLanguage('zh')" id="lang-zh">中文</a>
                 <span class="lang-separator">|</span>
-                <a href="#" onclick="return setLanguage('ru')" id="lang-ru">RU</a>
+                <a onclick="setLanguage('ru')" id="lang-ru">RU</a>
                 <span class="lang-separator">|</span>
-                <a href="#" onclick="return setLanguage('ar')" id="lang-ar">عربي</a>
+                <a onclick="setLanguage('ar')" id="lang-ar">عربي</a>
             </div>
         </div>
     </nav>
@@ -851,8 +821,8 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
         </div>
-        <h1>Heinrich: The Inventing Machine</h1>
-        <p>Where the genius of Genrich Altshuller's TRIZ methodology meets the power of modern AI to revolutionize inventive problem-solving</p>
+        <h1 data-i18n="hero.title">Heinrich: The Inventing Machine</h1>
+        <p data-i18n="hero.subtitle">Where the genius of Genrich Altshuller's TRIZ methodology meets the power of modern AI to revolutionize inventive problem-solving</p>
 
         <div class="features-grid">
             <div class="feature-card">
@@ -861,7 +831,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                     </svg>
                 </div>
-                <h3><strong>39</strong> TRIZ Parameters × <strong>40</strong> Inventive Principles</h3>
+                <h3 data-i18n="hero.feature1"><strong>39</strong> TRIZ Parameters × <strong>40</strong> Inventive Principles</h3>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
@@ -869,7 +839,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                     </svg>
                 </div>
-                <h3>Interpretable AI with step-by-step reasoning</h3>
+                <h3 data-i18n="hero.feature2">Interpretable AI with step-by-step reasoning</h3>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
@@ -877,7 +847,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                     </svg>
                 </div>
-                <h3>Open Source & 4 Languages (EN/中文/RU/عربي)</h3>
+                <h3 data-i18n="hero.feature3">Open Source & 4 Languages (EN/中文/RU/عربي)</h3>
             </div>
         </div>
     </section>
@@ -889,22 +859,22 @@
                 <div class="portrait-image">
                     <img src="Author.jpg" alt="Genrich Altshuller - Creator of TRIZ">
                     <div class="portrait-caption">
-                        <h3>Genrich Altshuller (1926-1998)</h3>
-                        <p>Creator of TRIZ Methodology</p>
+                        <h3 data-i18n="portrait.name">Genrich Altshuller (1926-1998)</h3>
+                        <p data-i18n="portrait.role">Creator of TRIZ Methodology</p>
                     </div>
                 </div>
                 <div class="portrait-content">
-                    <h2>The Man Who Cracked the Code of Invention</h2>
-                    <p>Imagine a young engineer in Soviet-era Baku, surrounded by patents and inventions, asking himself:</p>
+                    <h2 data-i18n="portrait.title">The Man Who Cracked the Code of Invention</h2>
+                    <p data-i18n="portrait.intro">Imagine a young engineer in Soviet-era Baku, surrounded by patents and inventions, asking himself:</p>
                     <div class="quote-box">
-                        "Is there a pattern to breakthrough innovations?"
+                        <span data-i18n="portrait.question">"Is there a pattern to breakthrough innovations?"</span>
                     </div>
-                    <p>This was <strong>Genrich Altshuller</strong> in 1946. Working as a patent clerk in the Caspian Navy, he analyzed over 200,000 patents and discovered that <em>true inventions follow predictable patterns</em>.</p>
+                    <p data-i18n="portrait.p1">This was <strong>Genrich Altshuller</strong> in 1946. Working as a patent clerk in the Caspian Navy, he analyzed over 200,000 patents and discovered that <em>true inventions follow predictable patterns</em>.</p>
                     <div class="highlight-box">
-                        <p><strong>His discovery?</strong> The TRIZ methodology - a systematic approach that revealed <strong>39 engineering parameters</strong> and <strong>40 inventive principles</strong> that could solve <em>any</em> technical contradiction.</p>
+                        <p data-i18n="portrait.discovery"><strong>His discovery?</strong> The TRIZ methodology - a systematic approach that revealed <strong>39 engineering parameters</strong> and <strong>40 inventive principles</strong> that could solve <em>any</em> technical contradiction.</p>
                     </div>
-                    <p>But Altshuller's journey wasn't easy. He was imprisoned for sharing his ideas with Stalin, yet continued developing TRIZ behind bars. After his release, he became a science fiction writer under the pseudonym "Genrich Altov," weaving inventive concepts into stories that inspired generations.</p>
-                    <p><strong>Today, Heinrich honors Altshuller's legacy</strong> by combining his systematic TRIZ methodology with cutting-edge AI, creating an "Inventing Machine" that makes breakthrough innovation accessible to all.</p>
+                    <p data-i18n="portrait.p2">But Altshuller's journey wasn't easy. He was imprisoned for sharing his ideas with Stalin, yet continued developing TRIZ behind bars. After his release, he became a science fiction writer under the pseudonym "Genrich Altov," weaving inventive concepts into stories that inspired generations.</p>
+                    <p data-i18n="portrait.legacy"><strong>Today, Heinrich honors Altshuller's legacy</strong> by combining his systematic TRIZ methodology with cutting-edge AI, creating an "Inventing Machine" that makes breakthrough innovation accessible to all.</p>
                 </div>
             </div>
         </div>
@@ -913,63 +883,62 @@
     <!-- Goals Section -->
     <section class="goals-section">
         <div class="container">
-            <h2>🎯 Our Mission: Democratize Systematic Innovation</h2>
+            <h2 data-i18n="goals.title">🎯 Our Mission: Democratize Systematic Innovation</h2>
             <div class="goals-grid">
                 <div class="goal-card">
                     <div class="goal-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon-bot">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
                         </svg>
                     </div>
-                    <h3>🤖 AI-Powered TRIZ Engine</h3>
-                    <p>Build an interpretable AI system that applies TRIZ methodology systematically, making Altshuller's genius accessible through natural language processing.</p>
+                    <h3 data-i18n="goals.goal1.title">🤖 AI-Powered TRIZ Engine</h3>
+                    <p data-i18n="goals.goal1.desc">Build an interpretable AI system that applies TRIZ methodology systematically, making Altshuller's genius accessible through natural language processing.</p>
                 </div>
                 <div class="goal-card">
                     <div class="goal-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon-book">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                         </svg>
                     </div>
-                    <h3>📚 Complete Knowledge Base</h3>
-                    <p>Implement the full TRIZ toolkit: 39 parameters, 40 principles, contradiction matrix, scientific effects, and evolution patterns in multiple languages.</p>
+                    <h3 data-i18n="goals.goal2.title">📚 Complete Knowledge Base</h3>
+                    <p data-i18n="goals.goal2.desc">Implement the full TRIZ toolkit: 39 parameters, 40 principles, contradiction matrix, scientific effects, and evolution patterns in multiple languages.</p>
                 </div>
                 <div class="goal-card">
                     <div class="goal-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon-target">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
-                    <h3>🔬 Scientific Rigor</h3>
-                    <p>Create evaluation frameworks and case studies that validate AI-generated solutions against classical TRIZ methodology and expert review.</p>
+                    <h3 data-i18n="goals.goal3.title">🔬 Scientific Rigor</h3>
+                    <p data-i18n="goals.goal3.desc">Create evaluation frameworks and case studies that validate AI-generated solutions against classical TRIZ methodology and expert review.</p>
                 </div>
                 <div class="goal-card">
                     <div class="goal-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon-users">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                         </svg>
                     </div>
-                    <h3>🌍 Open Source Community</h3>
-                    <p>Build a global community of innovators, engineers, and AI researchers contributing to the evolution of systematic problem-solving.</p>
+                    <h3 data-i18n="goals.goal4.title">🌍 Open Source Community</h3>
+                    <p data-i18n="goals.goal4.desc">Build a global community of innovators, engineers, and AI researchers contributing to the evolution of systematic problem-solving.</p>
                 </div>
                 <div class="goal-card">
                     <div class="goal-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon-zap">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                     </div>
-                    <h3>⚡ Practical Impact</h3>
-                    <p>Enable engineers, entrepreneurs, and organizations to solve complex technical challenges faster and more creatively than ever before.</p>
+                    <h3 data-i18n="goals.goal5.title">⚡ Practical Impact</h3>
+                    <p data-i18n="goals.goal5.desc">Enable engineers, entrepreneurs, and organizations to solve complex technical challenges faster and more creatively than ever before.</p>
                 </div>
                 <div class="goal-card">
                     <div class="goal-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="icon-graduation">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
                         </svg>
                     </div>
-                    <h3>🎓 Educational Excellence</h3>
-                    <p>Make TRIZ methodology accessible through AI mentorship, preserving Altshuller's teaching philosophy for future generations.</p>
+                    <h3 data-i18n="goals.goal6.title">🎓 Educational Excellence</h3>
+                    <p data-i18n="goals.goal6.desc">Make TRIZ methodology accessible through AI mentorship, preserving Altshuller's teaching philosophy for future generations.</p>
                 </div>
             </div>
         </div>
@@ -987,37 +956,37 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                         </svg>
                     </div>
-                    <h2>🚀 Ready to Join the Innovation Revolution?</h2>
-                    <p><strong>Heinrich needs YOUR expertise!</strong> Whether you're a TRIZ practitioner, AI researcher, domain expert, or passionate innovator, there's a place for you in our quest to build the ultimate inventing machine.</p>
+                    <h2 data-i18n="cta.title">🚀 Ready to Join the Innovation Revolution?</h2>
+                    <p data-i18n="cta.subtitle"><strong>Heinrich needs YOUR expertise!</strong> Whether you're a TRIZ practitioner, AI researcher, domain expert, or passionate innovator, there's a place for you in our quest to build the ultimate inventing machine.</p>
                     
-                    <p style="font-weight: 600; margin-top: 2rem;">We're seeking contributors who can help us:</p>
+                    <p data-i18n="cta.seeking" style="font-weight: 600; margin-top: 2rem;">We're seeking contributors who can help us:</p>
                     
                     <div class="contributions-list">
-                        <div class="contribution-item">Add case studies from your industry domain</div>
-                        <div class="contribution-item">Improve AI reasoning for specific challenges</div>
-                        <div class="contribution-item">Expand multilingual TRIZ terminology</div>
-                        <div class="contribution-item">Build evaluation frameworks</div>
-                        <div class="contribution-item">Create educational content</div>
+                        <div class="contribution-item"><span data-i18n="cta.contrib1">Add case studies from your industry domain</span></div>
+                        <div class="contribution-item"><span data-i18n="cta.contrib2">Improve AI reasoning for specific challenges</span></div>
+                        <div class="contribution-item"><span data-i18n="cta.contrib3">Expand multilingual TRIZ terminology</span></div>
+                        <div class="contribution-item"><span data-i18n="cta.contrib4">Build evaluation frameworks</span></div>
+                        <div class="contribution-item"><span data-i18n="cta.contrib5">Create educational content</span></div>
                     </div>
 
                     <div class="cta-buttons">
                         <a href="https://github.com/NickScherbakov/Heinrich-The-Inventing-Machine" class="cta-btn cta-btn-primary" target="_blank">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="icon-github">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px;">
                                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                             </svg>
-                            🌟 Contribute on GitHub
+                            <span data-i18n="cta.btn1">🌟 Contribute on GitHub</span>
                         </a>
                         <a href="https://github.com/NickScherbakov/Heinrich-The-Inventing-Machine/blob/main/README.md" class="cta-btn cta-btn-secondary" target="_blank">
-                            📖 Explore Documentation
+                            <span data-i18n="cta.btn2">📖 Explore Documentation</span>
                         </a>
                         <a href="https://github.com/NickScherbakov/Heinrich-The-Inventing-Machine/issues" class="cta-btn cta-btn-primary" target="_blank">
-                            💬 Join Our Community
+                            <span data-i18n="cta.btn3">💬 Join Our Community</span>
                         </a>
                     </div>
 
                     <div class="cta-quote">
-                        <p>"The best problems are those that seem impossible to solve... until you find the right principle."</p>
-                        <p>— Inspired by Genrich Altshuller's TRIZ methodology</p>
+                        <p data-i18n="cta.quote">"The best problems are those that seem impossible to solve... until you find the right principle."</p>
+                        <p data-i18n="cta.author">— Inspired by Genrich Altshuller's TRIZ methodology</p>
                     </div>
                 </div>
             </div>
@@ -1031,58 +1000,259 @@
                 <div class="footer-logo-icon">H</div>
                 <span class="footer-logo-text">Heinrich</span>
             </div>
-            <p class="footer-tagline">Where systematic invention meets artificial intelligence</p>
+            <p class="footer-tagline" data-i18n="footer.tagline">Where systematic invention meets artificial intelligence</p>
             <div class="footer-divider"></div>
             <div class="footer-links">
                 <a href="https://github.com/NickScherbakov/Heinrich-The-Inventing-Machine" class="footer-link" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px;">
                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                     </svg>
-                    View on GitHub
+                    <span data-i18n="footer.github">View on GitHub</span>
                 </a>
                 <span style="color: rgba(255, 255, 255, 0.4);">•</span>
-                <span style="color: rgba(255, 255, 255, 0.7);">Licensed under Apache 2.0</span>
+                <span style="color: rgba(255, 255, 255, 0.7);" data-i18n="footer.license">Licensed under Apache 2.0</span>
             </div>
             <div class="footer-made-with">
-                <span>Made with</span>
+                <span data-i18n="footer.made1">Made with</span>
                 <span class="heart">❤️</span>
-                <span>by the Heinrich community</span>
+                <span data-i18n="footer.made2">by the Heinrich community</span>
             </div>
-            <p class="footer-copyright">© 2025 Heinrich. All rights reserved.</p>
+            <p class="footer-copyright" data-i18n="footer.copyright">© 2025 Heinrich. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Language switching functionality
+        // Translations object
+        const translations = {
+            en: {
+                'hero.title': 'Heinrich: The Inventing Machine',
+                'hero.subtitle': "Where the genius of Genrich Altshuller's TRIZ methodology meets the power of modern AI to revolutionize inventive problem-solving",
+                'hero.feature1': '<strong>39</strong> TRIZ Parameters × <strong>40</strong> Inventive Principles',
+                'hero.feature2': 'Interpretable AI with step-by-step reasoning',
+                'hero.feature3': 'Open Source & 4 Languages (EN/中文/RU/عربي)',
+                'portrait.name': 'Genrich Altshuller (1926-1998)',
+                'portrait.role': 'Creator of TRIZ Methodology',
+                'portrait.title': 'The Man Who Cracked the Code of Invention',
+                'portrait.intro': 'Imagine a young engineer in Soviet-era Baku, surrounded by patents and inventions, asking himself:',
+                'portrait.question': '"Is there a pattern to breakthrough innovations?"',
+                'portrait.p1': 'This was <strong>Genrich Altshuller</strong> in 1946. Working as a patent clerk in the Caspian Navy, he analyzed over 200,000 patents and discovered that <em>true inventions follow predictable patterns</em>.',
+                'portrait.discovery': '<strong>His discovery?</strong> The TRIZ methodology - a systematic approach that revealed <strong>39 engineering parameters</strong> and <strong>40 inventive principles</strong> that could solve <em>any</em> technical contradiction.',
+                'portrait.p2': 'But Altshuller\'s journey wasn\'t easy. He was imprisoned for sharing his ideas with Stalin, yet continued developing TRIZ behind bars. After his release, he became a science fiction writer under the pseudonym "Genrich Altov," weaving inventive concepts into stories that inspired generations.',
+                'portrait.legacy': '<strong>Today, Heinrich honors Altshuller\'s legacy</strong> by combining his systematic TRIZ methodology with cutting-edge AI, creating an "Inventing Machine" that makes breakthrough innovation accessible to all.',
+                'goals.title': '🎯 Our Mission: Democratize Systematic Innovation',
+                'goals.goal1.title': '🤖 AI-Powered TRIZ Engine',
+                'goals.goal1.desc': "Build an interpretable AI system that applies TRIZ methodology systematically, making Altshuller's genius accessible through natural language processing.",
+                'goals.goal2.title': '📚 Complete Knowledge Base',
+                'goals.goal2.desc': 'Implement the full TRIZ toolkit: 39 parameters, 40 principles, contradiction matrix, scientific effects, and evolution patterns in multiple languages.',
+                'goals.goal3.title': '🔬 Scientific Rigor',
+                'goals.goal3.desc': 'Create evaluation frameworks and case studies that validate AI-generated solutions against classical TRIZ methodology and expert review.',
+                'goals.goal4.title': '🌍 Open Source Community',
+                'goals.goal4.desc': 'Build a global community of innovators, engineers, and AI researchers contributing to the evolution of systematic problem-solving.',
+                'goals.goal5.title': '⚡ Practical Impact',
+                'goals.goal5.desc': 'Enable engineers, entrepreneurs, and organizations to solve complex technical challenges faster and more creatively than ever before.',
+                'goals.goal6.title': '🎓 Educational Excellence',
+                'goals.goal6.desc': "Make TRIZ methodology accessible through AI mentorship, preserving Altshuller's teaching philosophy for future generations.",
+                'cta.title': '🚀 Ready to Join the Innovation Revolution?',
+                'cta.subtitle': "<strong>Heinrich needs YOUR expertise!</strong> Whether you're a TRIZ practitioner, AI researcher, domain expert, or passionate innovator, there's a place for you in our quest to build the ultimate inventing machine.",
+                'cta.seeking': "We're seeking contributors who can help us:",
+                'cta.contrib1': 'Add case studies from your industry domain',
+                'cta.contrib2': 'Improve AI reasoning for specific challenges',
+                'cta.contrib3': 'Expand multilingual TRIZ terminology',
+                'cta.contrib4': 'Build evaluation frameworks',
+                'cta.contrib5': 'Create educational content',
+                'cta.btn1': '🌟 Contribute on GitHub',
+                'cta.btn2': '📖 Explore Documentation',
+                'cta.btn3': '💬 Join Our Community',
+                'cta.quote': '"The best problems are those that seem impossible to solve... until you find the right principle."',
+                'cta.author': "— Inspired by Genrich Altshuller's TRIZ methodology",
+                'footer.tagline': 'Where systematic invention meets artificial intelligence',
+                'footer.github': 'View on GitHub',
+                'footer.license': 'Licensed under Apache 2.0',
+                'footer.made1': 'Made with',
+                'footer.made2': 'by the Heinrich community',
+                'footer.copyright': '© 2025 Heinrich. All rights reserved.'
+            },
+            ru: {
+                'hero.title': 'Генрих: Машина Изобретений',
+                'hero.subtitle': 'Где гениальность методологии ТРИЗ Генриха Альтшуллера встречается с мощью современного ИИ для революции в изобретательском решении задач',
+                'hero.feature1': '<strong>39</strong> параметров ТРИЗ × <strong>40</strong> изобретательских принципов',
+                'hero.feature2': 'Интерпретируемый ИИ с пошаговым рассуждением',
+                'hero.feature3': 'Открытый исходный код и 4 языка (EN/中文/RU/عربي)',
+                'portrait.name': 'Генрих Альтшуллер (1926-1998)',
+                'portrait.role': 'Создатель методологии ТРИЗ',
+                'portrait.title': 'Человек, Который Раскрыл Код Изобретений',
+                'portrait.intro': 'Представьте молодого инженера в советском Баку, окруженного патентами и изобретениями, задающего себе вопрос:',
+                'portrait.question': '"Есть ли закономерность в прорывных инновациях?"',
+                'portrait.p1': 'Это был <strong>Генрих Альтшуллер</strong> в 1946 году. Работая патентным клерком на Каспийском флоте, он проанализировал более 200 000 патентов и обнаружил, что <em>настоящие изобретения следуют предсказуемым паттернам</em>.',
+                'portrait.discovery': '<strong>Его открытие?</strong> Методология ТРИЗ - систематический подход, который выявил <strong>39 инженерных параметров</strong> и <strong>40 изобретательских принципов</strong>, способных решить <em>любое</em> техническое противоречие.',
+                'portrait.p2': 'Но путь Альтшуллера не был легким. Он был заключен в тюрьму за то, что делился своими идеями со Сталиным, но продолжал развивать ТРИЗ за решеткой. После освобождения он стал писателем-фантастом под псевдонимом "Генрих Альтов", вплетая изобретательские концепции в истории, которые вдохновили поколения.',
+                'portrait.legacy': '<strong>Сегодня Генрих чтит наследие Альтшуллера</strong>, объединяя его систематическую методологию ТРИЗ с передовым ИИ, создавая "Машину изобретений", которая делает прорывные инновации доступными для всех.',
+                'goals.title': '🎯 Наша Миссия: Демократизация Систематических Инноваций',
+                'goals.goal1.title': '🤖 ИИ-движок ТРИЗ',
+                'goals.goal1.desc': 'Создать интерпретируемую ИИ-систему, которая систематически применяет методологию ТРИЗ, делая гениальность Альтшуллера доступной через обработку естественного языка.',
+                'goals.goal2.title': '📚 Полная База Знаний',
+                'goals.goal2.desc': 'Реализовать полный инструментарий ТРИЗ: 39 параметров, 40 принципов, матрицу противоречий, научные эффекты и паттерны эволюции на нескольких языках.',
+                'goals.goal3.title': '🔬 Научная Строгость',
+                'goals.goal3.desc': 'Создать оценочные фреймворки и кейс-стади для валидации ИИ-решений относительно классической методологии ТРИЗ и экспертной оценки.',
+                'goals.goal4.title': '🌍 Сообщество Открытого Кода',
+                'goals.goal4.desc': 'Создать глобальное сообщество инноваторов, инженеров и ИИ-исследователей, вносящих вклад в эволюцию систематического решения задач.',
+                'goals.goal5.title': '⚡ Практическое Воздействие',
+                'goals.goal5.desc': 'Дать инженерам, предпринимателям и организациям возможность решать сложные технические задачи быстрее и креативнее, чем когда-либо прежде.',
+                'goals.goal6.title': '🎓 Образовательное Совершенство',
+                'goals.goal6.desc': 'Сделать методологию ТРИЗ доступной через ИИ-менторство, сохраняя философию обучения Альтшуллера для будущих поколений.',
+                'cta.title': '🚀 Готовы Присоединиться к Революции Инноваций?',
+                'cta.subtitle': '<strong>Генриху нужна ВАША экспертиза!</strong> Будь вы практик ТРИЗ, ИИ-исследователь, отраслевой эксперт или увлеченный инноватор - для вас есть место в нашем стремлении создать идеальную машину изобретений.',
+                'cta.seeking': 'Мы ищем контрибьюторов, которые могут помочь нам:',
+                'cta.contrib1': 'Добавить кейс-стади из вашей отрасли',
+                'cta.contrib2': 'Улучшить ИИ-рассуждения для конкретных задач',
+                'cta.contrib3': 'Расширить многоязычную терминологию ТРИЗ',
+                'cta.contrib4': 'Построить оценочные фреймворки',
+                'cta.contrib5': 'Создать образовательный контент',
+                'cta.btn1': '🌟 Внести вклад на GitHub',
+                'cta.btn2': '📖 Изучить документацию',
+                'cta.btn3': '💬 Присоединиться к сообществу',
+                'cta.quote': '"Лучшие проблемы - те, которые кажутся невозможными для решения... пока вы не найдете правильный принцип."',
+                'cta.author': '— Вдохновлено методологией ТРИЗ Генриха Альтшуллера',
+                'footer.tagline': 'Где систематическое изобретательство встречается с искусственным интеллектом',
+                'footer.github': 'Посмотреть на GitHub',
+                'footer.license': 'Лицензия Apache 2.0',
+                'footer.made1': 'Сделано с',
+                'footer.made2': 'сообществом Генрих',
+                'footer.copyright': '© 2025 Генрих. Все права защищены.'
+            },
+            zh: {
+                'hero.title': 'Heinrich: 发明机器',
+                'hero.subtitle': '当根里奇·阿奇舒勒的TRIZ方法论天才遇上现代AI的力量,革新创造性问题解决',
+                'hero.feature1': '<strong>39个</strong>TRIZ参数 × <strong>40个</strong>发明原理',
+                'hero.feature2': '可解释的AI与逐步推理',
+                'hero.feature3': '开源 & 4种语言 (EN/中文/RU/عربي)',
+                'portrait.name': '根里奇·阿奇舒勒 (1926-1998)',
+                'portrait.role': 'TRIZ方法论创始人',
+                'portrait.title': '破解发明密码的人',
+                'portrait.intro': '想象一位苏联时代巴库的年轻工程师,被专利和发明环绕,问自己:',
+                'portrait.question': '"突破性创新是否有规律可循?"',
+                'portrait.p1': '这就是1946年的<strong>根里奇·阿奇舒勒</strong>。作为里海海军的专利员,他分析了超过20万项专利,发现<em>真正的发明遵循可预测的模式</em>。',
+                'portrait.discovery': '<strong>他的发现?</strong> TRIZ方法论 - 一种系统化方法,揭示了<strong>39个工程参数</strong>和<strong>40个发明原理</strong>,可以解决<em>任何</em>技术矛盾。',
+                'portrait.p2': '但阿奇舒勒的旅程并不容易。他因向斯大林分享想法而入狱,但在狱中继续发展TRIZ。获释后,他以笔名"根里奇·阿尔托夫"成为科幻作家,将发明概念编织进启发几代人的故事中。',
+                'portrait.legacy': '<strong>今天,Heinrich致敬阿奇舒勒的遗产</strong>,将他的系统化TRIZ方法论与尖端AI相结合,创造了一个让突破性创新人人可及的"发明机器"。',
+                'goals.title': '🎯 我们的使命:普及系统化创新',
+                'goals.goal1.title': '🤖 AI驱动的TRIZ引擎',
+                'goals.goal1.desc': '构建一个可解释的AI系统,系统化地应用TRIZ方法论,通过自然语言处理让阿奇舒勒的天才人人可及。',
+                'goals.goal2.title': '📚 完整知识库',
+                'goals.goal2.desc': '实现完整的TRIZ工具包:39个参数、40个原理、矛盾矩阵、科学效应和多语言的演化模式。',
+                'goals.goal3.title': '🔬 科学严谨性',
+                'goals.goal3.desc': '创建评估框架和案例研究,验证AI生成的解决方案与经典TRIZ方法论和专家评审的对比。',
+                'goals.goal4.title': '🌍 开源社区',
+                'goals.goal4.desc': '建立一个由创新者、工程师和AI研究人员组成的全球社区,为系统化问题解决的演进做出贡献。',
+                'goals.goal5.title': '⚡ 实际影响',
+                'goals.goal5.desc': '使工程师、企业家和组织能够比以往更快、更有创意地解决复杂的技术挑战。',
+                'goals.goal6.title': '🎓 教育卓越',
+                'goals.goal6.desc': '通过AI辅导使TRIZ方法论易于访问,为未来世代保留阿奇舒勒的教学哲学。',
+                'cta.title': '🚀 准备加入创新革命?',
+                'cta.subtitle': '<strong>Heinrich需要您的专业知识!</strong>无论您是TRIZ从业者、AI研究员、领域专家还是热情的创新者,在我们构建终极发明机器的征程中都有您的位置。',
+                'cta.seeking': '我们正在寻找能帮助我们的贡献者:',
+                'cta.contrib1': '从您的行业领域添加案例研究',
+                'cta.contrib2': '改进特定挑战的AI推理',
+                'cta.contrib3': '扩展多语言TRIZ术语',
+                'cta.contrib4': '构建评估框架',
+                'cta.contrib5': '创建教育内容',
+                'cta.btn1': '🌟 在GitHub上贡献',
+                'cta.btn2': '📖 浏览文档',
+                'cta.btn3': '💬 加入我们的社区',
+                'cta.quote': '"最好的问题是那些看似不可能解决的...直到你找到正确的原理。"',
+                'cta.author': '— 灵感来自根里奇·阿奇舒勒的TRIZ方法论',
+                'footer.tagline': '系统化发明遇见人工智能的地方',
+                'footer.github': '在GitHub上查看',
+                'footer.license': '采用Apache 2.0许可',
+                'footer.made1': '用',
+                'footer.made2': '由Heinrich社区制作',
+                'footer.copyright': '© 2025 Heinrich. 保留所有权利。'
+            },
+            ar: {
+                'hero.title': 'هاينريش: آلة الاختراع',
+                'hero.subtitle': 'حيث تلتقي عبقرية منهجية TRIZ لجنريخ ألتشولر مع قوة الذكاء الاصطناعي الحديث لإحداث ثورة في حل المشكلات الإبداعية',
+                'hero.feature1': '<strong>39</strong> معلمة TRIZ × <strong>40</strong> مبدأ اختراعي',
+                'hero.feature2': 'ذكاء اصطناعي قابل للتفسير مع استدلال خطوة بخطوة',
+                'hero.feature3': 'مفتوح المصدر و 4 لغات (EN/中文/RU/عربي)',
+                'portrait.name': 'جنريخ ألتشولر (1926-1998)',
+                'portrait.role': 'مؤسس منهجية TRIZ',
+                'portrait.title': 'الرجل الذي فك شفرة الاختراع',
+                'portrait.intro': 'تخيل مهندساً شاباً في باكو السوفيتية، محاطاً ببراءات الاختراع والابتكارات، يسأل نفسه:',
+                'portrait.question': '"هل هناك نمط للابتكارات الرائدة؟"',
+                'portrait.p1': 'هذا كان <strong>جنريخ ألتشولر</strong> في عام 1946. عمل ككاتب براءات اختراع في البحرية القزوينية، حلل أكثر من 200,000 براءة اختراع واكتشف أن <em>الاختراعات الحقيقية تتبع أنماطاً يمكن التنبؤ بها</em>.',
+                'portrait.discovery': '<strong>اكتشافه؟</strong> منهجية TRIZ - نهج منظم كشف عن <strong>39 معلمة هندسية</strong> و <strong>40 مبدأ اختراعياً</strong> يمكنها حل <em>أي</em> تناقض تقني.',
+                'portrait.p2': 'لكن رحلة ألتشولر لم تكن سهلة. تم سجنه لمشاركة أفكاره مع ستالين، لكنه واصل تطوير TRIZ خلف القضبان. بعد إطلاق سراحه، أصبح كاتب خيال علمي تحت الاسم المستعار "جنريخ ألتوف"، نسج مفاهيم الاختراع في قصص ألهمت أجيالاً.',
+                'portrait.legacy': '<strong>اليوم، يكرم هاينريش إرث ألتشولر</strong> من خلال الجمع بين منهجيته المنظمة TRIZ مع الذكاء الاصطناعي المتطور، مما يخلق "آلة اختراع" تجعل الابتكار الرائد في متناول الجميع.',
+                'goals.title': '🎯 مهمتنا: إضفاء الطابع الديمقراطي على الابتكار المنظم',
+                'goals.goal1.title': '🤖 محرك TRIZ مدعوم بالذكاء الاصطناعي',
+                'goals.goal1.desc': 'بناء نظام ذكاء اصطناعي قابل للتفسير يطبق منهجية TRIZ بشكل منظم، مما يجعل عبقرية ألتشولر متاحة من خلال معالجة اللغة الطبيعية.',
+                'goals.goal2.title': '📚 قاعدة معرفية كاملة',
+                'goals.goal2.desc': 'تنفيذ مجموعة أدوات TRIZ الكاملة: 39 معلمة، 40 مبدأ، مصفوفة التناقضات، التأثيرات العلمية، وأنماط التطور بلغات متعددة.',
+                'goals.goal3.title': '🔬 الدقة العلمية',
+                'goals.goal3.desc': 'إنشاء أطر تقييم ودراسات حالة تتحقق من صحة الحلول التي يولدها الذكاء الاصطناعي مقابل منهجية TRIZ الكلاسيكية والمراجعة المتخصصة.',
+                'goals.goal4.title': '🌍 مجتمع مفتوح المصدر',
+                'goals.goal4.desc': 'بناء مجتمع عالمي من المبتكرين والمهندسين وباحثي الذكاء الاصطناعي المساهمين في تطور حل المشكلات المنظم.',
+                'goals.goal5.title': '⚡ التأثير العملي',
+                'goals.goal5.desc': 'تمكين المهندسين ورواد الأعمال والمنظمات من حل التحديات التقنية المعقدة بشكل أسرع وأكثر إبداعاً من أي وقت مضى.',
+                'goals.goal6.title': '🎓 التميز التعليمي',
+                'goals.goal6.desc': 'جعل منهجية TRIZ متاحة من خلال التوجيه بالذكاء الاصطناعي، والحفاظ على فلسفة ألتشولر التعليمية للأجيال القادمة.',
+                'cta.title': '🚀 هل أنت مستعد للانضمام إلى ثورة الابتكار؟',
+                'cta.subtitle': '<strong>هاينريش يحتاج إلى خبرتك!</strong> سواء كنت ممارساً لـ TRIZ أو باحثاً في الذكاء الاصطناعي أو خبيراً في المجال أو مبتكراً شغوفاً، فهناك مكان لك في سعينا لبناء آلة الاختراع المثالية.',
+                'cta.seeking': 'نحن نبحث عن مساهمين يمكنهم مساعدتنا في:',
+                'cta.contrib1': 'إضافة دراسات حالة من مجال صناعتك',
+                'cta.contrib2': 'تحسين استدلال الذكاء الاصطناعي للتحديات المحددة',
+                'cta.contrib3': 'توسيع مصطلحات TRIZ متعددة اللغات',
+                'cta.contrib4': 'بناء أطر التقييم',
+                'cta.contrib5': 'إنشاء محتوى تعليمي',
+                'cta.btn1': '🌟 المساهمة على GitHub',
+                'cta.btn2': '📖 استكشاف الوثائق',
+                'cta.btn3': '💬 انضم إلى مجتمعنا',
+                'cta.quote': '"أفضل المشاكل هي تلك التي تبدو مستحيلة الحل... حتى تجد المبدأ الصحيح."',
+                'cta.author': '— مستوحى من منهجية TRIZ لجنريخ ألتشولر',
+                'footer.tagline': 'حيث يلتقي الاختراع المنظم بالذكاء الاصطناعي',
+                'footer.github': 'عرض على GitHub',
+                'footer.license': 'مرخص بموجب Apache 2.0',
+                'footer.made1': 'صنع بـ',
+                'footer.made2': 'من قبل مجتمع هاينريش',
+                'footer.copyright': '© 2025 هاينريش. جميع الحقوق محفوظة.'
+            }
+        };
+
+        // Set language function
         function setLanguage(lang) {
-            // Save language preference
-            localStorage.setItem('preferredLanguage', lang);
+            // Update active state
+            document.querySelectorAll('.language-selector a').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.getElementById('lang-' + lang).classList.add('active');
             
-            // Redirect to corresponding language subfolder
-            if (lang === 'en') {
-                window.location.href = './en/';
-            } else if (lang === 'ru') {
-                window.location.href = './ru/';
-            } else if (lang === 'zh') {
-                window.location.href = './zh/';
-            } else if (lang === 'ar') {
-                window.location.href = './ar/';
+            // Set RTL for Arabic
+            const htmlElement = document.documentElement;
+            if (lang === 'ar') {
+                htmlElement.setAttribute('dir', 'rtl');
+                htmlElement.setAttribute('lang', 'ar');
+            } else {
+                htmlElement.setAttribute('dir', 'ltr');
+                htmlElement.setAttribute('lang', lang);
             }
             
-            return false;
+            // Update text content
+            const langData = translations[lang];
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (langData[key]) {
+                    element.innerHTML = langData[key];
+                }
+            });
+            
+            // Store preference
+            localStorage.setItem('preferredLanguage', lang);
         }
         
         // Load preferred language
         document.addEventListener('DOMContentLoaded', function() {
-            // Set active language link based on current location or localStorage
             const preferredLang = localStorage.getItem('preferredLanguage') || 'en';
-            const langLink = document.getElementById('lang-' + preferredLang);
-            if (langLink) {
-                document.querySelectorAll('.language-selector a').forEach(link => {
-                    link.classList.remove('active');
-                });
-                langLink.classList.add('active');
-            }
+            setLanguage(preferredLang);
             
             // Smooth scroll
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1104,13 +1274,13 @@
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
                     }
                 });
             }, observerOptions);
 
             document.querySelectorAll('.goal-card, .feature-card').forEach(card => {
-                card.classList.add('fade-in-on-scroll');
                 observer.observe(card);
             });
         });
