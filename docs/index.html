@@ -267,6 +267,239 @@
             padding: 20px;
             border-radius: 10px;
             backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .feature-clickable:hover {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255,255,255,0.3);
+        }
+
+        /* Dashboard Modal Styles */
+        .dashboard-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .dashboard-modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dashboard-content {
+            background: white;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 1400px;
+            max-height: 90vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: slideIn 0.3s ease;
+        }
+
+        .dashboard-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dashboard-close {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .dashboard-close:hover {
+            background: rgba(255,255,255,0.3);
+            transform: rotate(90deg);
+        }
+
+        .dashboard-body {
+            padding: 30px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .dashboard-controls {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .dashboard-search {
+            flex: 1;
+            min-width: 250px;
+            padding: 12px 20px;
+            border: 2px solid #667eea;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .dashboard-search:focus {
+            border-color: #764ba2;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        }
+
+        .dashboard-tabs {
+            display: flex;
+            gap: 10px;
+        }
+
+        .dashboard-tab {
+            padding: 10px 25px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .dashboard-tab.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .dashboard-tab:hover:not(.active) {
+            background: #e0e0e0;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .dashboard-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .dashboard-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .dashboard-card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .dashboard-card-id {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .dashboard-card-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+            flex: 1;
+        }
+
+        .dashboard-card-description {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .dashboard-card-examples {
+            background: #f9f9f9;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        .dashboard-card-examples strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .dashboard-stats {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .dashboard-stat {
+            flex: 1;
+            min-width: 200px;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .dashboard-stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .dashboard-stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { 
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @media (max-width: 768px) {
@@ -310,8 +543,9 @@
             <p data-i18n="hero-subtitle">Where the genius of Genrich Altshuller's TRIZ methodology meets the power of modern AI to revolutionize inventive problem-solving</p>
 
             <div class="features">
-                <div class="feature" data-i18n="feature-1">
+                <div class="feature feature-clickable" data-i18n="feature-1" onclick="openDashboard()" style="cursor: pointer;">
                     <strong>39 TRIZ Parameters</strong> × <strong>40 Inventive Principles</strong>
+                    <br><small style="opacity: 0.8;">📊 Click to explore interactive dashboard</small>
                 </div>
                 <div class="feature" data-i18n="feature-2">
                     <strong>Interpretable AI</strong> with step-by-step reasoning
@@ -416,7 +650,251 @@
         </section>
     </div>
 
+    <!-- Interactive TRIZ Dashboard Modal -->
+    <div id="trizDashboard" class="dashboard-modal">
+        <div class="dashboard-content">
+            <div class="dashboard-header">
+                <h2>🚀 TRIZ Interactive Dashboard</h2>
+                <button class="dashboard-close" onclick="closeDashboard()">&times;</button>
+            </div>
+            <div class="dashboard-body">
+                <div class="dashboard-stats">
+                    <div class="dashboard-stat">
+                        <div class="dashboard-stat-value" id="parametersCount">39</div>
+                        <div class="dashboard-stat-label">TRIZ Parameters</div>
+                    </div>
+                    <div class="dashboard-stat">
+                        <div class="dashboard-stat-value" id="principlesCount">40</div>
+                        <div class="dashboard-stat-label">Inventive Principles</div>
+                    </div>
+                </div>
+
+                <div class="dashboard-controls">
+                    <input type="text" id="dashboardSearch" class="dashboard-search" placeholder="🔍 Search parameters or principles...">
+                    <div class="dashboard-tabs">
+                        <button class="dashboard-tab active" onclick="switchTab('parameters')">Parameters</button>
+                        <button class="dashboard-tab" onclick="switchTab('principles')">Principles</button>
+                    </div>
+                </div>
+
+                <div id="dashboardGrid" class="dashboard-grid">
+                    <!-- Content will be loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // Dashboard State
+        let trizParameters = [];
+        let trizPrinciples = [];
+        let currentTab = 'parameters';
+
+        // Simple YAML parser for basic structure
+        function parseYAML(yamlText) {
+            const lines = yamlText.split('\n');
+            const result = [];
+            let currentItem = null;
+            let currentArray = null;
+            let arrayKey = null;
+
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i];
+                const trimmed = line.trim();
+                
+                // Skip comments and empty lines
+                if (!trimmed || trimmed.startsWith('#')) continue;
+                
+                // New item starts with "- id:"
+                if (trimmed.startsWith('- id:')) {
+                    if (currentItem) {
+                        result.push(currentItem);
+                    }
+                    currentItem = {
+                        id: parseInt(trimmed.split(':')[1].trim())
+                    };
+                    currentArray = null;
+                    arrayKey = null;
+                } else if (currentItem) {
+                    // Parse key-value pairs
+                    const match = trimmed.match(/^(\w+):\s*(.*)$/);
+                    if (match) {
+                        const key = match[1];
+                        let value = match[2];
+                        
+                        // Handle arrays
+                        if (value.startsWith('[')) {
+                            value = value.replace(/[\[\]]/g, '').split(',').map(v => v.trim());
+                            currentItem[key] = value;
+                            arrayKey = null;
+                        } else if (value === '') {
+                            // Multi-line array or object coming
+                            arrayKey = key;
+                            currentArray = [];
+                        } else {
+                            currentItem[key] = value;
+                            arrayKey = null;
+                        }
+                    } else if (trimmed.startsWith('-') && arrayKey) {
+                        // Array item
+                        currentArray.push(trimmed.substring(1).trim());
+                        currentItem[arrayKey] = currentArray;
+                    }
+                }
+            }
+            
+            if (currentItem) {
+                result.push(currentItem);
+            }
+            
+            return result;
+        }
+
+        // Load YAML files
+        async function loadTRIZData() {
+            try {
+                // Load parameters
+                const parametersResponse = await fetch('../39_parameters.yaml');
+                const parametersText = await parametersResponse.text();
+                const parametersData = parseYAML(parametersText);
+                trizParameters = parametersData;
+
+                // Load principles
+                const principlesResponse = await fetch('../40_principles.yaml');
+                const principlesText = await principlesResponse.text();
+                const principlesData = parseYAML(principlesText);
+                trizPrinciples = principlesData;
+
+                console.log('TRIZ Data Loaded:', {
+                    parameters: trizParameters.length,
+                    principles: trizPrinciples.length
+                });
+
+                // Update counts
+                document.getElementById('parametersCount').textContent = trizParameters.length;
+                document.getElementById('principlesCount').textContent = trizPrinciples.length;
+
+                return true;
+            } catch (error) {
+                console.error('Error loading TRIZ data:', error);
+                return false;
+            }
+        }
+
+        // Open dashboard
+        async function openDashboard() {
+            const modal = document.getElementById('trizDashboard');
+            modal.classList.add('active');
+            
+            // Load data if not already loaded
+            if (trizParameters.length === 0 || trizPrinciples.length === 0) {
+                await loadTRIZData();
+            }
+            
+            // Display current tab
+            displayTabContent();
+        }
+
+        // Close dashboard
+        function closeDashboard() {
+            const modal = document.getElementById('trizDashboard');
+            modal.classList.remove('active');
+        }
+
+        // Switch between tabs
+        function switchTab(tab) {
+            currentTab = tab;
+            
+            // Update tab buttons
+            document.querySelectorAll('.dashboard-tab').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Update search placeholder
+            const searchInput = document.getElementById('dashboardSearch');
+            searchInput.value = '';
+            searchInput.placeholder = tab === 'parameters' 
+                ? '🔍 Search parameters...' 
+                : '🔍 Search principles...';
+            
+            // Display content
+            displayTabContent();
+        }
+
+        // Display tab content
+        function displayTabContent(searchTerm = '') {
+            const grid = document.getElementById('dashboardGrid');
+            const data = currentTab === 'parameters' ? trizParameters : trizPrinciples;
+            
+            // Filter data based on search
+            const filteredData = searchTerm 
+                ? data.filter(item => {
+                    const searchLower = searchTerm.toLowerCase();
+                    return (item.name && item.name.toLowerCase().includes(searchLower)) ||
+                           (item.description && item.description.toLowerCase().includes(searchLower)) ||
+                           (item.examples && JSON.stringify(item.examples).toLowerCase().includes(searchLower));
+                  })
+                : data;
+            
+            // Render cards
+            grid.innerHTML = filteredData.map(item => {
+                const examples = item.examples 
+                    ? (Array.isArray(item.examples) ? item.examples.join(', ') : item.examples)
+                    : 'No examples available';
+                
+                const subPrinciples = item.sub_principles && Array.isArray(item.sub_principles)
+                    ? `<div class="dashboard-card-examples">
+                         <strong>Sub-principles:</strong>
+                         ${item.sub_principles.map(sp => `<div>• ${sp}</div>`).join('')}
+                       </div>`
+                    : '';
+                
+                return `
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <div class="dashboard-card-id">${item.id || '?'}</div>
+                            <div class="dashboard-card-title">${item.name || 'Unknown'}</div>
+                        </div>
+                        <div class="dashboard-card-description">
+                            ${item.description || 'No description available'}
+                        </div>
+                        ${subPrinciples}
+                        <div class="dashboard-card-examples">
+                            <strong>Examples:</strong>
+                            ${examples}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            if (filteredData.length === 0) {
+                grid.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #999;">
+                        <h3>No results found</h3>
+                        <p>Try a different search term</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Search functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('dashboardSearch');
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    displayTabContent(e.target.value);
+                });
+            }
+            
+            // Close modal when clicking outside
+            document.getElementById('trizDashboard').addEventListener('click', (e) => {
+                if (e.target.id === 'trizDashboard') {
+                    closeDashboard();
+                }
+            });
+        });
+
         // Translations object
         const translations = {
             'en': {
