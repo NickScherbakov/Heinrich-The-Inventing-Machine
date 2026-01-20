@@ -660,11 +660,11 @@
             <div class="dashboard-body">
                 <div class="dashboard-stats">
                     <div class="dashboard-stat">
-                        <div class="dashboard-stat-value" id="parametersCount">39</div>
+                        <div class="dashboard-stat-value" id="parametersCount">...</div>
                         <div class="dashboard-stat-label">TRIZ Parameters</div>
                     </div>
                     <div class="dashboard-stat">
-                        <div class="dashboard-stat-value" id="principlesCount">40</div>
+                        <div class="dashboard-stat-value" id="principlesCount">...</div>
                         <div class="dashboard-stat-label">Inventive Principles</div>
                     </div>
                 </div>
@@ -672,8 +672,8 @@
                 <div class="dashboard-controls">
                     <input type="text" id="dashboardSearch" class="dashboard-search" placeholder="🔍 Search parameters or principles...">
                     <div class="dashboard-tabs">
-                        <button class="dashboard-tab active" onclick="switchTab('parameters')">Parameters</button>
-                        <button class="dashboard-tab" onclick="switchTab('principles')">Principles</button>
+                        <button class="dashboard-tab active" onclick="switchTab('parameters', event)">Parameters</button>
+                        <button class="dashboard-tab" onclick="switchTab('principles', event)">Principles</button>
                     </div>
                 </div>
 
@@ -717,7 +717,7 @@
                     arrayKey = null;
                 } else if (currentItem) {
                     // Parse key-value pairs
-                    const match = trimmed.match(/^(\w+):\s*(.*)$/);
+                    const match = trimmed.match(/^([\w_-]+):\s*(.*)$/);
                     if (match) {
                         const key = match[1];
                         let value = match[2];
@@ -802,14 +802,16 @@
         }
 
         // Switch between tabs
-        function switchTab(tab) {
+        function switchTab(tab, event) {
             currentTab = tab;
             
             // Update tab buttons
             document.querySelectorAll('.dashboard-tab').forEach(btn => {
                 btn.classList.remove('active');
             });
-            event.target.classList.add('active');
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
             
             // Update search placeholder
             const searchInput = document.getElementById('dashboardSearch');
