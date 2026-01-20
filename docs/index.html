@@ -753,14 +753,14 @@
         // Load YAML files
         async function loadTRIZData() {
             try {
-                // Load parameters
-                const parametersResponse = await fetch('../39_parameters.yaml');
+                // Load parameters - files are in the same directory
+                const parametersResponse = await fetch('./39_parameters.yaml');
                 const parametersText = await parametersResponse.text();
                 const parametersData = parseYAML(parametersText);
                 trizParameters = parametersData;
 
                 // Load principles
-                const principlesResponse = await fetch('../40_principles.yaml');
+                const principlesResponse = await fetch('./40_principles.yaml');
                 const principlesText = await principlesResponse.text();
                 const principlesData = parseYAML(principlesText);
                 trizPrinciples = principlesData;
