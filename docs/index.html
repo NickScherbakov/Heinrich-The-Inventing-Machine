@@ -181,11 +181,16 @@
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .goal-card:hover {
+        .goal-card.clickable {
+            cursor: pointer;
+        }
+
+        .goal-card.clickable:hover {
             transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
         }
 
         .goal-card h3 {
@@ -584,7 +589,7 @@
             <h2 data-i18n="goals-title">🎯 Our Mission: Democratize Systematic Innovation</h2>
 
             <div class="goals-grid">
-                <div class="goal-card">
+                <div class="goal-card clickable" onclick="openDashboard('engine')" onkeydown="if(event.key==='Enter'||event.key===' '){openDashboard('engine');event.preventDefault();}" tabindex="0" role="button" aria-label="Open AI Engine dashboard">
                     <h3 data-i18n="goal-1-title">🤖 AI-Powered TRIZ Engine</h3>
                     <p data-i18n="goal-1-text">Build an interpretable AI system that applies TRIZ methodology systematically, making Altshuller's genius accessible through natural language processing.</p>
                 </div>
@@ -672,8 +677,9 @@
                 <div class="dashboard-controls">
                     <input type="text" id="dashboardSearch" class="dashboard-search" placeholder="🔍 Search parameters or principles...">
                     <div class="dashboard-tabs">
-                        <button class="dashboard-tab active" onclick="switchTab('parameters', event)">Parameters</button>
-                        <button class="dashboard-tab" onclick="switchTab('principles', event)">Principles</button>
+                        <button class="dashboard-tab active" onclick="switchTab('parameters', event)" data-i18n="tab-parameters">Parameters</button>
+                        <button class="dashboard-tab" onclick="switchTab('principles', event)" data-i18n="tab-principles">Principles</button>
+                        <button class="dashboard-tab" onclick="switchTab('engine', event)" data-i18n="tab-engine">AI Engine</button>
                     </div>
                 </div>
 
@@ -782,7 +788,7 @@
         }
 
         // Open dashboard
-        async function openDashboard() {
+        async function openDashboard(tab = 'parameters') {
             const modal = document.getElementById('trizDashboard');
             modal.classList.add('active');
             
@@ -790,6 +796,33 @@
             if (trizParameters.length === 0 || trizPrinciples.length === 0) {
                 await loadTRIZData();
             }
+            
+            // Switch to the specified tab
+            currentTab = tab;
+            
+            // Update search input visibility
+            const searchInput = document.getElementById('dashboardSearch');
+            if (tab === 'engine') {
+                searchInput.style.display = 'none';
+            } else {
+                searchInput.style.display = 'block';
+                searchInput.value = '';
+                searchInput.placeholder = tab === 'parameters' 
+                    ? '🔍 Search parameters...' 
+                    : '🔍 Search principles...';
+            }
+            
+            // Update tab buttons
+            const tabButtons = document.querySelectorAll('.dashboard-tab');
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+                const i18nKey = btn.getAttribute('data-i18n');
+                if ((tab === 'parameters' && i18nKey === 'tab-parameters') ||
+                    (tab === 'principles' && i18nKey === 'tab-principles') ||
+                    (tab === 'engine' && i18nKey === 'tab-engine')) {
+                    btn.classList.add('active');
+                }
+            });
             
             // Display current tab
             displayTabContent();
@@ -816,9 +849,14 @@
             // Update search placeholder
             const searchInput = document.getElementById('dashboardSearch');
             searchInput.value = '';
-            searchInput.placeholder = tab === 'parameters' 
-                ? '🔍 Search parameters...' 
-                : '🔍 Search principles...';
+            if (tab === 'engine') {
+                searchInput.style.display = 'none'; // Hide search for engine tab
+            } else {
+                searchInput.style.display = 'block';
+                searchInput.placeholder = tab === 'parameters' 
+                    ? '🔍 Search parameters...' 
+                    : '🔍 Search principles...';
+            }
             
             // Display content
             displayTabContent();
@@ -827,6 +865,25 @@
         // Display tab content
         function displayTabContent(searchTerm = '') {
             const grid = document.getElementById('dashboardGrid');
+            
+            // Handle engine tab specially
+            if (currentTab === 'engine') {
+                const lang = localStorage.getItem('preferredLanguage') || 'en';
+                const trans = translations[lang];
+                const engineTitle = trans['engine-title'] || '🤖 AI Engine Architecture';
+                const engineBody = trans['engine-body'] || '';
+                
+                grid.innerHTML = `
+                    <div style="grid-column: 1/-1; padding: 20px;">
+                        <h2 style="color: #667eea; margin-bottom: 30px; text-align: center;" data-i18n="engine-title">${engineTitle}</h2>
+                        <div style="line-height: 1.8; font-size: 1.05rem;" data-i18n="engine-body">
+                            ${engineBody}
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+            
             const data = currentTab === 'parameters' ? trizParameters : trizPrinciples;
             
             // Filter data based on search
@@ -936,7 +993,12 @@
                 'cta-btn-1': '🌟 Contribute on GitHub',
                 'cta-btn-2': '📖 Explore Documentation',
                 'cta-btn-3': '💬 Join Our Community',
-                'cta-quote': '"The best problems are those that seem impossible to solve... until you find the right principle."<br>- Inspired by Genrich Altshuller\'s TRIZ methodology'
+                'cta-quote': '"The best problems are those that seem impossible to solve... until you find the right principle."<br>- Inspired by Genrich Altshuller\'s TRIZ methodology',
+                'tab-parameters': 'Parameters',
+                'tab-principles': 'Principles',
+                'tab-engine': 'AI Engine',
+                'engine-title': '🤖 AI Engine Architecture',
+                'engine-body': '<div style="margin-bottom: 25px;"><h3 style="color: #667eea; margin-bottom: 15px;">🤝 Multi-Agent System</h3><p>A community of 7 specialized agents working together: <strong>Analyst</strong> (context understanding), <strong>Contradiction Hunter</strong> (conflict detection), <strong>Knowledge Retriever</strong> (TRIZ database search), <strong>Principle Selector</strong> (tool recommendation), <strong>Solution Generator</strong> (concept creation), <strong>Critic</strong> (quality validation), and <strong>Orchestrator</strong> (coordination).</p></div><div style="margin-bottom: 25px;"><h3 style="color: #667eea; margin-bottom: 15px;">💡 Interpretability</h3><p>Transparent reasoning process from problem analysis to solution generation. Every AI decision is traceable and explainable, following the systematic TRIZ methodology.</p></div><div><h3 style="color: #667eea; margin-bottom: 15px;">🏗️ Architectural Layers</h3><p><strong>Core:</strong> TRIZ knowledge base and reasoning engines<br><strong>Pipelines:</strong> Intelligence workflows (ARIZ, fast-track, trend analysis)<br><strong>Agents:</strong> Specialized AI agents for different tasks<br><strong>Integrations:</strong> LLM providers, MCP, and external tools</p></div>'
             },
             'ru': {
                 'hero-title': '🚀 Heinrich: Машина Изобретений',
@@ -975,7 +1037,12 @@
                 'cta-btn-1': '🌟 Внесите Свой Вклад на GitHub',
                 'cta-btn-2': '📖 Изучите Документацию',
                 'cta-btn-3': '💬 Присоединитесь к Нашему Сообществу',
-                'cta-quote': '"Лучшие проблемы - это те, которые кажутся невозможными решить... пока вы не найдете правильный принцип."<br>- Вдохновлено методологией ТРИЗ Генриха Альтшуллера'
+                'cta-quote': '"Лучшие проблемы - это те, которые кажутся невозможными решить... пока вы не найдете правильный принцип."<br>- Вдохновлено методологией ТРИЗ Генриха Альтшуллера',
+                'tab-parameters': 'Параметры',
+                'tab-principles': 'Принципы',
+                'tab-engine': 'ИИ-Движок',
+                'engine-title': '🤖 Архитектура ИИ-Движка ТРИЗ',
+                'engine-body': '<div style="margin-bottom: 25px;"><h3 style="color: #667eea; margin-bottom: 15px;">🤝 Многоагентная Система</h3><p>Сообщество из 7 специализированных агентов: <strong>Аналитик</strong> (понимание контекста), <strong>Охотник за противоречиями</strong> (обнаружение конфликтов), <strong>Поисковик знаний</strong> (поиск по базе ТРИЗ), <strong>Селектор принципов</strong> (рекомендации инструментов), <strong>Генератор решений</strong> (создание концепций), <strong>Критик</strong> (валидация качества) и <strong>Оркестратор</strong> (координация).</p></div><div style="margin-bottom: 25px;"><h3 style="color: #667eea; margin-bottom: 15px;">💡 Интерпретируемость</h3><p>Прозрачный процесс рассуждения от анализа проблемы до генерации решения. Каждое решение ИИ отслеживается и объясняется согласно систематической методологии ТРИЗ.</p></div><div><h3 style="color: #667eea; margin-bottom: 15px;">🏗️ Архитектурные Слои</h3><p><strong>Ядро (Core):</strong> База знаний ТРИЗ и движки рассуждения<br><strong>Интеллект (Pipelines):</strong> Рабочие процессы интеллекта (АРИЗ, быстрый путь, анализ трендов)<br><strong>Агенты (Agents):</strong> Специализированные агенты ИИ для разных задач<br><strong>Интеграция (Integrations):</strong> Поставщики LLM, MCP и внешние инструменты</p></div>'
             },
             'zh': {
                 'hero-title': '🚀 Heinrich：发明机器',
@@ -1014,7 +1081,12 @@
                 'cta-btn-1': '🌟 在GitHub上做出贡献',
                 'cta-btn-2': '📖 探索文档',
                 'cta-btn-3': '💬 加入我们的社区',
-                'cta-quote': '"最好的问题是那些似乎不可能解决的问题……直到你找到正确的原理。"<br>- 受根里希·阿尔特舒勒的TRIZ方法论启发'
+                'cta-quote': '"最好的问题是那些似乎不可能解决的问题……直到你找到正确的原理。"<br>- 受根里希·阿尔特舒勒的TRIZ方法论启发',
+                'tab-parameters': '参数',
+                'tab-principles': '原理',
+                'tab-engine': 'AI引擎',
+                'engine-title': '🤖 AI引擎架构',
+                'engine-body': '<div style="margin-bottom: 25px;"><h3 style="color: #667eea; margin-bottom: 15px;">🤝 多代理系统</h3><p>由7个专业代理组成的社区：<strong>分析师</strong>（上下文理解）、<strong>矛盾猎手</strong>（冲突检测）、<strong>知识检索器</strong>（TRIZ数据库搜索）、<strong>原理选择器</strong>（工具推荐）、<strong>解决方案生成器</strong>（概念创建）、<strong>评论家</strong>（质量验证）和<strong>编排器</strong>（协调）。</p></div><div style="margin-bottom: 25px;"><h3 style="color: #667eea; margin-bottom: 15px;">💡 可解释性</h3><p>从问题分析到解决方案生成的透明推理过程。每个AI决策都可追溯和解释，遵循系统化TRIZ方法论。</p></div><div><h3 style="color: #667eea; margin-bottom: 15px;">🏗️ 架构层</h3><p><strong>核心（Core）：</strong>TRIZ知识库和推理引擎<br><strong>管道（Pipelines）：</strong>智能工作流（ARIZ、快速通道、趋势分析）<br><strong>代理（Agents）：</strong>用于不同任务的专业AI代理<br><strong>集成（Integrations）：</strong>LLM提供商、MCP和外部工具</p></div>'
             },
             'ar': {
                 'hero-title': '🚀 Heinrich: آلة الاختراع',
@@ -1053,7 +1125,12 @@
                 'cta-btn-1': '🌟 ساهم على GitHub',
                 'cta-btn-2': '📖 استكشف التوثيق',
                 'cta-btn-3': '💬 انضم إلى مجتمعنا',
-                'cta-quote': '"أفضل المشاكل هي تلك التي يبدو أنه من المستحيل حلها... حتى تجد المبدأ الصحيح."<br>- مستوحى من منهجية TRIZ لـ Genrich Altshuller'
+                'cta-quote': '"أفضل المشاكل هي تلك التي يبدو أنه من المستحيل حلها... حتى تجد المبدأ الصحيح."<br>- مستوحى من منهجية TRIZ لـ Genrich Altshuller',
+                'tab-parameters': 'المعاملات',
+                'tab-principles': 'المبادئ',
+                'tab-engine': 'محرك الذكاء الاصطناعي',
+                'engine-title': '🤖 هندسة محرك الذكاء الاصطناعي',
+                'engine-body': '<div style="margin-bottom: 25px;"><h3 style="color: #667eea; margin-bottom: 15px;">🤝 نظام متعدد الوكلاء</h3><p>مجتمع من 7 وكلاء متخصصين: <strong>المحلل</strong> (فهم السياق)، <strong>صياد التناقضات</strong> (كشف الصراعات)، <strong>مسترجع المعرفة</strong> (البحث في قاعدة بيانات TRIZ)، <strong>منتقي المبادئ</strong> (توصية الأدوات)، <strong>مولد الحلول</strong> (إنشاء المفاهيم)، <strong>الناقد</strong> (التحقق من الجودة)، و<strong>المنسق</strong> (التنسيق).</p></div><div style="margin-bottom: 25px;"><h3 style="color: #667eea; margin-bottom: 15px;">💡 قابلية التفسير</h3><p>عملية تفكير شفافة من تحليل المشكلة إلى توليد الحلول. كل قرار للذكاء الاصطناعي قابل للتتبع والتفسير، متبعاً منهجية TRIZ المنهجية.</p></div><div><h3 style="color: #667eea; margin-bottom: 15px;">🏗️ طبقات الهندسة المعمارية</h3><p><strong>النواة (Core):</strong> قاعدة معارف TRIZ ومحركات الاستدلال<br><strong>خطوط الأنابيب (Pipelines):</strong> سير عمل الذكاء (ARIZ، المسار السريع، تحليل الاتجاهات)<br><strong>الوكلاء (Agents):</strong> وكلاء الذكاء الاصطناعي المتخصصون لمهام مختلفة<br><strong>التكاملات (Integrations):</strong> موفرو LLM و MCP والأدوات الخارجية</p></div>'
             }
         };
 
